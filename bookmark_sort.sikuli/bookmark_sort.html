@@ -1,0 +1,158 @@
+
+<html>
+   <head>
+      <style type="text/css">
+         .sikuli-code {
+            font-size: 20px;
+            font-family: "Osaka-mono", Monospace;
+            line-height: 1.5em;
+            display:table-cell;
+            white-space: pre-wrap;       /* css-3 */
+            white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+            white-space: -pre-wrap;      /* Opera 4-6 */
+            white-space: -o-pre-wrap;    /* Opera 7 */
+            word-wrap: break-word;       /* Internet Explorer 5.5+ */
+            width: 99%;   /* remove horizontal scroll-bar when viewing in IE7 */
+         }
+         .sikuli-code img {
+            vertical-align: middle;
+            margin: 2px;
+            border: 1px solid #ccc;
+            padding: 2px;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-box-shadow: 1px 1px 1px gray;
+            -webkit-box-shadow: 1px 1px 2px gray;
+         }
+         .kw {
+            color: blue;
+         }
+         .skw {
+            color: rgb(63, 127, 127);
+         }
+
+         .str {
+            color: rgb(128, 0, 0);
+         }
+
+         .dig {
+            color: rgb(128, 64, 0);
+         }
+
+         .cmt {
+            color: rgb(200, 0, 200);
+         }
+
+         h2 {
+            display: inline;
+            font-weight: normal;
+         }
+
+         .info {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+            display: none;
+         }
+
+         a {
+            color: #9D2900;
+         }
+
+         body {
+            font-family: "Trebuchet MS", Arial, Sans-Serif;
+         }
+
+      </style>
+   </head>
+<body>
+<div class="info">
+<h2>bookmark_sort.sikuli</h2> <a href="bookmark_sort.zip">(Download this script)</a>
+</div>
+<pre class="sikuli-code">
+<span class="kw">from</span> nas_info <span class="kw">import</span> *
+<span class="kw">from</span> library <span class="kw">import</span> *
+Settings.OcrTextSearch = True
+Settings.OcrTextRead = True
+
+
+<span class="kw">import</span> sys
+target_list = []
+<span class="kw">for</span> i <span class="kw">in</span> range(len(sys.argv)):
+    <span class="kw">if</span> i &lt; <span class="dig">1</span>:
+        <span class="kw">pass</span>
+    <span class="kw">else</span>:
+        targetx = nas_detail(name = sys.argv[i])
+        target_list.append(targetx)
+<span class="kw">print</span>(target_list)
+
+<span class="str">"""
+target1 = nas_detail(name = sys.argv[1])
+target2 = nas_detail(name = sys.argv[2])
+target_list = [target1,target2]
+"""</span>
+<span class="kw">def</span> qfinder_bookmark_sort():
+    <span class="cmt"># open qfinder</span>
+    open_qfinder()
+    s = Region(Region(<span class="dig">5</span>,<span class="dig">283</span>,<span class="dig">45</span>,<span class="dig">371</span>))
+    r = Region(Region(<span class="dig">1260</span>,<span class="dig">606</span>,<span class="dig">20</span>,<span class="dig">53</span>))
+    move_to(<span class="skw">type</span> = <span class="str">"top"</span>)
+
+    <span class="cmt"># clean bookmark</span>
+    <span class="kw">for</span> i <span class="kw">in</span> range(<span class="dig">10</span>):
+        <span class="cmt"># clean bookmark on current page</span>
+        <span class="kw">for</span> i <span class="kw">in</span> range(<span class="dig">14</span>):
+            <span class="kw">if</span> s.exists(<img src="1557990451641.png" />):
+                <span class="skw">click</span>(<img src="1557990451641.png" />)
+            <span class="kw">elif</span> s.exists(<img src="1557996053481.png" />):
+                <span class="skw">click</span>(<img src="1557996053481.png" />)
+            <span class="kw">else</span>:
+                <span class="kw">print</span>(<span class="str">"clean current page"</span>)
+                <span class="kw">break</span>
+            <span class="skw">wait</span>(<span class="dig">1</span>)
+            <span class="skw">click</span>(<img src="1557990495616.png" />)
+            <span class="skw">wait</span>(<span class="dig">1</span>)
+        l = Region(Region(<span class="dig">51</span>,<span class="dig">628</span>,<span class="dig">122</span>,<span class="dig">26</span>))
+        last_device = l.text()
+        <span class="kw">if</span> r.exists(<img src="1557990701693.png" />):
+            <span class="kw">for</span> i <span class="kw">in</span> range(<span class="dig">14</span>):
+                r.<span class="skw">click</span>(<img src="1557990701693.png" />)
+            k = Region(Region(<span class="dig">51</span>,<span class="dig">628</span>,<span class="dig">122</span>,<span class="dig">26</span>))
+            last_device_current = k.text()
+            <span class="kw">if</span> last_device == last_device_current:
+                <span class="kw">print</span>(<span class="str">"last page"</span>)
+                <span class="kw">break</span>
+            <span class="kw">else</span>:
+                <span class="kw">pass</span>
+        <span class="kw">else</span>:
+            <span class="kw">print</span>(<span class="str">"search end"</span>)
+            <span class="kw">break</span>
+    move_to(<span class="skw">type</span> = <span class="str">"top"</span>)
+    <span class="skw">wait</span>(<span class="dig">1</span>)
+    <span class="kw">for</span> target <span class="kw">in</span> target_list:
+        bookmark(target=target)
+
+    <span class="skw">click</span>(<img src="1557995822824.png" />)
+    <span class="skw">wait</span>(<span class="dig">1</span>)
+    flag = <span class="str">"False"</span>
+    <span class="kw">for</span> i <span class="kw">in</span> range(<span class="dig">1</span>):
+        <span class="kw">if</span> check_bookmark(target_list = target_list, <span class="skw">type</span>=<span class="str">'top'</span>) == <span class="dig">1</span>:
+            <span class="kw">print</span>(<span class="str">"bookmark sort pass_top"</span>)
+            flag = <span class="str">"True"</span>
+            <span class="kw">break</span>
+        <span class="kw">elif</span> check_bookmark(target_list = target_list, <span class="skw">type</span>=<span class="str">'end'</span>) == <span class="dig">1</span>:
+            <span class="kw">print</span>(<span class="str">"bookmark sort pass_end"</span>)
+            flag = <span class="str">"True"</span>
+            <span class="kw">break</span>
+        <span class="kw">else</span>:
+            <span class="kw">print</span>(<span class="str">"bookmark sort fail"</span>)
+            flag = <span class="str">"False"</span>
+    <span class="kw">with</span> open(<span class="str">"result.txt"</span>, <span class="str">"w"</span>) <span class="kw">as</span> fp:
+       fp.write(flag)
+
+
+<span class="kw">if</span> __name__ == <span class="str">"__main__"</span>:
+    qfinder_bookmark_sort()
+</pre>
+</body>
+</html>

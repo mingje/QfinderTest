@@ -1,0 +1,223 @@
+
+<html>
+   <head>
+      <style type="text/css">
+         .sikuli-code {
+            font-size: 20px;
+            font-family: "Osaka-mono", Monospace;
+            line-height: 1.5em;
+            display:table-cell;
+            white-space: pre-wrap;       /* css-3 */
+            white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+            white-space: -pre-wrap;      /* Opera 4-6 */
+            white-space: -o-pre-wrap;    /* Opera 7 */
+            word-wrap: break-word;       /* Internet Explorer 5.5+ */
+            width: 99%;   /* remove horizontal scroll-bar when viewing in IE7 */
+         }
+         .sikuli-code img {
+            vertical-align: middle;
+            margin: 2px;
+            border: 1px solid #ccc;
+            padding: 2px;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-box-shadow: 1px 1px 1px gray;
+            -webkit-box-shadow: 1px 1px 2px gray;
+         }
+         .kw {
+            color: blue;
+         }
+         .skw {
+            color: rgb(63, 127, 127);
+         }
+
+         .str {
+            color: rgb(128, 0, 0);
+         }
+
+         .dig {
+            color: rgb(128, 64, 0);
+         }
+
+         .cmt {
+            color: rgb(200, 0, 200);
+         }
+
+         h2 {
+            display: inline;
+            font-weight: normal;
+         }
+
+         .info {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+            display: none;
+         }
+
+         a {
+            color: #9D2900;
+         }
+
+         body {
+            font-family: "Trebuchet MS", Arial, Sans-Serif;
+         }
+
+      </style>
+   </head>
+<body>
+<div class="info">
+<h2>config.sikuli</h2> <a href="config.zip">(Download this script)</a>
+</div>
+<pre class="sikuli-code">
+<span class="kw">from</span> nas_info <span class="kw">import</span> *
+<span class="kw">from</span> library <span class="kw">import</span> *
+
+Settings.OcrTextSearch = True
+Settings.OcrTextRead = True
+
+<span class="kw">import</span> sys
+nas_name = sys.argv[<span class="dig">1</span>]
+nas_lanip1 = sys.argv[<span class="dig">2</span>]
+nas_ac = sys.argv[<span class="dig">3</span>]
+nas_pwd = sys.argv[<span class="dig">4</span>]
+target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas_pwd)
+<span class="kw">print</span>(target)
+
+<span class="kw">def</span> qfinder_config():
+    <span class="cmt"># open qfinder</span>
+    open_qfinder()
+    <span class="kw">for</span> i <span class="kw">in</span> range(<span class="dig">2</span>):
+        <span class="skw">wait</span>(<span class="dig">5</span>)
+        <span class="skw">click</span>(<img src="1557739083182.png" />)
+        wait_please(loop=<span class="dig">10</span>, time=<span class="dig">10</span>)
+    <span class="cmt">#  find target NAS</span>
+    find_target_nas(name = target[<span class="str">"name"</span>], lanip1 = target[<span class="str">"lanip1"</span>])
+
+    <span class="cmt"># enter config page</span>
+    enter_config(ac = target[<span class="str">"ac"</span>], pwd = target[<span class="str">"pwd"</span>])
+
+
+    <span class="cmt"># get text</span>
+    <span class="cmt">#region_text = get_region_text(438,161,264,17)</span>
+    <span class="skw">wait</span>(<span class="dig">1</span>)
+    <span class="skw">click</span>(Pattern(<img src="1560505851866.png" />).similar(<span class="dig">0.90</span>).targetOffset(-<span class="dig">23</span>,<span class="dig">0</span>))
+    <span class="skw">wait</span>(<span class="dig">1</span>)
+    <span class="skw">type</span>(<span class="str">"a"</span>, KeyModifier.CTRL)
+    <span class="skw">type</span>(<span class="str">"c"</span>, KeyModifier.CTRL)
+    <span class="skw">wait</span>(<span class="dig">1</span>)
+    region_text = Env.getClipboard().strip()
+    <span class="kw">print</span>(region_text)
+    <span class="kw">assert</span> region_text == target[<span class="str">"name"</span>], <span class="str">"device name display error"</span>
+
+    <span class="skw">type</span>(<span class="str">"ATtest"</span>)
+    <span class="skw">wait</span>(<span class="dig">1</span>)
+    <span class="skw">click</span>(<img src="1560507514764.png" />)
+    <span class="skw">wait</span>(<span class="dig">1</span>)
+    <span class="skw">click</span>(<img src="1560504550140.png" />)
+    <span class="skw">wait</span>(<span class="dig">1</span>)
+    <span class="skw">click</span>(<img src="1560504580263.png" />)
+    <span class="skw">wait</span>(<span class="dig">1</span>)
+
+    s = Region(<span class="dig">444</span>,<span class="dig">245</span>,<span class="dig">96</span>,<span class="dig">15</span>)
+    ee = s.text()
+    <span class="kw">print</span>(ee)
+    cc = ee.split(<span class="str">"/"</span>)
+    <span class="kw">print</span>(cc)
+    kk = []
+    <span class="kw">for</span> i <span class="kw">in</span> range(<span class="dig">3</span>):
+        d = cc[i]
+        d = d.replace(<span class="str">' '</span>,<span class="str">''</span>)
+        <span class="kw">print</span>(d)
+        kk.append(d)
+    delimiter = <span class="str">"/"</span>
+    file_title = delimiter.join(kk)
+    <span class="kw">print</span>(file_title)
+    <span class="skw">wait</span>(<span class="dig">1</span>)
+
+    <span class="skw">click</span>(<img src="1560739387095.png" />)
+    <span class="skw">wait</span>(<span class="dig">1</span>)
+    <span class="skw">click</span>(Pattern(<img src="1560739454769.png" />).targetOffset(<span class="dig">99</span>,<span class="dig">0</span>))
+    <span class="skw">type</span>(target[<span class="str">"pwd"</span>])
+    <span class="kw">for</span> i <span class="kw">in</span> range(<span class="dig">2</span>):
+        <span class="skw">wait</span>(<span class="dig">1</span>)
+        <span class="skw">type</span>(Key.TAB)
+        <span class="skw">type</span>(<span class="str">"ATtest"</span>)
+    <span class="skw">wait</span>(<span class="dig">1</span>)
+
+    <span class="skw">click</span>(<img src="1557313968028.png" />)
+    <span class="kw">for</span> i <span class="kw">in</span> range(<span class="dig">10</span>):
+        <span class="kw">try</span>:
+            wait_please(loop = <span class="dig">50</span>,time = <span class="dig">2</span>)
+            <span class="skw">find</span>(<img src="1561631482832.png" />)
+            <span class="skw">click</span>(<img src="1557314077398.png" />)
+            <span class="skw">wait</span>(<span class="dig">3</span>)
+            <span class="skw">find</span>(<img src="1557314046874.png" />)
+            <span class="skw">click</span>(<img src="1557314077398.png" />)
+            flag = <span class="dig">1</span>
+            <span class="kw">break</span>
+        <span class="kw">except</span>:
+            flag = <span class="dig">0</span>
+    <span class="kw">assert</span> flag == <span class="dig">1</span>, <span class="str">"Change config FAIL"</span>
+    <span class="skw">wait</span>(<span class="dig">1</span>)
+    <span class="cmt"># refresh list</span>
+    <span class="kw">for</span> i <span class="kw">in</span> range(<span class="dig">2</span>):
+        <span class="skw">click</span>(<img src="1557314271456.png" />)
+        wait_please(loop=<span class="dig">50</span>, time=<span class="dig">2</span>)
+    <span class="skw">click</span>(<img src="1557376974013.png" />)
+
+    <span class="cmt">#  find target NAS</span>
+    find_target_nas(name = <span class="str">"ATtest"</span>)
+    <span class="cmt"># enter config page</span>
+    enter_config(ac = target[<span class="str">"ac"</span>], pwd = <span class="str">"ATtest"</span>)
+
+    <span class="cmt"># get text</span>
+    <span class="skw">wait</span>(<span class="dig">1</span>)
+    <span class="skw">click</span>(Pattern(<img src="1560505851866.png" />).similar(<span class="dig">0.90</span>).targetOffset(-<span class="dig">23</span>,<span class="dig">0</span>))
+    <span class="skw">wait</span>(<span class="dig">1</span>)
+    <span class="skw">type</span>(<span class="str">"a"</span>, KeyModifier.CTRL)
+    <span class="skw">type</span>(<span class="str">"c"</span>, KeyModifier.CTRL)
+    <span class="skw">wait</span>(<span class="dig">1</span>)
+    region_text = Env.getClipboard().strip()
+    <span class="kw">print</span>(region_text)
+    <span class="kw">assert</span> region_text == <span class="str">"ATtest"</span>, <span class="str">"device name display error"</span>
+
+    <span class="skw">type</span>(target[<span class="str">"name"</span>])
+    <span class="skw">wait</span>(<span class="dig">1</span>)
+    <span class="skw">click</span>(<img src="1560739387095.png" />)
+    <span class="skw">wait</span>(<span class="dig">1</span>)
+    <span class="skw">click</span>(Pattern(<img src="1560739454769.png" />).targetOffset(<span class="dig">99</span>,<span class="dig">0</span>))
+    <span class="skw">type</span>(<span class="str">"ATtest"</span>)
+    <span class="kw">for</span> i <span class="kw">in</span> range(<span class="dig">2</span>):
+        <span class="skw">wait</span>(<span class="dig">1</span>)
+        <span class="skw">type</span>(Key.TAB)
+        <span class="skw">type</span>(target[<span class="str">"pwd"</span>])
+    <span class="skw">wait</span>(<span class="dig">1</span>)
+    <span class="skw">click</span>(<img src="1557313968028.png" />)
+    flag = <span class="str">"False"</span>
+    <span class="kw">for</span> j <span class="kw">in</span> range(<span class="dig">10</span>):
+        <span class="kw">try</span>:
+            wait_please(loop = <span class="dig">50</span>,time = <span class="dig">2</span>)
+            <span class="skw">find</span>(<img src="1561631482832.png" />)
+            <span class="skw">click</span>(<img src="1557314077398.png" />)
+            <span class="skw">wait</span>(<span class="dig">3</span>)
+            <span class="skw">find</span>(<img src="1557314046874.png" />)
+            <span class="skw">click</span>(<img src="1557314077398.png" />)
+            flag = <span class="str">"True"</span>
+            <span class="kw">break</span>
+        <span class="kw">except</span>:
+            flag = <span class="str">"False"</span>
+    <span class="kw">with</span> open(<span class="str">"result.txt"</span>, <span class="str">"w"</span>) <span class="kw">as</span> fp:
+       fp.write(flag)
+
+    <span class="str">"""
+    # refresh list
+    click("1557314271456.png")
+    wait_please(loop = 10,time = 10)
+    """</span>
+
+<span class="kw">if</span> __name__ == <span class="str">"__main__"</span>:
+    qfinder_config()
+</pre>
+</body>
+</html>

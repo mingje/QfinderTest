@@ -1,0 +1,387 @@
+
+<html>
+   <head>
+      <style type="text/css">
+         .sikuli-code {
+            font-size: 20px;
+            font-family: "Osaka-mono", Monospace;
+            line-height: 1.5em;
+            display:table-cell;
+            white-space: pre-wrap;       /* css-3 */
+            white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+            white-space: -pre-wrap;      /* Opera 4-6 */
+            white-space: -o-pre-wrap;    /* Opera 7 */
+            word-wrap: break-word;       /* Internet Explorer 5.5+ */
+            width: 99%;   /* remove horizontal scroll-bar when viewing in IE7 */
+         }
+         .sikuli-code img {
+            vertical-align: middle;
+            margin: 2px;
+            border: 1px solid #ccc;
+            padding: 2px;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-box-shadow: 1px 1px 1px gray;
+            -webkit-box-shadow: 1px 1px 2px gray;
+         }
+         .kw {
+            color: blue;
+         }
+         .skw {
+            color: rgb(63, 127, 127);
+         }
+
+         .str {
+            color: rgb(128, 0, 0);
+         }
+
+         .dig {
+            color: rgb(128, 64, 0);
+         }
+
+         .cmt {
+            color: rgb(200, 0, 200);
+         }
+
+         h2 {
+            display: inline;
+            font-weight: normal;
+         }
+
+         .info {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+            display: none;
+         }
+
+         a {
+            color: #9D2900;
+         }
+
+         body {
+            font-family: "Trebuchet MS", Arial, Sans-Serif;
+         }
+
+      </style>
+   </head>
+<body>
+<div class="info">
+<h2>library.sikuli</h2> <a href="library.zip">(Download this script)</a>
+</div>
+<pre class="sikuli-code">
+<span class="kw">from</span> sikuli <span class="kw">import</span> *
+<span class="kw">from</span> nas_info <span class="kw">import</span> *
+
+Settings.OcrTextSearch = True
+Settings.OcrTextRead = True
+<span class="kw">def</span> move_to(<span class="skw">type</span>):
+    <span class="kw">if</span> <span class="skw">type</span> == <span class="str">"top"</span>:
+        <span class="kw">if</span> exists(<img src="1557993168704.png" />):
+            <span class="skw">dragDrop</span>(<img src="1557993168704.png" />, <img src="1557993187173.png" />)
+        <span class="kw">else</span>:
+            <span class="kw">pass</span>
+    <span class="kw">else</span>:
+        <span class="kw">if</span> exists(<img src="1557993168704.png" />):
+            <span class="skw">dragDrop</span>(<img src="1557993168704.png" />, <img src="1558066322938.png" />)
+        <span class="kw">else</span>:
+            <span class="kw">pass</span>
+
+<span class="cmt"># open qfinder</span>
+<span class="kw">def</span> open_qfinder():
+    Qfinder = <span class="str">"C:\Program Files (x86)\QNAP\Qfinder\QfinderPro.exe"</span>
+    openApp(Qfinder)
+    wait_please(loop=<span class="dig">50</span>, time=<span class="dig">2</span>)
+    <span class="kw">if</span> exists (<img src="1557215006398.png" />):
+        <span class="kw">print</span>(<span class="str">"Open Qfinder"</span>)
+        flag = <span class="dig">1</span>
+    <span class="kw">else</span>:
+        flag = <span class="dig">0</span>
+    <span class="kw">assert</span> flag == <span class="dig">1</span>, <span class="str">"Open Qfinder FAIL"</span>
+    <span class="skw">click</span>(Pattern(<img src="1562128466510.png" />).similar(<span class="dig">0.80</span>))
+    <span class="skw">wait</span>(<span class="dig">1</span>)
+    <span class="kw">return</span> flag
+
+<span class="cmt"># find target NAS</span>
+<span class="kw">def</span> find_target_nas(**kwargs):
+    target = nas_detail(**kwargs)
+    <span class="kw">print</span>(target)
+    move_to(<span class="skw">type</span>=<span class="str">'top'</span>)
+    <span class="kw">for</span> i <span class="kw">in</span> range(<span class="dig">200</span>):
+        <span class="kw">if</span> exists (Pattern(target[<span class="str">'icon'</span>]).similar(<span class="dig">0.90</span>)):
+            <span class="kw">print</span>(target[<span class="str">"icon"</span>])
+            <span class="skw">click</span>(Pattern(target[<span class="str">'icon'</span>]).similar(<span class="dig">0.90</span>))
+            flag = <span class="dig">1</span>
+            <span class="kw">break</span>
+        <span class="kw">elif</span> exists (Pattern(target[<span class="str">'icon_g'</span>]).similar(<span class="dig">0.90</span>)):
+            <span class="kw">print</span>(target[<span class="str">"icon_g"</span>])
+            <span class="skw">click</span>(Pattern(target[<span class="str">'icon_g'</span>]).similar(<span class="dig">0.90</span>))
+            flag = <span class="dig">1</span>
+            <span class="kw">break</span>
+        <span class="kw">elif</span> exists (Pattern(target[<span class="str">'icon_highlight'</span>]).similar(<span class="dig">0.90</span>)):
+            <span class="kw">print</span>(target[<span class="str">"icon_highlight"</span>])
+            <span class="skw">click</span>(Pattern(target[<span class="str">'icon_highlight'</span>]).similar(<span class="dig">0.90</span>))
+            flag = <span class="dig">1</span>
+            <span class="kw">break</span>
+        <span class="kw">elif</span> exists (Pattern(target[<span class="str">'icon_gh'</span>]).similar(<span class="dig">0.90</span>)):
+            <span class="kw">print</span>(target[<span class="str">"icon_gh"</span>])
+            <span class="skw">click</span>(Pattern(target[<span class="str">'icon_gh'</span>]).similar(<span class="dig">0.90</span>))
+            flag = <span class="dig">1</span>
+            <span class="kw">break</span>
+        <span class="kw">else</span>:
+            last_name_current = Region(Region(<span class="dig">49</span>,<span class="dig">632</span>,<span class="dig">95</span>,<span class="dig">20</span>))
+            last_name_current = last_name_current.text()
+            <span class="kw">if</span> exists(Pattern(<img src="1557215418598.png" />).similar(<span class="dig">0.80</span>)):
+                <span class="kw">for</span> i <span class="kw">in</span> range(<span class="dig">14</span>):
+                    <span class="skw">click</span>(Pattern(<img src="1557215418598.png" />).similar(<span class="dig">0.80</span>))
+                last_name = Region(Region(<span class="dig">49</span>,<span class="dig">632</span>,<span class="dig">95</span>,<span class="dig">20</span>))
+                last_name = last_name.text()
+                <span class="kw">if</span> last_name_current == last_name:
+                    <span class="kw">print</span>(<span class="str">"Not find target"</span>)
+                    flag = <span class="dig">0</span>
+                    <span class="kw">break</span>
+                <span class="kw">else</span>:
+                    <span class="kw">pass</span>
+            <span class="kw">else</span>:
+                <span class="kw">print</span>(<span class="str">"Not find target"</span>)
+                flag = <span class="dig">0</span>
+                <span class="kw">break</span>
+    <span class="kw">assert</span> flag == <span class="dig">1</span>, <span class="str">"Find target FAIL"</span>
+    <span class="skw">wait</span>(<span class="dig">2</span>)
+    <span class="kw">return</span> flag
+
+<span class="kw">def</span> enter_config(ac, pwd):
+
+    <span class="skw">click</span>(<img src="1557300544512.png" />)
+    <span class="skw">wait</span>(<span class="dig">1</span>)
+    <span class="kw">if</span> exists(<img src="1557375692116.png" />):
+        <span class="kw">print</span>(<span class="str">"open login window"</span>)
+        flag = <span class="dig">1</span>
+    <span class="kw">else</span>:
+        flag = <span class="dig">0</span>
+    <span class="kw">assert</span> flag == <span class="dig">1</span>, <span class="str">"open login window FAIL"</span>
+    <span class="skw">type</span>(ac)
+    <span class="skw">type</span>(Key.TAB)
+    <span class="skw">type</span>(pwd)
+    <span class="skw">type</span>(Key.ENTER)
+    <span class="skw">wait</span>(<span class="dig">5</span>)
+    wait_please(loop=<span class="dig">50</span>, time=<span class="dig">2</span>)
+    <span class="kw">if</span> exists(<img src="1557302801616.png" />):
+        flag = <span class="dig">1</span>
+    <span class="kw">else</span>:
+        flag = <span class="dig">0</span>
+    <span class="kw">assert</span> flag == <span class="dig">1</span>, <span class="str">"Open config error"</span>
+
+
+<span class="kw">def</span> wait_please(loop,time):
+    <span class="skw">wait</span>(<span class="dig">5</span>)
+    <span class="kw">for</span> i <span class="kw">in</span> range(loop):
+        <span class="kw">try</span>:
+            waitVanish(<img src="1557302307072-1.png" />,time)
+            <span class="skw">wait</span>(<span class="dig">1</span>)
+            <span class="kw">if</span> <span class="kw">not</span> exists(<img src="1557302307072-1.png" />):
+                <span class="kw">print</span>(<span class="str">"wait disappear"</span>)
+                <span class="kw">break</span>
+            <span class="kw">else</span>:
+                <span class="kw">pass</span>
+        <span class="kw">except</span>:
+            <span class="kw">pass</span>
+    <span class="kw">if</span> exists(<img src="1557302307072-1.png" />):
+        flag = <span class="dig">0</span>
+    <span class="kw">else</span>:
+        flag = <span class="dig">1</span>
+    <span class="kw">assert</span> flag == <span class="dig">1</span>, <span class="str">"Still wait..over time"</span>
+    <span class="skw">wait</span>(<span class="dig">1</span>)
+
+<span class="kw">def</span> get_region_text(x,y,w,h):
+    a = Region(x,y,w,h)
+    <span class="skw">dragDrop</span>(Location(x, y), a)
+    <span class="skw">type</span>(<span class="str">"c"</span>, KeyModifier.CTRL)
+    <span class="skw">wait</span>(<span class="dig">1</span>)
+    b = Env.getClipboard().strip()
+    <span class="kw">return</span> b
+
+<span class="kw">def</span> login_open_web(ip):
+   <span class="kw">for</span> i <span class="kw">in</span> range(<span class="dig">1</span>):
+        <span class="skw">click</span>(<img src="1557309643274.png" />)
+        <span class="skw">wait</span>(<span class="dig">10</span>)
+        <span class="kw">if</span> exists(<img src="1557309257444.png" />):
+            <span class="skw">click</span>(<img src="1557309257444.png" />)
+        <span class="kw">elif</span> exists(<img src="1557309306602.png" />):
+            <span class="kw">print</span>(<span class="str">"Max window"</span>)
+        <span class="kw">else</span>:
+            <span class="kw">pass</span>
+
+        <span class="skw">wait</span>(<span class="dig">5</span>)
+        <span class="kw">if</span> exists(<img src="1557310210160.png" />):
+            <span class="kw">print</span>(<span class="str">"Open web page"</span>)
+        <span class="kw">elif</span> exists(<img src="1557310336279.png" />):
+            <span class="kw">print</span>(<span class="str">"Open web page"</span>)
+        <span class="kw">elif</span> exists(<img src="1562579603836.png" />):
+            <span class="kw">print</span>(<span class="str">"Open web page"</span>)
+        <span class="kw">elif</span> exists(<img src="1562561110248.png" />):
+            <span class="kw">print</span>(<span class="str">"Open web page"</span>)
+        <span class="kw">elif</span> exists(<img src="1562561186884.png" />):
+            <span class="kw">print</span>(<span class="str">"Open web page"</span>)
+        <span class="kw">elif</span> exists(<img src="1557798873195.png" />):
+
+            msg_region = Region(Region(<span class="dig">413</span>,<span class="dig">247</span>,<span class="dig">453</span>,<span class="dig">186</span>))
+            msg_region.<span class="skw">click</span>(<img src="1557798940520.png" />)
+            <span class="kw">print</span>(<span class="str">"Open web page FAIL1"</span>)
+            flag = <span class="dig">0</span>
+            <span class="kw">return</span> flag
+            <span class="kw">break</span>
+        <span class="kw">else</span>:
+            <span class="kw">print</span>(<span class="str">"Open web page FAIL2"</span>)
+            flag = <span class="dig">0</span>
+            <span class="kw">try</span>:
+                <span class="cmt">#closeApp("chrome")</span>
+                <span class="kw">print</span>(<span class="str">"close chrome"</span>)
+            <span class="kw">except</span>:
+                <span class="kw">pass</span>
+            <span class="kw">return</span> flag
+            <span class="kw">break</span>
+        region_text = get_region_text(<span class="dig">227</span>,<span class="dig">41</span>,<span class="dig">505</span>,<span class="dig">22</span>)
+        region_text = region_text.split(<span class="str">"/"</span>)
+        region_text = region_text[<span class="dig">2</span>]
+        region_text = region_text.split(<span class="str">":"</span>)
+        <span class="kw">print</span>(region_text[<span class="dig">0</span>])
+        <span class="kw">if</span> region_text[<span class="dig">0</span>] == ip:
+            flag = <span class="dig">1</span>
+        <span class="kw">else</span>:
+            flag = <span class="dig">0</span>
+        <span class="kw">return</span> flag
+
+<span class="kw">def</span> replace_str(replacestr, *args):
+    k = <span class="dig">0</span>
+    <span class="kw">for</span> i <span class="kw">in</span> range(len(args)/<span class="dig">2</span>):
+        replacestr = replacestr.replace(args[k],args[k+<span class="dig">1</span>])
+        k = k + <span class="dig">2</span>
+    <span class="kw">return</span> replacestr
+
+<span class="kw">def</span> bookmark(target):
+    <span class="cmt">#  find target NAS</span>
+    <span class="kw">if</span> find_target_nas(name = target[<span class="str">"name"</span>]) == <span class="dig">1</span>:
+        bookmark_target = target[<span class="str">'icon_highlight'</span>]
+    <span class="kw">else</span>:
+        <span class="kw">print</span>(<span class="str">"FAIL"</span>)
+    <span class="skw">click</span>(<img src="1557995537850.png" />)
+    picture = <span class="skw">find</span>(bookmark_target)
+    picture_x = picture.getX()
+    <span class="kw">print</span>(picture_x)
+    picture_y = picture.getY()
+    <span class="kw">print</span>(picture_y)
+    bookmark_region = Region(picture_x-<span class="dig">45</span>,picture_y+<span class="dig">1</span>,<span class="dig">42</span>,<span class="dig">25</span>)
+    lo = Location(picture_x-<span class="dig">45</span>,picture_y+<span class="dig">1</span>)
+    hover(lo)
+    <span class="kw">if</span> bookmark_region.exists(<img src="1557832935307.png" />):
+        <span class="kw">print</span>(<span class="str">"Bookmark PASS"</span>)
+        flag = <span class="dig">1</span>
+    <span class="kw">else</span>:
+        <span class="kw">print</span>(<span class="str">"FAIL"</span>)
+        flag = <span class="dig">0</span>
+    <span class="kw">return</span> flag
+
+<span class="kw">def</span> check_bookmark(target_list,<span class="skw">type</span>):
+    <span class="kw">if</span> <span class="skw">type</span> == <span class="str">"top"</span>:
+        move_to(<span class="skw">type</span> = <span class="str">"top"</span>)
+    <span class="kw">else</span>:
+        move_to(<span class="skw">type</span> = <span class="str">"end"</span>)
+    <span class="skw">wait</span>(<span class="dig">1</span>)
+    u = len(target_list)
+    <span class="kw">if</span> <span class="skw">type</span> == <span class="str">"top"</span>:
+        b = Region(Region(<span class="dig">5</span>,<span class="dig">284</span>,<span class="dig">41</span>,<span class="dig">20</span>))
+    <span class="kw">else</span>:
+        b = Region(Region(<span class="dig">5</span>,<span class="dig">628</span>,<span class="dig">42</span>,<span class="dig">25</span>))
+    x = b.x
+    y = b.y
+    w = b.w
+    h = b.h
+    <span class="kw">print</span>(x)
+    <span class="kw">print</span>(y)
+    <span class="kw">for</span> i <span class="kw">in</span> range(u + <span class="dig">1</span>):
+        <span class="kw">if</span> i &lt; u:
+            <span class="kw">if</span> b.exists(<img src="1557996053481.png" />) <span class="kw">or</span> b.exists(<img src="1557996987049.png" />):
+                <span class="kw">print</span>(<span class="str">"mark"</span>)
+                flag = <span class="dig">1</span>
+            <span class="kw">else</span>:
+                <span class="kw">print</span>(<span class="str">"not mark"</span>)
+                flag = <span class="dig">0</span>
+                <span class="kw">break</span>
+        <span class="kw">else</span>:
+            <span class="kw">if</span> b.exists(<img src="1557996053481.png" />) <span class="kw">or</span> b.exists(<img src="1557996987049.png" />):
+                <span class="kw">print</span>(<span class="str">"mark"</span>)
+                flag = <span class="dig">0</span>
+            <span class="kw">else</span>:
+                <span class="kw">print</span>(<span class="str">"not mark"</span>)
+                flag = <span class="dig">1</span>
+        <span class="kw">if</span> <span class="skw">type</span> == <span class="str">"top"</span>:
+            b = Region(x,y+<span class="dig">26</span>,w,h)
+        <span class="kw">else</span>:
+            b = Region(x,y-<span class="dig">26</span>,w,h)
+        x = b.x
+        y = b.y
+        w = b.w
+        h = b.h
+        <span class="kw">print</span>(x)
+        <span class="kw">print</span>(y)
+    <span class="kw">if</span> flag == <span class="dig">1</span>:
+        <span class="kw">print</span>(<span class="str">'PASS bookmark'</span>)
+    <span class="kw">else</span>:
+        <span class="kw">print</span>(<span class="str">'FAIL bookmark'</span>)
+    <span class="kw">return</span> flag
+
+<span class="kw">def</span> upload_action(uploadfile, up_policy):
+    <span class="skw">click</span>(<img src="1560414599541-1.png" />)
+    <span class="skw">wait</span>(<span class="dig">1</span>)
+    <span class="skw">click</span>(Pattern(<img src="1560481192508.png" />).similar(<span class="dig">0.90</span>))
+    <span class="skw">wait</span>(<span class="dig">1</span>)
+    <span class="skw">type</span>(uploadfile)
+    <span class="skw">type</span>(Key.ENTER)
+    <span class="skw">click</span>(<img src="1560481294073.png" />)
+    <span class="kw">for</span> i <span class="kw">in</span> range(<span class="dig">15</span>):
+        <span class="skw">wait</span>(<span class="dig">2</span>)
+        <span class="kw">if</span> exists(<img src="1560481327682.png" />):
+            <span class="kw">print</span>(<span class="str">"wait.."</span>)
+        <span class="kw">else</span>:
+            <span class="kw">break</span>
+    <span class="skw">click</span>(Pattern(<img src="1560481565253.png" />).similar(<span class="dig">0.90</span>))
+    <span class="skw">type</span>(<span class="str">"qfinderupload"</span>)
+    <span class="skw">click</span>(Pattern(<img src="1560485763485.png" />).similar(<span class="dig">0.90</span>))
+    <span class="kw">for</span> i <span class="kw">in</span> range(<span class="dig">15</span>):
+        <span class="skw">wait</span>(<span class="dig">2</span>)
+        <span class="kw">if</span> exists(<img src="1560481327682.png" />):
+            <span class="kw">print</span>(<span class="str">"wait.."</span>)
+        <span class="kw">else</span>:
+            <span class="kw">break</span>
+    <span class="skw">click</span>(Pattern(<img src="1560483192785.png" />).similar(<span class="dig">0.90</span>))
+    <span class="skw">wait</span>(<span class="dig">1</span>)
+    <span class="skw">click</span>(Pattern(<img src="1560482334036.png" />).similar(<span class="dig">0.90</span>))
+    <span class="skw">wait</span>(<span class="dig">1</span>)
+    <span class="kw">for</span> i <span class="kw">in</span> range(<span class="dig">2</span>):
+        <span class="skw">type</span>(Key.PAGE_UP)
+    <span class="kw">if</span> up_policy == <span class="str">"skip"</span>:
+        <span class="kw">pass</span>
+    <span class="kw">elif</span> up_policy == <span class="str">"overwrite"</span>:
+        <span class="skw">type</span>(Key.PAGE_DOWN)
+    <span class="kw">else</span>:
+        <span class="kw">for</span> j <span class="kw">in</span> range(<span class="dig">2</span>):
+            <span class="skw">type</span>(Key.PAGE_DOWN)
+    <span class="skw">type</span>(Key.ENTER)
+    <span class="skw">wait</span>(<span class="dig">1</span>)
+    <span class="skw">click</span>(<img src="1560486267746.png" />)
+    flag = <span class="dig">0</span>
+    <span class="kw">for</span> i <span class="kw">in</span> range(<span class="dig">20</span>):
+        <span class="skw">wait</span>(<span class="dig">5</span>)
+        <span class="kw">if</span> exists(<img src="1560483041869.png" />):
+            <span class="kw">print</span>(<span class="str">"UI upload pass"</span>)
+            flag = <span class="dig">1</span>
+            <span class="kw">break</span>
+        <span class="kw">else</span>:
+            flag = <span class="dig">0</span>
+    <span class="kw">return</span> flag
+<span class="cmt">#find_target_nas(name = "Steven-TS551", lanip1 = "10.20.241.196")</span>
+
+</pre>
+</body>
+</html>

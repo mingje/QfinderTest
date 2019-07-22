@@ -1,0 +1,131 @@
+
+<html>
+   <head>
+      <style type="text/css">
+         .sikuli-code {
+            font-size: 20px;
+            font-family: "Osaka-mono", Monospace;
+            line-height: 1.5em;
+            display:table-cell;
+            white-space: pre-wrap;       /* css-3 */
+            white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+            white-space: -pre-wrap;      /* Opera 4-6 */
+            white-space: -o-pre-wrap;    /* Opera 7 */
+            word-wrap: break-word;       /* Internet Explorer 5.5+ */
+            width: 99%;   /* remove horizontal scroll-bar when viewing in IE7 */
+         }
+         .sikuli-code img {
+            vertical-align: middle;
+            margin: 2px;
+            border: 1px solid #ccc;
+            padding: 2px;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-box-shadow: 1px 1px 1px gray;
+            -webkit-box-shadow: 1px 1px 2px gray;
+         }
+         .kw {
+            color: blue;
+         }
+         .skw {
+            color: rgb(63, 127, 127);
+         }
+
+         .str {
+            color: rgb(128, 0, 0);
+         }
+
+         .dig {
+            color: rgb(128, 64, 0);
+         }
+
+         .cmt {
+            color: rgb(200, 0, 200);
+         }
+
+         h2 {
+            display: inline;
+            font-weight: normal;
+         }
+
+         .info {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+            display: none;
+         }
+
+         a {
+            color: #9D2900;
+         }
+
+         body {
+            font-family: "Trebuchet MS", Arial, Sans-Serif;
+         }
+
+      </style>
+   </head>
+<body>
+<div class="info">
+<h2>Version_sort.sikuli</h2> <a href="Version_sort.zip">(Download this script)</a>
+</div>
+<pre class="sikuli-code">
+<span class="kw">from</span> nas_info <span class="kw">import</span> *
+<span class="kw">from</span> library <span class="kw">import</span> *
+
+Settings.OcrTextSearch = True
+Settings.OcrTextRead = True
+
+<span class="kw">import</span> sys
+nas_name = sys.argv[<span class="dig">1</span>]
+nas_lanip1 = sys.argv[<span class="dig">2</span>]
+nas_ac = sys.argv[<span class="dig">3</span>]
+nas_pwd = sys.argv[<span class="dig">4</span>]
+target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas_pwd)
+<span class="kw">print</span>(target)
+
+<span class="kw">def</span> qfinder_version_sort():
+    <span class="cmt"># open qfinder</span>
+    open_qfinder()
+
+    <span class="skw">click</span>(<img src="1557904363051.png" />)
+    <span class="skw">wait</span>(<span class="dig">1</span>)
+
+    s = Region(Region(<span class="dig">843</span>,<span class="dig">282</span>,<span class="dig">65</span>,<span class="dig">370</span>))
+    ver_str = s.text()
+    ver_list = ver_str.splitlines()
+    <span class="kw">print</span>(ver_list)
+
+    <span class="cmt"># rm space, exchange"l","S"</span>
+    verlist = []
+    <span class="kw">for</span> i <span class="kw">in</span> ver_list:
+        i = i.split(<span class="str">"("</span>)
+        i = i[<span class="dig">0</span>]
+        q = i.replace(<span class="str">' '</span>,<span class="str">''</span>)
+        q = q.replace(<span class="str">'l'</span>,<span class="str">'1'</span>)
+        q = q.replace(<span class="str">'S'</span>,<span class="str">'5'</span>)
+        q = q.replace(<span class="str">'4.2.5'</span>,<span class="str">'4.2.6'</span>)
+        verlist.append(q)
+    <span class="kw">print</span>(verlist)
+    a = sorted(verlist)
+    b = sorted(verlist, reverse=True)
+    <span class="kw">print</span>(a)
+    <span class="kw">print</span>(b)
+    <span class="kw">if</span> verlist == []:
+        <span class="kw">print</span>(<span class="str">"list fail"</span>)
+        flag = <span class="str">"False"</span>
+    <span class="kw">elif</span> verlist == a <span class="kw">or</span> verlist == b:
+        <span class="kw">print</span>(<span class="str">"pass"</span>)
+        flag = <span class="str">"True"</span>
+    <span class="kw">else</span>:
+        <span class="kw">print</span>(<span class="str">"FAIL"</span>)
+        flag = <span class="str">"False"</span>
+    <span class="kw">with</span> open(<span class="str">"result.txt"</span>, <span class="str">"w"</span>) <span class="kw">as</span> fp:
+       fp.write(flag)
+
+
+<span class="kw">if</span> __name__ == <span class="str">"__main__"</span>:
+    qfinder_version_sort()
+</pre>
+</body>
+</html>

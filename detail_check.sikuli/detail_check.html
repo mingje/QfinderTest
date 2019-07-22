@@ -1,0 +1,142 @@
+
+<html>
+   <head>
+      <style type="text/css">
+         .sikuli-code {
+            font-size: 20px;
+            font-family: "Osaka-mono", Monospace;
+            line-height: 1.5em;
+            display:table-cell;
+            white-space: pre-wrap;       /* css-3 */
+            white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+            white-space: -pre-wrap;      /* Opera 4-6 */
+            white-space: -o-pre-wrap;    /* Opera 7 */
+            word-wrap: break-word;       /* Internet Explorer 5.5+ */
+            width: 99%;   /* remove horizontal scroll-bar when viewing in IE7 */
+         }
+         .sikuli-code img {
+            vertical-align: middle;
+            margin: 2px;
+            border: 1px solid #ccc;
+            padding: 2px;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-box-shadow: 1px 1px 1px gray;
+            -webkit-box-shadow: 1px 1px 2px gray;
+         }
+         .kw {
+            color: blue;
+         }
+         .skw {
+            color: rgb(63, 127, 127);
+         }
+
+         .str {
+            color: rgb(128, 0, 0);
+         }
+
+         .dig {
+            color: rgb(128, 64, 0);
+         }
+
+         .cmt {
+            color: rgb(200, 0, 200);
+         }
+
+         h2 {
+            display: inline;
+            font-weight: normal;
+         }
+
+         .info {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+            display: none;
+         }
+
+         a {
+            color: #9D2900;
+         }
+
+         body {
+            font-family: "Trebuchet MS", Arial, Sans-Serif;
+         }
+
+      </style>
+   </head>
+<body>
+<div class="info">
+<h2>detail_check.sikuli</h2> <a href="detail_check.zip">(Download this script)</a>
+</div>
+<pre class="sikuli-code">
+<span class="kw">from</span> nas_info <span class="kw">import</span> *
+<span class="kw">from</span> library <span class="kw">import</span> *
+Settings.OcrTextSearch = True
+Settings.OcrTextRead = True
+
+<span class="kw">import</span> sys
+nas_name = sys.argv[<span class="dig">1</span>]
+nas_lanip1 = sys.argv[<span class="dig">2</span>]
+nas_ac = sys.argv[<span class="dig">3</span>]
+nas_pwd = sys.argv[<span class="dig">4</span>]
+target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas_pwd)
+<span class="kw">print</span>(target)
+
+<span class="kw">def</span> qfinder_detail_check():
+    <span class="cmt"># open qfinder</span>
+    open_qfinder()
+    <span class="cmt">#  find target NAS</span>
+    find_target_nas(name = target[<span class="str">"name"</span>], lanip1 = target[<span class="str">"lanip1"</span>])
+    <span class="skw">wait</span>(<span class="dig">1</span>)
+    <span class="skw">click</span>(Pattern(<img src="1557474541748.png" />).similar(<span class="dig">0.90</span>))
+    hover(<img src="1557478254156.png" />)
+    <span class="kw">for</span> i <span class="kw">in</span> range(<span class="dig">10</span>):
+        <span class="kw">try</span>:
+            waitVanish(<img src="1557302307072.png" />,<span class="dig">10</span>)
+            <span class="kw">if</span> <span class="skw">find</span>(<img src="1557474742418.png" />):
+                flag = <span class="dig">1</span>
+                <span class="kw">break</span>
+            <span class="kw">elif</span> <span class="skw">find</span>(<img src="1557477457185.png" />):
+                flag = <span class="dig">0</span>
+                <span class="kw">break</span>
+            <span class="kw">else</span>:
+                <span class="kw">pass</span>
+        <span class="kw">except</span>:
+            flag = <span class="dig">0</span>
+    <span class="kw">assert</span> flag == <span class="dig">1</span>, <span class="str">"Open detail FAIL"</span>
+
+    detail_window = Region(Region(<span class="dig">403</span>,<span class="dig">163</span>,<span class="dig">471</span>,<span class="dig">347</span>))
+    <span class="kw">for</span> i <span class="kw">in</span> range(<span class="dig">3</span>):
+        detail_window.<span class="skw">click</span>(<img src="1557400195347.png" />)
+    check_result = []
+    <span class="kw">for</span> i <span class="kw">in</span> target[<span class="str">"detail_check"</span>]:
+        <span class="kw">if</span> detail_window.exists(Pattern(i).similar(<span class="dig">0.90</span>)):
+            <span class="kw">print</span>(<span class="str">"detail check PASS"</span>)
+            check_result.append(<span class="str">"P"</span>)
+        <span class="kw">else</span>:
+            <span class="kw">print</span>(<span class="str">"detail check FAIL"</span>)
+            check_result.append(<span class="str">"F"</span>)
+        <span class="kw">if</span> detail_window.exists(Pattern(<img src="1557482984281.png" />).similar(<span class="dig">0.90</span>)):
+            <span class="kw">print</span>(<span class="str">"Find end"</span>)
+            <span class="kw">break</span>
+        <span class="kw">else</span>:
+            <span class="kw">for</span> j <span class="kw">in</span> range(<span class="dig">11</span>):
+                detail_window.<span class="skw">click</span>(<img src="1557400195347.png" />)
+            <span class="skw">wait</span>(<span class="dig">1</span>)
+    <span class="kw">print</span>(check_result)
+    <span class="kw">if</span> <span class="str">"F"</span> <span class="kw">in</span> check_result:
+        <span class="kw">print</span>(<span class="str">"detail FAIL"</span>)
+        flag = <span class="str">"False"</span>
+    <span class="kw">else</span>:
+        flag = <span class="str">"True"</span>
+        <span class="kw">print</span>(<span class="str">"detail PASS"</span>)
+    <span class="kw">with</span> open(<span class="str">"result.txt"</span>, <span class="str">"w"</span>) <span class="kw">as</span> fp:
+       fp.write(flag)
+
+
+<span class="kw">if</span> __name__ == <span class="str">"__main__"</span>:
+    qfinder_detail_check()
+</pre>
+</body>
+</html>

@@ -1,0 +1,148 @@
+
+<html>
+   <head>
+      <style type="text/css">
+         .sikuli-code {
+            font-size: 20px;
+            font-family: "Osaka-mono", Monospace;
+            line-height: 1.5em;
+            display:table-cell;
+            white-space: pre-wrap;       /* css-3 */
+            white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+            white-space: -pre-wrap;      /* Opera 4-6 */
+            white-space: -o-pre-wrap;    /* Opera 7 */
+            word-wrap: break-word;       /* Internet Explorer 5.5+ */
+            width: 99%;   /* remove horizontal scroll-bar when viewing in IE7 */
+         }
+         .sikuli-code img {
+            vertical-align: middle;
+            margin: 2px;
+            border: 1px solid #ccc;
+            padding: 2px;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-box-shadow: 1px 1px 1px gray;
+            -webkit-box-shadow: 1px 1px 2px gray;
+         }
+         .kw {
+            color: blue;
+         }
+         .skw {
+            color: rgb(63, 127, 127);
+         }
+
+         .str {
+            color: rgb(128, 0, 0);
+         }
+
+         .dig {
+            color: rgb(128, 64, 0);
+         }
+
+         .cmt {
+            color: rgb(200, 0, 200);
+         }
+
+         h2 {
+            display: inline;
+            font-weight: normal;
+         }
+
+         .info {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+            display: none;
+         }
+
+         a {
+            color: #9D2900;
+         }
+
+         body {
+            font-family: "Trebuchet MS", Arial, Sans-Serif;
+         }
+
+      </style>
+   </head>
+<body>
+<div class="info">
+<h2>name_sort.sikuli</h2> <a href="name_sort.zip">(Download this script)</a>
+</div>
+<pre class="sikuli-code">
+<span class="kw">from</span> nas_info <span class="kw">import</span> *
+<span class="kw">from</span> library <span class="kw">import</span> *
+Settings.OcrTextSearch = True
+Settings.OcrTextRead = True
+<span class="kw">import</span> sys
+nas_name = sys.argv[<span class="dig">1</span>]
+nas_lanip1 = sys.argv[<span class="dig">2</span>]
+nas_ac = sys.argv[<span class="dig">3</span>]
+nas_pwd = sys.argv[<span class="dig">4</span>]
+target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas_pwd)
+<span class="kw">print</span>(target)
+
+device_list = [<span class="str">'Aloma-TVS682T'</span>,<span class="str">'Aloma-TVS871t1'</span>,<span class="str">'Andy-TS253B'</span>,<span class="str">'Andy-TS453A'</span>,<span class="str">'Andy-TVS463'</span>,
+        <span class="str">'AT-TS231P2'</span>,<span class="str">'AT-TS253BE'</span>,<span class="str">'AT-TS432XU'</span>,<span class="str">'AT-TVS473'</span>,<span class="str">'AT-TS453BT3'</span>,<span class="str">'AT-TS677-A'</span>,
+        <span class="str">'AT-TS677-B'</span>,<span class="str">'Chehung1277'</span>,<span class="str">'Chehung431XU'</span>,<span class="str">'Chehung453A'</span>,<span class="str">'Chehung671'</span>,<span class="str">'Chehung-8080'</span>,
+        <span class="str">'Chehung-963X'</span>,<span class="str">'DQVServer'</span>,<span class="str">'Erin-131p'</span>,<span class="str">'Erin-451A'</span>,<span class="str">'ERIN-871T'</span>,<span class="str">'ERIN-882ST'</span>,<span class="str">'ERIN-1282T3'</span>
+        <span class="str">'Erin-Q451'</span>,<span class="str">'Erin-TS253B'</span>,<span class="str">'XS62-QVR-Pro'</span>,<span class="str">'XS62-Pfsense'</span>,<span class="str">'TS253B-Kira'</span>,<span class="str">'Roy-TS451'</span>,
+        <span class="str">'Roy-TS431X2'</span>,<span class="str">'Roy-TS332X'</span>,<span class="str">'Roy-TS253B'</span>,<span class="str">'Roy-TBS453A'</span>,<span class="str">'RoyHsu-QWU100-2'</span>,<span class="str">'RoyHsu-QWU100-1'</span>,
+        <span class="str">'RoyHsu-882ST'</span>,<span class="str">'RoyHsu682T'</span>,<span class="str">"RexTS831X"</span>,<span class="str">'Rex-TS431'</span>,<span class="str">'Rex-TS253Pro'</span>,<span class="str">'Rex-TS253B-02'</span>,
+        <span class="str">'Rex-TS253B'</span>,<span class="str">'RexTS228A'</span>,<span class="str">'RoyHsu-670PRO'</span>,<span class="str">'Rex-VM2TS1277'</span>,<span class="str">'Rex-TS832X'</span>,<span class="str">'rexTS470'</span>]
+
+<span class="kw">def</span> qfinder_name_sort():
+    <span class="cmt"># open qfinder</span>
+    open_qfinder()
+
+    <span class="skw">click</span>(<img src="1557885931619.png" />)
+    <span class="skw">wait</span>(<span class="dig">1</span>)
+    name_region = Region(Region(<span class="dig">51</span>,<span class="dig">282</span>,<span class="dig">232</span>,<span class="dig">372</span>))
+    name_str = name_region.text()
+    <span class="kw">print</span>(name_str)
+    current_name_list = name_str.splitlines()
+    <span class="kw">print</span>(current_name_list)
+    <span class="cmt"># rm space</span>
+    d = []
+    <span class="kw">for</span> i <span class="kw">in</span> current_name_list:
+        q = i.replace(<span class="str">' '</span>,<span class="str">''</span>)
+        d.append(q)
+    <span class="kw">print</span>(d)
+    correct_list = []
+    <span class="kw">for</span> a <span class="kw">in</span> d:
+        b = a.replace(<span class="str">'l'</span>,<span class="str">'1'</span>)
+        c = a.replace(<span class="str">'T5'</span>,<span class="str">'TS'</span>)
+        <span class="kw">if</span> a <span class="kw">in</span> device_list:
+            q = a.replace(<span class="str">'-'</span>,<span class="str">''</span>)
+            correct_list.append(q)
+        <span class="kw">elif</span> b <span class="kw">in</span> device_list:
+            q = b.replace(<span class="str">'-'</span>,<span class="str">''</span>)
+            correct_list.append(q)
+        <span class="kw">elif</span> c <span class="kw">in</span> device_list:
+            q = c.replace(<span class="str">'-'</span>,<span class="str">''</span>)
+            correct_list.append(q)
+        <span class="kw">else</span>:
+            <span class="kw">print</span>(<span class="str">"not in list"</span>)
+    <span class="kw">print</span>(correct_list)
+    a = sorted(correct_list,key=str.lower)
+    b = sorted(correct_list, reverse=True, key=str.upper)
+    <span class="kw">print</span>(a)
+    <span class="kw">print</span>(b)
+    <span class="kw">if</span> a == [] <span class="kw">or</span> correct_list == []:
+        <span class="kw">print</span>(<span class="str">"list fail"</span>)
+        flag = <span class="str">"False"</span>
+    <span class="kw">elif</span> correct_list == a <span class="kw">or</span> correct_list == b:
+        <span class="kw">print</span>(<span class="str">"pass"</span>)
+        flag = <span class="str">"True"</span>
+    <span class="kw">else</span>:
+        <span class="kw">print</span>(<span class="str">"FAIL"</span>)
+        flag = <span class="str">"False"</span>
+    <span class="kw">with</span> open(<span class="str">"result.txt"</span>, <span class="str">"w"</span>) <span class="kw">as</span> fp:
+       fp.write(flag)
+
+
+<span class="kw">if</span> __name__ == <span class="str">"__main__"</span>:
+     qfinder_name_sort()
+</pre>
+</body>
+</html>

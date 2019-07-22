@@ -1,0 +1,132 @@
+
+<html>
+   <head>
+      <style type="text/css">
+         .sikuli-code {
+            font-size: 20px;
+            font-family: "Osaka-mono", Monospace;
+            line-height: 1.5em;
+            display:table-cell;
+            white-space: pre-wrap;       /* css-3 */
+            white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+            white-space: -pre-wrap;      /* Opera 4-6 */
+            white-space: -o-pre-wrap;    /* Opera 7 */
+            word-wrap: break-word;       /* Internet Explorer 5.5+ */
+            width: 99%;   /* remove horizontal scroll-bar when viewing in IE7 */
+         }
+         .sikuli-code img {
+            vertical-align: middle;
+            margin: 2px;
+            border: 1px solid #ccc;
+            padding: 2px;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-box-shadow: 1px 1px 1px gray;
+            -webkit-box-shadow: 1px 1px 2px gray;
+         }
+         .kw {
+            color: blue;
+         }
+         .skw {
+            color: rgb(63, 127, 127);
+         }
+
+         .str {
+            color: rgb(128, 0, 0);
+         }
+
+         .dig {
+            color: rgb(128, 64, 0);
+         }
+
+         .cmt {
+            color: rgb(200, 0, 200);
+         }
+
+         h2 {
+            display: inline;
+            font-weight: normal;
+         }
+
+         .info {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+            display: none;
+         }
+
+         a {
+            color: #9D2900;
+         }
+
+         body {
+            font-family: "Trebuchet MS", Arial, Sans-Serif;
+         }
+
+      </style>
+   </head>
+<body>
+<div class="info">
+<h2>myqnapcloud_sort.sikuli</h2> <a href="myqnapcloud_sort.zip">(Download this script)</a>
+</div>
+<pre class="sikuli-code">
+<span class="kw">from</span> nas_info <span class="kw">import</span> *
+<span class="kw">from</span> library <span class="kw">import</span> *
+
+Settings.OcrTextSearch = True
+Settings.OcrTextRead = True
+<span class="kw">import</span> sys
+nas_name = sys.argv[<span class="dig">1</span>]
+nas_lanip1 = sys.argv[<span class="dig">2</span>]
+nas_ac = sys.argv[<span class="dig">3</span>]
+nas_pwd = sys.argv[<span class="dig">4</span>]
+target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas_pwd)
+<span class="kw">print</span>(target)
+
+<span class="kw">def</span> qfinder_myQNAP_sort():
+    <span class="cmt"># open qfinder</span>
+    open_qfinder()
+    <span class="skw">click</span>(<img src="1557906681939.png" />)
+    <span class="skw">wait</span>(<span class="dig">1</span>)
+
+    s = Region(Region(<span class="dig">565</span>,<span class="dig">283</span>,<span class="dig">134</span>,<span class="dig">371</span>))
+    myqnap_str = s.text()
+    myqnap_list = myqnap_str.splitlines()
+    <span class="kw">print</span>(myqnap_list)
+    <span class="cmt"># rm space, exchange"l","S"</span>
+    myqnaplist = []
+    <span class="kw">for</span> i <span class="kw">in</span> myqnap_list:
+        i = i.split(<span class="str">"("</span>)
+        i = i[<span class="dig">0</span>]
+        q = i.replace(<span class="str">']'</span>,<span class="str">''</span>)
+        q = q.replace(<span class="str">'|'</span>,<span class="str">'l'</span>)
+        q = q.replace(<span class="str">'}'</span>,<span class="str">''</span>)
+        q = q.replace(<span class="str">'t3'</span>,<span class="str">'ts'</span>)
+        q = q.replace(<span class="str">'&lt;:'</span>,<span class="str">'c'</span>)
+        q = q.replace(<span class="str">'Iu'</span>,<span class="str">'lu'</span>)
+        q = q.replace(<span class="str">' '</span>,<span class="str">''</span>)
+        q = q.replace(<span class="str">'2S3'</span>,<span class="str">'253'</span>)
+        q = q.replace(<span class="str">'alorna'</span>,<span class="str">'aloma'</span>)
+        myqnaplist.append(q)
+    <span class="kw">print</span>(myqnaplist)
+    a = sorted(myqnaplist,key=str.lower)
+    b = sorted(myqnaplist, reverse=True, key=str.upper)
+    <span class="kw">print</span>(a)
+    <span class="kw">print</span>(b)
+    <span class="kw">if</span> myqnaplist == []:
+        <span class="kw">print</span>(<span class="str">"list fail"</span>)
+        flag = <span class="str">"False"</span>
+    <span class="kw">elif</span> myqnaplist == a <span class="kw">or</span> myqnaplist == b:
+        <span class="kw">print</span>(<span class="str">"pass"</span>)
+        flag = <span class="str">"True"</span>
+    <span class="kw">else</span>:
+        <span class="kw">print</span>(<span class="str">"FAIL"</span>)
+        flag = <span class="str">"False"</span>
+    <span class="kw">with</span> open(<span class="str">"result.txt"</span>, <span class="str">"w"</span>) <span class="kw">as</span> fp:
+       fp.write(flag)
+
+<span class="kw">if</span> __name__ == <span class="str">"__main__"</span>:
+    qfinder_myQNAP_sort()
+</pre>
+</body>
+</html>

@@ -1,0 +1,130 @@
+
+<html>
+   <head>
+      <style type="text/css">
+         .sikuli-code {
+            font-size: 20px;
+            font-family: "Osaka-mono", Monospace;
+            line-height: 1.5em;
+            display:table-cell;
+            white-space: pre-wrap;       /* css-3 */
+            white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+            white-space: -pre-wrap;      /* Opera 4-6 */
+            white-space: -o-pre-wrap;    /* Opera 7 */
+            word-wrap: break-word;       /* Internet Explorer 5.5+ */
+            width: 99%;   /* remove horizontal scroll-bar when viewing in IE7 */
+         }
+         .sikuli-code img {
+            vertical-align: middle;
+            margin: 2px;
+            border: 1px solid #ccc;
+            padding: 2px;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-box-shadow: 1px 1px 1px gray;
+            -webkit-box-shadow: 1px 1px 2px gray;
+         }
+         .kw {
+            color: blue;
+         }
+         .skw {
+            color: rgb(63, 127, 127);
+         }
+
+         .str {
+            color: rgb(128, 0, 0);
+         }
+
+         .dig {
+            color: rgb(128, 64, 0);
+         }
+
+         .cmt {
+            color: rgb(200, 0, 200);
+         }
+
+         h2 {
+            display: inline;
+            font-weight: normal;
+         }
+
+         .info {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+            display: none;
+         }
+
+         a {
+            color: #9D2900;
+         }
+
+         body {
+            font-family: "Trebuchet MS", Arial, Sans-Serif;
+         }
+
+      </style>
+   </head>
+<body>
+<div class="info">
+<h2>mac_sort.sikuli</h2> <a href="mac_sort.zip">(Download this script)</a>
+</div>
+<pre class="sikuli-code">
+<span class="kw">from</span> nas_info <span class="kw">import</span> *
+<span class="kw">from</span> library <span class="kw">import</span> *
+
+Settings.OcrTextSearch = True
+Settings.OcrTextRead = True
+<span class="kw">import</span> sys
+nas_name = sys.argv[<span class="dig">1</span>]
+nas_lanip1 = sys.argv[<span class="dig">2</span>]
+nas_ac = sys.argv[<span class="dig">3</span>]
+nas_pwd = sys.argv[<span class="dig">4</span>]
+target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas_pwd)
+<span class="kw">print</span>(target)
+
+<span class="kw">def</span> qfinder_mac_sort():
+    <span class="cmt"># open qfinder</span>
+    open_qfinder()
+    <span class="skw">click</span>(<img src="1557911466975.png" />)
+    <span class="skw">wait</span>(<span class="dig">1</span>)
+
+    s = Region(Region(<span class="dig">961</span>,<span class="dig">283</span>,<span class="dig">128</span>,<span class="dig">371</span>))
+    mac_str = s.text()
+    mac_list = mac_str.splitlines()
+    <span class="kw">print</span>(mac_list)
+    <span class="cmt"># rm space, exchange"l","S"</span>
+    maclist = []
+    <span class="kw">for</span> i <span class="kw">in</span> mac_list:
+        i = i.split(<span class="str">"("</span>)
+        i = i[<span class="dig">0</span>]
+        q = replace_str(i,<span class="str">'O0'</span>,<span class="str">'00'</span>,<span class="str">'SE'</span>,<span class="str">'5E'</span>,<span class="str">'OB'</span>,<span class="str">'0B'</span>,<span class="str">'OE'</span>,<span class="str">'0E'</span>,<span class="str">'O8'</span>,<span class="str">'08'</span>,<span class="str">'OA'</span>,<span class="str">'0A'</span>,
+                <span class="str">'U4'</span>,<span class="str">'04'</span>,<span class="str">'O7'</span>,<span class="str">'07'</span>,<span class="str">'DA'</span>,<span class="str">'0A'</span>,<span class="str">'D0'</span>,<span class="str">'00'</span>,<span class="str">'ZA'</span>,<span class="str">'2A'</span>,<span class="str">'OF'</span>,<span class="str">'0F'</span>,<span class="str">'S'</span>,<span class="str">'5'</span>,
+                <span class="str">'OC'</span>,<span class="str">'0C'</span>,<span class="str">'O4'</span>,<span class="str">'04'</span>,<span class="str">'O2'</span>,<span class="str">'02'</span>,<span class="str">'~'</span>,<span class="str">'-'</span>,<span class="str">' '</span>,<span class="str">''</span>)
+        <span class="kw">if</span> len(q) == <span class="dig">17</span> <span class="kw">and</span> q.count(<span class="str">'-'</span>) == <span class="dig">5</span>:
+            maclist.append(q)
+        <span class="kw">else</span>:
+            <span class="kw">print</span>(<span class="str">"drop item"</span>)
+    <span class="kw">print</span>(maclist)
+    a = sorted(maclist,key=str.lower)
+    b = sorted(maclist, reverse=True, key=str.upper)
+    <span class="kw">print</span>(a)
+    <span class="kw">print</span>(b)
+    <span class="kw">if</span> maclist == []:
+        <span class="kw">print</span>(<span class="str">"list fail"</span>)
+        flag = <span class="str">"False"</span>
+    <span class="kw">elif</span> maclist == a <span class="kw">or</span> maclist == b:
+        <span class="kw">print</span>(<span class="str">"pass"</span>)
+        flag = <span class="str">"True"</span>
+    <span class="kw">else</span>:
+        <span class="kw">print</span>(<span class="str">"FAIL"</span>)
+        flag = <span class="str">"False"</span>
+    <span class="kw">with</span> open(<span class="str">"result.txt"</span>, <span class="str">"w"</span>) <span class="kw">as</span> fp:
+       fp.write(flag)
+
+
+<span class="kw">if</span> __name__ == <span class="str">"__main__"</span>:
+    qfinder_mac_sort()
+</pre>
+</body>
+</html>
