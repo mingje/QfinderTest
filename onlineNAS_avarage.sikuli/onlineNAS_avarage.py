@@ -28,8 +28,9 @@ def qfinder_onlineNAS():
             online = s.text()
             online_list = online.split(":")
             online_num = online_list[1]
+            print(online_num)
             online_num = replace_str(online_num,'l','1','.','','S','5',
-                    'h','6','Z','2','O','0')
+                    'h','6','Z','2','O','0',' ','')
             num_list.append(int(online_num))
             print(num_list)
         
