@@ -19,7 +19,7 @@ def qfinder_onlineNAS():
         click("1558084798037.png")
         wait(2)
         wait_please(loop=10,time=10)
-        wait(10)
+        wait(20)
         if exists("1558092154082.png"):
             print('refresh broken')
             break
