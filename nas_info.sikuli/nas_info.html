@@ -72,8 +72,14 @@
 <pre class="sikuli-code">
 <span class="kw">from</span> sikuli <span class="kw">import</span> *
 <span class="kw">import</span> os
+<span class="kw">import</span> sys
 
-path = <span class="str">"C:\\UtilityAuto\\Qfinder_test\\screenshot\\"</span>
+current_path = sys.path[<span class="dig">0</span>]
+current_path1 = current_path.split(<span class="str">"\\"</span>)
+<span class="kw">del</span> current_path1[-<span class="dig">1</span>]
+delimiter = <span class="str">"\\"</span>
+path = delimiter.join(current_path1) + <span class="str">"\\screenshot\\"</span>
+
 <span class="kw">def</span> nas_detail(**kwargs):
     nas = {}
     nas[<span class="str">"name"</span>] = kwargs.get(<span class="str">"name"</span>)

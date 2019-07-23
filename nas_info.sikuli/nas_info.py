@@ -1,7 +1,13 @@
 from sikuli import *
 import os
+import sys
 
-path = "C:\\UtilityAuto\\Qfinder_test\\screenshot\\"
+current_path = sys.path[0]
+current_path1 = current_path.split("\\")
+del current_path1[-1]
+delimiter = "\\"
+path = delimiter.join(current_path1) + "\\screenshot\\"
+
 def nas_detail(**kwargs):
     nas = {}
     nas["name"] = kwargs.get("name")
