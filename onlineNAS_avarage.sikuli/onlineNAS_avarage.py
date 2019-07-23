@@ -24,7 +24,7 @@ def qfinder_onlineNAS():
             print('refresh broken')
             break
         else:
-            s = Region(Region(7,657,77,21))
+            s = Region(Region(11,656,65,22))
             online = s.text()
             online_list = online.split(":")
             online_num = online_list[1]
