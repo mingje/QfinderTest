@@ -1,6 +1,7 @@
 from nas_info import *
 from library import *
 import os
+import sys
 
 Settings.OcrTextSearch = True
 Settings.OcrTextRead = True
@@ -45,11 +46,16 @@ def qfinder_media_upload():
     assert flag == 1, "Open media upload error"
     
     result_list = []
-    if upload_action(uploadfile = "C:\UtilityAuto\Qfinder_test\qfinderupload\qfinderuploadfile.MP3", up_policy = "skip") == 1:
+    current_path = sys.path[0]
+    current_path1 = current_path.split("\\")
+    del current_path1[-1]
+    delimiter = "\\"
+    path = delimiter.join(current_path1) + "\\qfinderupload\qfinderuploadfile.MP3"
+    if upload_action(uploadfile = path, up_policy = "skip") == 1:
         result_list.append("P")
     else:
         result_list.append("F")
-    if upload_action(uploadfile = "C:\UtilityAuto\Qfinder_test\qfinderupload\qfinderuploadfile.MP3", up_policy = "rename") == 1:
+    if upload_action(uploadfile = path, up_policy = "rename") == 1:
         result_list.append("P")
     else:
         result_list.append("F")

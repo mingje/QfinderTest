@@ -34,6 +34,7 @@ def qfinder_myQNAP_sort():
         q = q.replace('Iu','lu')
         q = q.replace(' ','')
         q = q.replace('2S3','253')
+        q = q.replace('87l','871')
         q = q.replace('alorna','aloma')
         myqnaplist.append(q)
     print(myqnaplist)

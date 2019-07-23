@@ -73,6 +73,7 @@
 <span class="kw">from</span> nas_info <span class="kw">import</span> *
 <span class="kw">from</span> library <span class="kw">import</span> *
 <span class="kw">import</span> os
+<span class="kw">import</span> sys
 
 Settings.OcrTextSearch = True
 Settings.OcrTextRead = True
@@ -117,11 +118,16 @@ target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas
     <span class="kw">assert</span> flag == <span class="dig">1</span>, <span class="str">"Open media upload error"</span>
 
     result_list = []
-    <span class="kw">if</span> upload_action(uploadfile = <span class="str">"C:\UtilityAuto\Qfinder_test\qfinderupload\qfinderuploadfile.MP3"</span>, up_policy = <span class="str">"skip"</span>) == <span class="dig">1</span>:
+    current_path = sys.path[<span class="dig">0</span>]
+    current_path1 = current_path.split(<span class="str">"\\"</span>)
+    <span class="kw">del</span> current_path1[-<span class="dig">1</span>]
+    delimiter = <span class="str">"\\"</span>
+    path = delimiter.join(current_path1) + <span class="str">"\\qfinderupload\qfinderuploadfile.MP3"</span>
+    <span class="kw">if</span> upload_action(uploadfile = path, up_policy = <span class="str">"skip"</span>) == <span class="dig">1</span>:
         result_list.append(<span class="str">"P"</span>)
     <span class="kw">else</span>:
         result_list.append(<span class="str">"F"</span>)
-    <span class="kw">if</span> upload_action(uploadfile = <span class="str">"C:\UtilityAuto\Qfinder_test\qfinderupload\qfinderuploadfile.MP3"</span>, up_policy = <span class="str">"rename"</span>) == <span class="dig">1</span>:
+    <span class="kw">if</span> upload_action(uploadfile = path, up_policy = <span class="str">"rename"</span>) == <span class="dig">1</span>:
         result_list.append(<span class="str">"P"</span>)
     <span class="kw">else</span>:
         result_list.append(<span class="str">"F"</span>)
