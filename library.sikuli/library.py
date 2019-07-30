@@ -133,56 +133,51 @@ def get_region_text(x,y,w,h):
     b = Env.getClipboard().strip()
     return b
 
-def login_open_web(ip):
-   for i in range(1):       
-        click("1557309643274.png")
-        wait(10)
-        if exists("1557309257444.png"):
-            click("1557309257444.png")
-        elif exists("1557309306602.png"):
-            print("Max window")
-        else:
-            pass
-        
-        wait(5)
-        if exists("1557310210160.png"):
-            print("Open web page")
-        elif exists("1557310336279.png"):
-            print("Open web page")
-        elif exists("1562579603836.png"):
-            print("Open web page")
-        elif exists("1562561110248.png"):
-            print("Open web page")
-        elif exists("1562561186884.png"):
-            print("Open web page")
-        elif exists("1557798873195.png"):
+def login_open_web():      
+    click("1557309643274.png")
+    wait(10)
+    if exists("1557309257444-1.png"):
+        print("Min window")
+        click("1557309257444-1.png")
+    elif exists("1557309306602-1.png"):
+        print("Max window")
+    else:
+        pass
+    
+    wait(5)
+    if exists("1557310210160-1.png"):
+       print("Open web page1")
+       flag = "True"
+    elif exists("1557310336279-1.png"):
+       print("Open web page2")
+       flag = "True"
+    elif exists("1562579603836-1.png"):
+       print("Open web page3")
+       flag = "True"
+    elif exists("1562561110248-1.png"):
+       print("Open web page4")
+       flag = "True"
+    elif exists("1562561186884-1.png"):
+       print("Open web page5")
+       flag = "True"
+    elif exists("1557798873195-1.png"):
             
-            msg_region = Region(Region(413,247,453,186))
-            msg_region.click("1557798940520.png")
-            print("Open web page FAIL1")
-            flag = 0
-            return flag 
-            break
-        else:   
-            print("Open web page FAIL2")
-            flag = 0
-            try:
-                #closeApp("chrome")
-                print("close chrome")
-            except:
-                pass
-            return flag
-            break
-        region_text = get_region_text(227,41,505,22)
-        region_text = region_text.split("/")
-        region_text = region_text[2]
-        region_text = region_text.split(":")
-        print(region_text[0])
-        if region_text[0] == ip:
-            flag = 1
-        else:
-            flag = 0
-        return flag
+       msg_region = Region(Region(413,247,453,186))
+       msg_region.click("1557798940520-1.png")
+       print("Open web page FAIL1")
+       flag = "False"
+    else:   
+       print("Open web page FAIL2")
+       flag = "False"
+    print(flag)
+    
+    try:
+        closeApp("chrome")
+        print("close chrome")
+    except:
+        pass
+    
+    return flag
 
 def replace_str(replacestr, *args):
     k = 0

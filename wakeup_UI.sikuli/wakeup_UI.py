@@ -12,14 +12,14 @@ target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas
 print(target)
 
 def qfinder_wakeup_UI():
-        for i in range(3):
+        for i in range(6):
             wait(60)
             click("1557739083182.png")
             wait_please(loop=10, time=10)
         #  find target NAS
         find_target_nas(name = target["name"], lanip1 = target["lanip1"])
         # login to open web page
-        if login_open_web(ip = target["lanip1"]) == 1:
+        if login_open_web() == "True":
             print("wake up PASS")
             flag = "True"
         else:

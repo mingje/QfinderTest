@@ -30,7 +30,7 @@ def login_open_web():
     wait(5)
     if exists("1557310210160.png"):
        print("Open web page1")
-       flag = 1
+       flag = "True"
     elif exists("1557310336279.png"):
        print("Open web page2")
        flag = "True"

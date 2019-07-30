@@ -205,56 +205,51 @@ Settings.OcrTextRead = True
     b = Env.getClipboard().strip()
     <span class="kw">return</span> b
 
-<span class="kw">def</span> login_open_web(ip):
-   <span class="kw">for</span> i <span class="kw">in</span> range(<span class="dig">1</span>):
-        <span class="skw">click</span>(<img src="1557309643274.png" />)
-        <span class="skw">wait</span>(<span class="dig">10</span>)
-        <span class="kw">if</span> exists(<img src="1557309257444.png" />):
-            <span class="skw">click</span>(<img src="1557309257444.png" />)
-        <span class="kw">elif</span> exists(<img src="1557309306602.png" />):
-            <span class="kw">print</span>(<span class="str">"Max window"</span>)
-        <span class="kw">else</span>:
-            <span class="kw">pass</span>
+<span class="kw">def</span> login_open_web():
+    <span class="skw">click</span>(<img src="1557309643274.png" />)
+    <span class="skw">wait</span>(<span class="dig">10</span>)
+    <span class="kw">if</span> exists(<img src="1557309257444-1.png" />):
+        <span class="kw">print</span>(<span class="str">"Min window"</span>)
+        <span class="skw">click</span>(<img src="1557309257444-1.png" />)
+    <span class="kw">elif</span> exists(<img src="1557309306602-1.png" />):
+        <span class="kw">print</span>(<span class="str">"Max window"</span>)
+    <span class="kw">else</span>:
+        <span class="kw">pass</span>
 
-        <span class="skw">wait</span>(<span class="dig">5</span>)
-        <span class="kw">if</span> exists(<img src="1557310210160.png" />):
-            <span class="kw">print</span>(<span class="str">"Open web page"</span>)
-        <span class="kw">elif</span> exists(<img src="1557310336279.png" />):
-            <span class="kw">print</span>(<span class="str">"Open web page"</span>)
-        <span class="kw">elif</span> exists(<img src="1562579603836.png" />):
-            <span class="kw">print</span>(<span class="str">"Open web page"</span>)
-        <span class="kw">elif</span> exists(<img src="1562561110248.png" />):
-            <span class="kw">print</span>(<span class="str">"Open web page"</span>)
-        <span class="kw">elif</span> exists(<img src="1562561186884.png" />):
-            <span class="kw">print</span>(<span class="str">"Open web page"</span>)
-        <span class="kw">elif</span> exists(<img src="1557798873195.png" />):
+    <span class="skw">wait</span>(<span class="dig">5</span>)
+    <span class="kw">if</span> exists(<img src="1557310210160-1.png" />):
+       <span class="kw">print</span>(<span class="str">"Open web page1"</span>)
+       flag = <span class="str">"True"</span>
+    <span class="kw">elif</span> exists(<img src="1557310336279-1.png" />):
+       <span class="kw">print</span>(<span class="str">"Open web page2"</span>)
+       flag = <span class="str">"True"</span>
+    <span class="kw">elif</span> exists(<img src="1562579603836-1.png" />):
+       <span class="kw">print</span>(<span class="str">"Open web page3"</span>)
+       flag = <span class="str">"True"</span>
+    <span class="kw">elif</span> exists(<img src="1562561110248-1.png" />):
+       <span class="kw">print</span>(<span class="str">"Open web page4"</span>)
+       flag = <span class="str">"True"</span>
+    <span class="kw">elif</span> exists(<img src="1562561186884-1.png" />):
+       <span class="kw">print</span>(<span class="str">"Open web page5"</span>)
+       flag = <span class="str">"True"</span>
+    <span class="kw">elif</span> exists(<img src="1557798873195-1.png" />):
 
-            msg_region = Region(Region(<span class="dig">413</span>,<span class="dig">247</span>,<span class="dig">453</span>,<span class="dig">186</span>))
-            msg_region.<span class="skw">click</span>(<img src="1557798940520.png" />)
-            <span class="kw">print</span>(<span class="str">"Open web page FAIL1"</span>)
-            flag = <span class="dig">0</span>
-            <span class="kw">return</span> flag
-            <span class="kw">break</span>
-        <span class="kw">else</span>:
-            <span class="kw">print</span>(<span class="str">"Open web page FAIL2"</span>)
-            flag = <span class="dig">0</span>
-            <span class="kw">try</span>:
-                <span class="cmt">#closeApp("chrome")</span>
-                <span class="kw">print</span>(<span class="str">"close chrome"</span>)
-            <span class="kw">except</span>:
-                <span class="kw">pass</span>
-            <span class="kw">return</span> flag
-            <span class="kw">break</span>
-        region_text = get_region_text(<span class="dig">227</span>,<span class="dig">41</span>,<span class="dig">505</span>,<span class="dig">22</span>)
-        region_text = region_text.split(<span class="str">"/"</span>)
-        region_text = region_text[<span class="dig">2</span>]
-        region_text = region_text.split(<span class="str">":"</span>)
-        <span class="kw">print</span>(region_text[<span class="dig">0</span>])
-        <span class="kw">if</span> region_text[<span class="dig">0</span>] == ip:
-            flag = <span class="dig">1</span>
-        <span class="kw">else</span>:
-            flag = <span class="dig">0</span>
-        <span class="kw">return</span> flag
+       msg_region = Region(Region(<span class="dig">413</span>,<span class="dig">247</span>,<span class="dig">453</span>,<span class="dig">186</span>))
+       msg_region.<span class="skw">click</span>(<img src="1557798940520-1.png" />)
+       <span class="kw">print</span>(<span class="str">"Open web page FAIL1"</span>)
+       flag = <span class="str">"False"</span>
+    <span class="kw">else</span>:
+       <span class="kw">print</span>(<span class="str">"Open web page FAIL2"</span>)
+       flag = <span class="str">"False"</span>
+    <span class="kw">print</span>(flag)
+
+    <span class="kw">try</span>:
+        closeApp(<span class="str">"chrome"</span>)
+        <span class="kw">print</span>(<span class="str">"close chrome"</span>)
+    <span class="kw">except</span>:
+        <span class="kw">pass</span>
+
+    <span class="kw">return</span> flag
 
 <span class="kw">def</span> replace_str(replacestr, *args):
     k = <span class="dig">0</span>

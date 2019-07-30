@@ -84,14 +84,14 @@ target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas
 <span class="kw">print</span>(target)
 
 <span class="kw">def</span> qfinder_wakeup_UI():
-        <span class="kw">for</span> i <span class="kw">in</span> range(<span class="dig">3</span>):
+        <span class="kw">for</span> i <span class="kw">in</span> range(<span class="dig">6</span>):
             <span class="skw">wait</span>(<span class="dig">60</span>)
             <span class="skw">click</span>(<img src="1557739083182.png" />)
             wait_please(loop=<span class="dig">10</span>, time=<span class="dig">10</span>)
         <span class="cmt">#  find target NAS</span>
         find_target_nas(name = target[<span class="str">"name"</span>], lanip1 = target[<span class="str">"lanip1"</span>])
         <span class="cmt"># login to open web page</span>
-        <span class="kw">if</span> login_open_web(ip = target[<span class="str">"lanip1"</span>]) == <span class="dig">1</span>:
+        <span class="kw">if</span> login_open_web() == <span class="str">"True"</span>:
             <span class="kw">print</span>(<span class="str">"wake up PASS"</span>)
             flag = <span class="str">"True"</span>
         <span class="kw">else</span>:
