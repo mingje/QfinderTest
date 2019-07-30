@@ -31,9 +31,9 @@ def qfinder_media_upload():
         else:
             flag = 0
     assert flag == 1, "open login window FAIL"
-    type("admin")
+    type(target["ac"])
     type(Key.TAB)
-    type("dqvts231p2")
+    type(target["pwd"])
     type(Key.ENTER)
     for i in range(3):
         wait(10)
