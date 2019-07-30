@@ -89,8 +89,10 @@ target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas
     find_target_nas(name = target[<span class="str">"name"</span>], lanip1 = target[<span class="str">"lanip1"</span>])
     <span class="skw">wait</span>(<span class="dig">1</span>)
     <span class="skw">click</span>(<img src="1557309643274.png" />)
+    <span class="kw">print</span>(<span class="str">"click login button"</span>)
     <span class="skw">wait</span>(<span class="dig">10</span>)
     <span class="kw">if</span> exists(<img src="1557309257444.png" />):
+        <span class="kw">print</span>(<span class="str">"Min window"</span>)
         <span class="skw">click</span>(<img src="1557309257444.png" />)
     <span class="kw">elif</span> exists(<img src="1557309306602.png" />):
         <span class="kw">print</span>(<span class="str">"Max window"</span>)
@@ -99,19 +101,19 @@ target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas
 
     <span class="skw">wait</span>(<span class="dig">5</span>)
     <span class="kw">if</span> exists(<img src="1557310210160.png" />):
-       <span class="kw">print</span>(<span class="str">"Open web page"</span>)
+       <span class="kw">print</span>(<span class="str">"Open web page1"</span>)
        flag = <span class="dig">1</span>
     <span class="kw">elif</span> exists(<img src="1557310336279.png" />):
-       <span class="kw">print</span>(<span class="str">"Open web page"</span>)
+       <span class="kw">print</span>(<span class="str">"Open web page2"</span>)
        flag = <span class="dig">1</span>
     <span class="kw">elif</span> exists(<img src="1562579603836.png" />):
-       <span class="kw">print</span>(<span class="str">"Open web page"</span>)
+       <span class="kw">print</span>(<span class="str">"Open web page3"</span>)
        flag = <span class="dig">1</span>
     <span class="kw">elif</span> exists(<img src="1562561110248.png" />):
-       <span class="kw">print</span>(<span class="str">"Open web page"</span>)
+       <span class="kw">print</span>(<span class="str">"Open web page4"</span>)
        flag = <span class="dig">1</span>
     <span class="kw">elif</span> exists(<img src="1562561186884.png" />):
-       <span class="kw">print</span>(<span class="str">"Open web page"</span>)
+       <span class="kw">print</span>(<span class="str">"Open web page5"</span>)
        flag = <span class="dig">1</span>
     <span class="kw">elif</span> exists(<img src="1557798873195.png" />):
 

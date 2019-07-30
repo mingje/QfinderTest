@@ -17,8 +17,10 @@ def login_open_web():
     find_target_nas(name = target["name"], lanip1 = target["lanip1"])
     wait(1)
     click("1557309643274.png")
+    print("click login button")
     wait(10)
     if exists("1557309257444.png"):
+        print("Min window")
         click("1557309257444.png")
     elif exists("1557309306602.png"):
         print("Max window")
@@ -27,19 +29,19 @@ def login_open_web():
     
     wait(5)
     if exists("1557310210160.png"):
-       print("Open web page")
+       print("Open web page1")
        flag = 1
     elif exists("1557310336279.png"):
-       print("Open web page")
+       print("Open web page2")
        flag = 1
     elif exists("1562579603836.png"):
-       print("Open web page")
+       print("Open web page3")
        flag = 1
     elif exists("1562561110248.png"):
-       print("Open web page")
+       print("Open web page4")
        flag = 1
     elif exists("1562561186884.png"):
-       print("Open web page")
+       print("Open web page5")
        flag = 1
     elif exists("1557798873195.png"):
             

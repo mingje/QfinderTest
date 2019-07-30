@@ -40,21 +40,25 @@ def find_target_nas(**kwargs):
             print(target["icon"])
             click(Pattern(target['icon']).similar(0.90))
             flag = 1
+            print("find target icon")
             break
         elif exists (Pattern(target['icon_g']).similar(0.90)):
             print(target["icon_g"])
             click(Pattern(target['icon_g']).similar(0.90))
             flag = 1
+            print("find target icon_g")
             break
         elif exists (Pattern(target['icon_highlight']).similar(0.90)):
             print(target["icon_highlight"])
             click(Pattern(target['icon_highlight']).similar(0.90))
             flag = 1
+            print("find target icon_highlight")
             break
         elif exists (Pattern(target['icon_gh']).similar(0.90)):
             print(target["icon_gh"])
             click(Pattern(target['icon_gh']).similar(0.90))
             flag = 1
+            print("find target icon_gh")
             break
         else:
             last_name_current = Region(Region(49,632,95,20))

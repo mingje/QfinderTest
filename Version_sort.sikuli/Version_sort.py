@@ -17,6 +17,7 @@ def qfinder_version_sort():
     open_qfinder()
 
     click("1557904363051.png")
+    print("click version")
     wait(1)
     
     s = Region(Region(843,282,65,370))

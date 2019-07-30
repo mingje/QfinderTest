@@ -112,21 +112,25 @@ Settings.OcrTextRead = True
             <span class="kw">print</span>(target[<span class="str">"icon"</span>])
             <span class="skw">click</span>(Pattern(target[<span class="str">'icon'</span>]).similar(<span class="dig">0.90</span>))
             flag = <span class="dig">1</span>
+            <span class="kw">print</span>(<span class="str">"find target icon"</span>)
             <span class="kw">break</span>
         <span class="kw">elif</span> exists (Pattern(target[<span class="str">'icon_g'</span>]).similar(<span class="dig">0.90</span>)):
             <span class="kw">print</span>(target[<span class="str">"icon_g"</span>])
             <span class="skw">click</span>(Pattern(target[<span class="str">'icon_g'</span>]).similar(<span class="dig">0.90</span>))
             flag = <span class="dig">1</span>
+            <span class="kw">print</span>(<span class="str">"find target icon_g"</span>)
             <span class="kw">break</span>
         <span class="kw">elif</span> exists (Pattern(target[<span class="str">'icon_highlight'</span>]).similar(<span class="dig">0.90</span>)):
             <span class="kw">print</span>(target[<span class="str">"icon_highlight"</span>])
             <span class="skw">click</span>(Pattern(target[<span class="str">'icon_highlight'</span>]).similar(<span class="dig">0.90</span>))
             flag = <span class="dig">1</span>
+            <span class="kw">print</span>(<span class="str">"find target icon_highlight"</span>)
             <span class="kw">break</span>
         <span class="kw">elif</span> exists (Pattern(target[<span class="str">'icon_gh'</span>]).similar(<span class="dig">0.90</span>)):
             <span class="kw">print</span>(target[<span class="str">"icon_gh"</span>])
             <span class="skw">click</span>(Pattern(target[<span class="str">'icon_gh'</span>]).similar(<span class="dig">0.90</span>))
             flag = <span class="dig">1</span>
+            <span class="kw">print</span>(<span class="str">"find target icon_gh"</span>)
             <span class="kw">break</span>
         <span class="kw">else</span>:
             last_name_current = Region(Region(<span class="dig">49</span>,<span class="dig">632</span>,<span class="dig">95</span>,<span class="dig">20</span>))
