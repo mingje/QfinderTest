@@ -12,7 +12,7 @@ target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas
 print(target)
 
 def qfinder_shutdown_UI():    
-    for i in range(2):
+    for i in range(4):
         wait(60)
         click("1557799685522.png")
         wait_please(loop=10, time=10)
