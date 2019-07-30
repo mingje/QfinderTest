@@ -168,7 +168,7 @@ class QfinderTest(unittest.TestCase):
     def test007_bookmark_sort(self):
         fun_name = sys._getframe().f_code.co_name
         sikuli_runcase = "C:\\sikuli\\runsikulix -r " + current_path + "\\bookmark_sort.sikuli -d -f " + logfile\
-                         + fun_name + ".txt --args " + "AT-TS231P2 AT-TVS473"
+                         + fun_name + ".txt --args " + target_info_name + " AT-TS231P2 AT-TVS473"
         subprocess.run(sikuli_runcase, shell=True)
         with open("result.txt", "r") as fp:
             flag = fp.read()

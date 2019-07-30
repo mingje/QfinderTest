@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f5fcc245-b6af-4e11-a119-3275ee87f343" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/main_login.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_login.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,20 +12,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main_login.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="41" column="30" lean-forward="true" selection-start-line="41" selection-start-column="30" selection-end-line="41" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://C:/Jenkins/workspace/QfinderWindowsRegression_TS231P2/Qfinder_test/main_login.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="97" column="68" selection-start-line="97" selection-start-column="56" selection-end-line="97" selection-end-column="68" />
+            <state relative-caret-position="247">
+              <caret line="174" column="23" lean-forward="true" selection-start-line="174" selection-start-column="23" selection-end-line="174" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -51,18 +42,18 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/ee.py" />
+        <option value="$PROJECT_DIR$/../Jenkins/workspace/QfinderWindowsRegression_TS231P2/Qfinder_test/main_login.py" />
         <option value="$PROJECT_DIR$/main_login.py" />
-        <option value="C:/Jenkins/workspace/QfinderWindowsRegression_TS231P2/Qfinder_test/main_login.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="x" value="9" />
     <option name="y" value="33" />
     <option name="width" value="1890" />
@@ -74,17 +65,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Qfinder_test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Qfinder_test" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="ProjectPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -178,26 +159,20 @@
     <entry file="file://$PROJECT_DIR$/Report/QfinderWin106.6.7.0613_2019-07-11~16.48.59.html" />
     <entry file="file://$PROJECT_DIR$/Report/QfinderWin106.6.7.0613_2019-07-11~17.49.52.html" />
     <entry file="file://$PROJECT_DIR$/img/test015_config.png" />
+    <entry file="file://$PROJECT_DIR$/../Jenkins/workspace/QfinderWindowsRegression_TS231P2/Qfinder_test/main_login.py" />
+    <entry file="file://$PROJECT_DIR$/main_login.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="174" column="23" lean-forward="true" selection-start-line="174" selection-start-column="23" selection-end-line="174" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/library.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <folding>
             <element signature="e#0#22#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main_login.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="41" column="30" lean-forward="true" selection-start-line="41" selection-start-column="30" selection-end-line="41" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Jenkins/workspace/QfinderWindowsRegression_TS231P2/Qfinder_test/main_login.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="97" column="68" selection-start-line="97" selection-start-column="56" selection-end-line="97" selection-end-column="68" />
         </state>
       </provider>
     </entry>
