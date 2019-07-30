@@ -53,7 +53,7 @@ def login_open_web():
     print(flag)
     
     if flag == 1:
-        region_text = get_region_text(227, 41, 505, 22)
+        region_text = get_region_text(200, 36, 214, 69)
         print(region_text)
         region_text = region_text.split("/")
         region_text = region_text[2]
