@@ -105,47 +105,48 @@ target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas
        flag = <span class="dig">1</span>
     <span class="kw">elif</span> exists(<img src="1557310336279.png" />):
        <span class="kw">print</span>(<span class="str">"Open web page2"</span>)
-       flag = <span class="dig">1</span>
+       flag = <span class="str">"True"</span>
     <span class="kw">elif</span> exists(<img src="1562579603836.png" />):
        <span class="kw">print</span>(<span class="str">"Open web page3"</span>)
-       flag = <span class="dig">1</span>
+       flag = <span class="str">"True"</span>
     <span class="kw">elif</span> exists(<img src="1562561110248.png" />):
        <span class="kw">print</span>(<span class="str">"Open web page4"</span>)
-       flag = <span class="dig">1</span>
+       flag = <span class="str">"True"</span>
     <span class="kw">elif</span> exists(<img src="1562561186884.png" />):
        <span class="kw">print</span>(<span class="str">"Open web page5"</span>)
-       flag = <span class="dig">1</span>
+       flag = <span class="str">"True"</span>
     <span class="kw">elif</span> exists(<img src="1557798873195.png" />):
 
        msg_region = Region(Region(<span class="dig">413</span>,<span class="dig">247</span>,<span class="dig">453</span>,<span class="dig">186</span>))
        msg_region.<span class="skw">click</span>(<img src="1557798940520.png" />)
        <span class="kw">print</span>(<span class="str">"Open web page FAIL1"</span>)
-       flag = <span class="dig">0</span>
+       flag = <span class="str">"False"</span>
     <span class="kw">else</span>:
        <span class="kw">print</span>(<span class="str">"Open web page FAIL2"</span>)
-       flag = <span class="dig">0</span>
+       flag = <span class="str">"False"</span>
     <span class="kw">print</span>(flag)
-
-    <span class="kw">if</span> flag == <span class="dig">1</span>:
-        region_text = get_region_text(<span class="dig">200</span>, <span class="dig">36</span>, <span class="dig">214</span>, <span class="dig">69</span>)
-        <span class="kw">print</span>(region_text)
-        region_text = region_text.split(<span class="str">"/"</span>)
-        region_text = region_text[<span class="dig">2</span>]
-        region_text = region_text.split(<span class="str">":"</span>)
-        <span class="kw">print</span>(region_text[<span class="dig">0</span>])
-        <span class="kw">if</span> region_text[<span class="dig">0</span>] == target[<span class="str">"lanip1"</span>]:
-            rflag = <span class="str">"True"</span>
-        <span class="kw">else</span>:
-            rflag = <span class="str">"False"</span>
-    <span class="kw">else</span>:
-        rflag = <span class="str">"False"</span>
+    <span class="str">"""
+    if flag == 1:
+        region_text = get_region_text(200, 36, 214, 69)
+        print(region_text)
+        region_text = region_text.split("/")
+        region_text = region_text[2]
+        region_text = region_text.split(":")
+        print(region_text[0])
+        if region_text[0] == target["lanip1"]:
+            rflag = "True"
+        else:
+            rflag = "False"
+    else:
+        rflag = "False"
+    """</span>
     <span class="kw">try</span>:
         closeApp(<span class="str">"chrome"</span>)
         <span class="kw">print</span>(<span class="str">"close chrome"</span>)
     <span class="kw">except</span>:
         <span class="kw">pass</span>
     <span class="kw">with</span> open(<span class="str">"result.txt"</span>, <span class="str">"w"</span>) <span class="kw">as</span> fp:
-        fp.write(rflag)
+        fp.write(flag)
 
 <span class="kw">if</span> __name__ == <span class="str">"__main__"</span>:
     login_open_web()

@@ -33,27 +33,27 @@ def login_open_web():
        flag = 1
     elif exists("1557310336279.png"):
        print("Open web page2")
-       flag = 1
+       flag = "True"
     elif exists("1562579603836.png"):
        print("Open web page3")
-       flag = 1
+       flag = "True"
     elif exists("1562561110248.png"):
        print("Open web page4")
-       flag = 1
+       flag = "True"
     elif exists("1562561186884.png"):
        print("Open web page5")
-       flag = 1
+       flag = "True"
     elif exists("1557798873195.png"):
             
        msg_region = Region(Region(413,247,453,186))
        msg_region.click("1557798940520.png")
        print("Open web page FAIL1")
-       flag = 0
+       flag = "False"
     else:   
        print("Open web page FAIL2")
-       flag = 0
+       flag = "False"
     print(flag)
-    
+    """
     if flag == 1:
         region_text = get_region_text(200, 36, 214, 69)
         print(region_text)
@@ -67,13 +67,14 @@ def login_open_web():
             rflag = "False"
     else:
         rflag = "False"
+    """
     try:
         closeApp("chrome")
         print("close chrome")
     except:
         pass
     with open("result.txt", "w") as fp:
-        fp.write(rflag)
+        fp.write(flag)
 
 if __name__ == "__main__":
     login_open_web() 
