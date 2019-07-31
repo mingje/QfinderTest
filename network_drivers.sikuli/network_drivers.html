@@ -87,13 +87,15 @@ target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas
     <span class="cmt"># open qfinder</span>
     open_qfinder()
     <span class="skw">click</span>(<img src="1557739083182.png" />)
+    <span class="kw">print</span>(<span class="str">"click refresh button"</span>)
     wait_please(loop=<span class="dig">10</span>, time=<span class="dig">10</span>)
     <span class="cmt">#  find target NAS</span>
     find_target_nas(name = target[<span class="str">"name"</span>], lanip1 = target[<span class="str">"lanip1"</span>])
     <span class="skw">wait</span>(<span class="dig">1</span>)
 
     <span class="skw">click</span>(<img src="1557391119673.png" />)
-    <span class="skw">wait</span>(<span class="dig">5</span>)
+    <span class="kw">print</span>(<span class="str">"click network drivers button"</span>)
+    <span class="skw">wait</span>(<span class="dig">10</span>)
     <span class="kw">if</span> exists(<img src="1557390582065.png" />):
         <span class="skw">type</span>(target[<span class="str">"ac"</span>])
         <span class="skw">type</span>(Key.TAB)
@@ -105,6 +107,7 @@ target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas
 
     <span class="kw">if</span> exists(Pattern(<img src="1557390790842.png" />).similar(<span class="dig">0.80</span>)):
         <span class="skw">click</span>(Pattern(<img src="1557390790842.png" />).similar(<span class="dig">0.80</span>))
+        <span class="kw">print</span>(<span class="str">"max window"</span>)
         <span class="skw">wait</span>(<span class="dig">2</span>)
         a = Region(Region(<span class="dig">95</span>,<span class="dig">1</span>,<span class="dig">83</span>,<span class="dig">17</span>))
         t = a.text()
@@ -116,6 +119,7 @@ target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas
         <span class="skw">click</span>(Pattern(<img src="1562739261310.png" />).similar(<span class="dig">0.80</span>))
 
     <span class="kw">elif</span> exists(<img src="1557473815093.png" />):
+        <span class="kw">print</span>(<span class="str">"open network drivers FAIL"</span>)
         flag = <span class="str">"False"</span>
     <span class="kw">else</span>:
         flag = <span class="str">"False"</span>
