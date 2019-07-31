@@ -135,6 +135,7 @@ def get_region_text(x,y,w,h):
 
 def login_open_web():      
     click("1557309643274.png")
+    print("click login button")
     wait(10)
     if exists("1557309257444-1.png"):
         print("Min window")
@@ -142,7 +143,7 @@ def login_open_web():
     elif exists("1557309306602-1.png"):
         print("Max window")
     else:
-        pass
+        print("not find browser window")
     
     wait(5)
     if exists("1557310210160-1.png"):

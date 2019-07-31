@@ -207,6 +207,7 @@ Settings.OcrTextRead = True
 
 <span class="kw">def</span> login_open_web():
     <span class="skw">click</span>(<img src="1557309643274.png" />)
+    <span class="kw">print</span>(<span class="str">"click login button"</span>)
     <span class="skw">wait</span>(<span class="dig">10</span>)
     <span class="kw">if</span> exists(<img src="1557309257444-1.png" />):
         <span class="kw">print</span>(<span class="str">"Min window"</span>)
@@ -214,7 +215,7 @@ Settings.OcrTextRead = True
     <span class="kw">elif</span> exists(<img src="1557309306602-1.png" />):
         <span class="kw">print</span>(<span class="str">"Max window"</span>)
     <span class="kw">else</span>:
-        <span class="kw">pass</span>
+        <span class="kw">print</span>(<span class="str">"not find browser window"</span>)
 
     <span class="skw">wait</span>(<span class="dig">5</span>)
     <span class="kw">if</span> exists(<img src="1557310210160-1.png" />):
