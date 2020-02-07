@@ -77,10 +77,17 @@ Settings.OcrTextSearch = True
 Settings.OcrTextRead = True
 
 <span class="kw">import</span> sys
+
 nas_name = sys.argv[<span class="dig">1</span>]
 nas_lanip1 = sys.argv[<span class="dig">2</span>]
 nas_ac = sys.argv[<span class="dig">3</span>]
 nas_pwd = sys.argv[<span class="dig">4</span>]
+<span class="str">"""
+nas_name = "AT-TVS473"
+nas_lanip1 = "10.20.241.197"
+nas_ac = "admin"
+nas_pwd = "dqvtvs473"
+"""</span>
 target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas_pwd)
 <span class="kw">print</span>(target)
 
@@ -92,7 +99,7 @@ target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas
     <span class="kw">print</span>(<span class="str">"click version"</span>)
     <span class="skw">wait</span>(<span class="dig">1</span>)
 
-    s = Region(Region(<span class="dig">843</span>,<span class="dig">282</span>,<span class="dig">65</span>,<span class="dig">370</span>))
+    s = Region(Region(<span class="dig">925</span>,<span class="dig">280</span>,<span class="dig">79</span>,<span class="dig">374</span>))
     ver_str = s.text()
     ver_list = ver_str.splitlines()
     <span class="kw">print</span>(ver_list)
@@ -106,6 +113,8 @@ target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas
         q = q.replace(<span class="str">'l'</span>,<span class="str">'1'</span>)
         q = q.replace(<span class="str">'S'</span>,<span class="str">'5'</span>)
         q = q.replace(<span class="str">'4.2.5'</span>,<span class="str">'4.2.6'</span>)
+        q = q.replace(<span class="str">'1.o.1'</span>,<span class="str">'1.0.1'</span>)
+        q = q.replace(<span class="str">'o.o.1'</span>,<span class="str">'0.0.1'</span>)
         verlist.append(q)
     <span class="kw">print</span>(verlist)
     a = sorted(verlist)

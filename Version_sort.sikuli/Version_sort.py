@@ -5,10 +5,17 @@ Settings.OcrTextSearch = True
 Settings.OcrTextRead = True
 
 import sys
+
 nas_name = sys.argv[1]
 nas_lanip1 = sys.argv[2]
 nas_ac = sys.argv[3]
 nas_pwd = sys.argv[4]
+"""
+nas_name = "AT-TVS473"
+nas_lanip1 = "10.20.241.197"
+nas_ac = "admin"
+nas_pwd = "dqvtvs473"
+"""
 target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas_pwd)
 print(target)
 
@@ -20,7 +27,7 @@ def qfinder_version_sort():
     print("click version")
     wait(1)
     
-    s = Region(Region(843,282,65,370))
+    s = Region(Region(925,280,79,374))
     ver_str = s.text()
     ver_list = ver_str.splitlines()
     print(ver_list)
@@ -34,6 +41,8 @@ def qfinder_version_sort():
         q = q.replace('l','1')
         q = q.replace('S','5')
         q = q.replace('4.2.5','4.2.6')
+        q = q.replace('1.o.1','1.0.1')
+        q = q.replace('o.o.1','0.0.1')
         verlist.append(q)
     print(verlist)
     a = sorted(verlist)
