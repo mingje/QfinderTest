@@ -77,6 +77,7 @@ Settings.OcrTextRead = True
 
 
 <span class="kw">import</span> sys
+
 target_list = []
 <span class="kw">for</span> i <span class="kw">in</span> range(len(sys.argv)):
     <span class="kw">if</span> i &lt; <span class="dig">1</span>:
@@ -87,9 +88,12 @@ target_list = []
 <span class="kw">print</span>(target_list)
 
 <span class="str">"""
-target1 = nas_detail(name = sys.argv[1])
-target2 = nas_detail(name = sys.argv[2])
+nas_name = "AT-TS231P2"
+nas_name1 = "AT-TVS473"
+target1 = nas_detail(name = nas_name)
+target2 = nas_detail(name = nas_name1)
 target_list = [target1,target2]
+print(target_list)
 """</span>
 <span class="kw">def</span> qfinder_bookmark_sort():
     <span class="cmt"># open qfinder</span>
@@ -102,15 +106,17 @@ target_list = [target1,target2]
     <span class="kw">for</span> i <span class="kw">in</span> range(<span class="dig">10</span>):
         <span class="cmt"># clean bookmark on current page</span>
         <span class="kw">for</span> i <span class="kw">in</span> range(<span class="dig">14</span>):
-            <span class="kw">if</span> s.exists(<img src="1557990451641.png" />):
-                <span class="skw">click</span>(<img src="1557990451641.png" />)
-            <span class="kw">elif</span> s.exists(<img src="1557996053481.png" />):
-                <span class="skw">click</span>(<img src="1557996053481.png" />)
+            <span class="kw">if</span> s.exists(Pattern(<img src="1557990451641.png" />).similar(<span class="dig">0.80</span>)):
+                <span class="skw">click</span>(Pattern(<img src="1557990451641.png" />).similar(<span class="dig">0.80</span>))
+            <span class="kw">elif</span> s.exists(Pattern(<img src="1581041647863.png" />).exact()):
+                <span class="skw">click</span>(Pattern(<img src="1557996053481.png" />).exact())
             <span class="kw">else</span>:
                 <span class="kw">print</span>(<span class="str">"clean current page"</span>)
                 <span class="kw">break</span>
             <span class="skw">wait</span>(<span class="dig">1</span>)
-            <span class="skw">click</span>(<img src="1557990495616.png" />)
+            <span class="str">"""
+            click("1581040306938.png")
+            """</span>
             <span class="skw">wait</span>(<span class="dig">1</span>)
         l = Region(Region(<span class="dig">51</span>,<span class="dig">628</span>,<span class="dig">122</span>,<span class="dig">26</span>))
         last_device = l.text()
@@ -132,7 +138,7 @@ target_list = [target1,target2]
     <span class="kw">for</span> target <span class="kw">in</span> target_list:
         bookmark(target=target)
 
-    <span class="skw">click</span>(<img src="1557995822824.png" />)
+    <span class="skw">click</span>(Pattern(<img src="1557995822824.png" />).similar(<span class="dig">0.90</span>))
     <span class="skw">wait</span>(<span class="dig">1</span>)
     flag = <span class="str">"False"</span>
     <span class="kw">for</span> i <span class="kw">in</span> range(<span class="dig">1</span>):

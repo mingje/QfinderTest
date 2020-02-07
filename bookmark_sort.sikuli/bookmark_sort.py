@@ -5,6 +5,7 @@ Settings.OcrTextRead = True
 
 
 import sys
+
 target_list = []
 for i in range(len(sys.argv)):
     if i < 1:
@@ -15,9 +16,12 @@ for i in range(len(sys.argv)):
 print(target_list)
 
 """
-target1 = nas_detail(name = sys.argv[1])
-target2 = nas_detail(name = sys.argv[2])
+nas_name = "AT-TS231P2"
+nas_name1 = "AT-TVS473"
+target1 = nas_detail(name = nas_name)
+target2 = nas_detail(name = nas_name1)
 target_list = [target1,target2]
+print(target_list)
 """
 def qfinder_bookmark_sort():
     # open qfinder
@@ -30,15 +34,17 @@ def qfinder_bookmark_sort():
     for i in range(10):
         # clean bookmark on current page
         for i in range(14):
-            if s.exists("1557990451641.png"):
-                click("1557990451641.png")     
-            elif s.exists("1557996053481.png"):
-                click("1557996053481.png") 
+            if s.exists(Pattern("1557990451641.png").similar(0.80)):
+                click(Pattern("1557990451641.png").similar(0.80))     
+            elif s.exists(Pattern("1581041647863.png").exact()):
+                click(Pattern("1557996053481.png").exact()) 
             else:
                 print("clean current page")
                 break
             wait(1)
-            click("1557990495616.png")
+            """
+            click("1581040306938.png")
+            """
             wait(1)
         l = Region(Region(51,628,122,26))
         last_device = l.text()
@@ -60,7 +66,7 @@ def qfinder_bookmark_sort():
     for target in target_list:
         bookmark(target=target)
     
-    click("1557995822824.png")
+    click(Pattern("1557995822824.png").similar(0.90))
     wait(1)
     flag = "False"
     for i in range(1):
