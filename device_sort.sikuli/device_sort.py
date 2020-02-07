@@ -25,7 +25,7 @@ def qfinder_device_sort():
     click("1557978035944.png")
     wait(1)
     
-    s = Region(Region(805,282,111,372))
+    s = Region(Region(786,280,119,373))
     device_str = s.text()
     device_list = device_str.splitlines()
     print(device_list)

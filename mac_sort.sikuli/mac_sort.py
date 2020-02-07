@@ -24,7 +24,7 @@ def qfinder_mac_sort():
     click("1557911466975.png")
     wait(1)
     
-    s = Region(Region(1047,283,128,371))
+    s = Region(Region(1030,282,132,373))
     mac_str = s.text()
     mac_list = mac_str.splitlines()
     print(mac_list)

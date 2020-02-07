@@ -27,7 +27,7 @@ def qfinder_version_sort():
     print("click version")
     wait(1)
     
-    s = Region(Region(925,280,79,374))
+    s = Region(Region(909,283,78,372))
     ver_str = s.text()
     ver_list = ver_str.splitlines()
     print(ver_list)
