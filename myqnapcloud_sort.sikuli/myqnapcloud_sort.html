@@ -76,10 +76,17 @@
 Settings.OcrTextSearch = True
 Settings.OcrTextRead = True
 <span class="kw">import</span> sys
+
 nas_name = sys.argv[<span class="dig">1</span>]
 nas_lanip1 = sys.argv[<span class="dig">2</span>]
 nas_ac = sys.argv[<span class="dig">3</span>]
 nas_pwd = sys.argv[<span class="dig">4</span>]
+<span class="str">"""
+nas_name = "AT-TVS473"
+nas_lanip1 = "10.20.241.197"
+nas_ac = "admin"
+nas_pwd = "dqvtvs473"
+"""</span>
 target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas_pwd)
 <span class="kw">print</span>(target)
 
@@ -89,7 +96,7 @@ target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas
     <span class="skw">click</span>(<img src="1557906681939.png" />)
     <span class="skw">wait</span>(<span class="dig">1</span>)
 
-    s = Region(Region(<span class="dig">565</span>,<span class="dig">283</span>,<span class="dig">134</span>,<span class="dig">371</span>))
+    s = Region(Region(<span class="dig">583</span>,<span class="dig">282</span>,<span class="dig">133</span>,<span class="dig">373</span>))
     myqnap_str = s.text()
     myqnap_list = myqnap_str.splitlines()
     <span class="kw">print</span>(myqnap_list)
@@ -108,6 +115,7 @@ target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas
         q = q.replace(<span class="str">'2S3'</span>,<span class="str">'253'</span>)
         q = q.replace(<span class="str">'87l'</span>,<span class="str">'871'</span>)
         q = q.replace(<span class="str">'alorna'</span>,<span class="str">'aloma'</span>)
+        q = q.replace(<span class="str">'"\xc2\xb0Y570pro'</span>,<span class="str">"roy670pro"</span>)
         myqnaplist.append(q)
     <span class="kw">print</span>(myqnaplist)
     a = sorted(myqnaplist,key=str.lower)

@@ -75,10 +75,17 @@
 Settings.OcrTextSearch = True
 Settings.OcrTextRead = True
 <span class="kw">import</span> sys
+
 nas_name = sys.argv[<span class="dig">1</span>]
 nas_lanip1 = sys.argv[<span class="dig">2</span>]
 nas_ac = sys.argv[<span class="dig">3</span>]
 nas_pwd = sys.argv[<span class="dig">4</span>]
+<span class="str">"""
+nas_name = "AT-TVS473"
+nas_lanip1 = "10.20.241.197"
+nas_ac = "admin"
+nas_pwd = "dqvtvs473"
+"""</span>
 target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas_pwd)
 <span class="kw">print</span>(target)
 
@@ -89,7 +96,9 @@ device_list = [<span class="str">'Aloma-TVS682T'</span>,<span class="str">'Aloma
         <span class="str">'Erin-Q451'</span>,<span class="str">'Erin-TS253B'</span>,<span class="str">'XS62-QVR-Pro'</span>,<span class="str">'XS62-Pfsense'</span>,<span class="str">'TS253B-Kira'</span>,<span class="str">'Roy-TS451'</span>,
         <span class="str">'Roy-TS431X2'</span>,<span class="str">'Roy-TS332X'</span>,<span class="str">'Roy-TS253B'</span>,<span class="str">'Roy-TBS453A'</span>,<span class="str">'RoyHsu-QWU100-2'</span>,<span class="str">'RoyHsu-QWU100-1'</span>,
         <span class="str">'RoyHsu-882ST'</span>,<span class="str">'RoyHsu682T'</span>,<span class="str">"RexTS831X"</span>,<span class="str">'Rex-TS431'</span>,<span class="str">'Rex-TS253Pro'</span>,<span class="str">'Rex-TS253B-02'</span>,
-        <span class="str">'Rex-TS253B'</span>,<span class="str">'RexTS228A'</span>,<span class="str">'RoyHsu-670PRO'</span>,<span class="str">'Rex-VM2TS1277'</span>,<span class="str">'Rex-TS832X'</span>,<span class="str">'rexTS470'</span>]
+        <span class="str">'Rex-TS253B'</span>,<span class="str">'RexTS228A'</span>,<span class="str">'RoyHsu-670PRO'</span>,<span class="str">'Rex-VM2TS1277'</span>,<span class="str">'Rex-TS832X'</span>,<span class="str">'rexTS470'</span>,
+        <span class="str">'AT-Hero473'</span>,<span class="str">'ATQsyncTS1277'</span>,<span class="str">'ATQsyncTs253b'</span>,<span class="str">'ATQsyncTVS871T'</span>,<span class="str">'ATQsyncTVS882'</span>,<span class="str">'TS451'</span>,
+        <span class="str">'Roy-QWU01'</span>,<span class="str">'Roy-QNE3'</span>,<span class="str">'Roy-QNE1'</span>,<span class="str">'RoyHsu-NC-Auto'</span>,<span class="str">'RoyHsu-670Pro'</span>,<span class="str">'Roy-682T'</span>,<span class="str">'RexTVS871T'</span>]
 
 <span class="kw">def</span> qfinder_name_sort():
     <span class="cmt"># open qfinder</span>

@@ -3,10 +3,17 @@ from library import *
 Settings.OcrTextSearch = True
 Settings.OcrTextRead = True
 import sys
+
 nas_name = sys.argv[1]
 nas_lanip1 = sys.argv[2]
 nas_ac = sys.argv[3]
 nas_pwd = sys.argv[4]
+"""
+nas_name = "AT-TVS473"
+nas_lanip1 = "10.20.241.197"
+nas_ac = "admin"
+nas_pwd = "dqvtvs473"
+"""
 target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas_pwd)
 print(target)
 
@@ -17,7 +24,9 @@ device_list = ['Aloma-TVS682T','Aloma-TVS871t1','Andy-TS253B','Andy-TS453A','And
         'Erin-Q451','Erin-TS253B','XS62-QVR-Pro','XS62-Pfsense','TS253B-Kira','Roy-TS451',
         'Roy-TS431X2','Roy-TS332X','Roy-TS253B','Roy-TBS453A','RoyHsu-QWU100-2','RoyHsu-QWU100-1',
         'RoyHsu-882ST','RoyHsu682T',"RexTS831X",'Rex-TS431','Rex-TS253Pro','Rex-TS253B-02', 
-        'Rex-TS253B','RexTS228A','RoyHsu-670PRO','Rex-VM2TS1277','Rex-TS832X','rexTS470']
+        'Rex-TS253B','RexTS228A','RoyHsu-670PRO','Rex-VM2TS1277','Rex-TS832X','rexTS470',
+        'AT-Hero473','ATQsyncTS1277','ATQsyncTs253b','ATQsyncTVS871T','ATQsyncTVS882','TS451',
+        'Roy-QWU01','Roy-QNE3','Roy-QNE1','RoyHsu-NC-Auto','RoyHsu-670Pro','Roy-682T','RexTVS871T']
 
 def qfinder_name_sort():
     # open qfinder
