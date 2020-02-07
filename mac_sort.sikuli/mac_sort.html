@@ -76,10 +76,17 @@
 Settings.OcrTextSearch = True
 Settings.OcrTextRead = True
 <span class="kw">import</span> sys
+
 nas_name = sys.argv[<span class="dig">1</span>]
 nas_lanip1 = sys.argv[<span class="dig">2</span>]
 nas_ac = sys.argv[<span class="dig">3</span>]
 nas_pwd = sys.argv[<span class="dig">4</span>]
+<span class="str">"""
+nas_name = "AT-TVS473"
+nas_lanip1 = "10.20.241.197"
+nas_ac = "admin"
+nas_pwd = "dqvtvs473"
+"""</span>
 target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas_pwd)
 <span class="kw">print</span>(target)
 
@@ -89,7 +96,7 @@ target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas
     <span class="skw">click</span>(<img src="1557911466975.png" />)
     <span class="skw">wait</span>(<span class="dig">1</span>)
 
-    s = Region(Region(<span class="dig">961</span>,<span class="dig">283</span>,<span class="dig">128</span>,<span class="dig">371</span>))
+    s = Region(Region(<span class="dig">1047</span>,<span class="dig">283</span>,<span class="dig">128</span>,<span class="dig">371</span>))
     mac_str = s.text()
     mac_list = mac_str.splitlines()
     <span class="kw">print</span>(mac_list)

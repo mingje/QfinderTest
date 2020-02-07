@@ -4,10 +4,17 @@ from library import *
 Settings.OcrTextSearch = True
 Settings.OcrTextRead = True
 import sys
+
 nas_name = sys.argv[1]
 nas_lanip1 = sys.argv[2]
 nas_ac = sys.argv[3]
 nas_pwd = sys.argv[4]
+"""
+nas_name = "AT-TVS473"
+nas_lanip1 = "10.20.241.197"
+nas_ac = "admin"
+nas_pwd = "dqvtvs473"
+"""
 target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas_pwd)
 print(target)
 
@@ -17,7 +24,7 @@ def qfinder_mac_sort():
     click("1557911466975.png")
     wait(1)
     
-    s = Region(Region(961,283,128,371))
+    s = Region(Region(1047,283,128,371))
     mac_str = s.text()
     mac_list = mac_str.splitlines()
     print(mac_list)
