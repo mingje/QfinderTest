@@ -5,7 +5,7 @@ Settings.OcrTextRead = True
 
 
 import sys
-
+"""
 target_list = []
 for i in range(len(sys.argv)):
     if i < 1:
@@ -22,7 +22,7 @@ target1 = nas_detail(name = nas_name)
 target2 = nas_detail(name = nas_name1)
 target_list = [target1,target2]
 print(target_list)
-"""
+
 def qfinder_bookmark_sort():
     # open qfinder
     open_qfinder()
@@ -73,6 +73,8 @@ def qfinder_bookmark_sort():
         bookmark(target=target)
     
     click(Pattern("1557995822824.png").similar(0.90))
+    wait(1)
+    click(Location(1200, 500))
     wait(1)
     flag = "False"
     for i in range(1):

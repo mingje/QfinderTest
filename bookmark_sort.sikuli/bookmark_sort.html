@@ -77,24 +77,24 @@ Settings.OcrTextRead = True
 
 
 <span class="kw">import</span> sys
-
+<span class="str">"""
 target_list = []
-<span class="kw">for</span> i <span class="kw">in</span> range(len(sys.argv)):
-    <span class="kw">if</span> i &lt; <span class="dig">1</span>:
-        <span class="kw">pass</span>
-    <span class="kw">else</span>:
+for i in range(len(sys.argv)):
+    if i &lt; 1:
+        pass
+    else:
         targetx = nas_detail(name = sys.argv[i])
         target_list.append(targetx)
-<span class="kw">print</span>(target_list)
-<span class="str">"""
+print(target_list)
+"""</span>
 
-nas_name = "AT-TS231P2"
-nas_name1 = "AT-TVS473"
+nas_name = <span class="str">"AT-TS231P2"</span>
+nas_name1 = <span class="str">"AT-TVS473"</span>
 target1 = nas_detail(name = nas_name)
 target2 = nas_detail(name = nas_name1)
 target_list = [target1,target2]
-print(target_list)
-"""</span>
+<span class="kw">print</span>(target_list)
+
 <span class="kw">def</span> qfinder_bookmark_sort():
     <span class="cmt"># open qfinder</span>
     open_qfinder()
@@ -145,6 +145,8 @@ print(target_list)
         bookmark(target=target)
 
     <span class="skw">click</span>(Pattern(<img src="1557995822824.png" />).similar(<span class="dig">0.90</span>))
+    <span class="skw">wait</span>(<span class="dig">1</span>)
+    <span class="skw">click</span>(Location(<span class="dig">1200</span>, <span class="dig">500</span>))
     <span class="skw">wait</span>(<span class="dig">1</span>)
     flag = <span class="str">"False"</span>
     <span class="kw">for</span> i <span class="kw">in</span> range(<span class="dig">1</span>):
