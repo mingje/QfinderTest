@@ -140,6 +140,8 @@ print(target_list)
     move_to(<span class="skw">type</span> = <span class="str">"top"</span>)
     <span class="skw">wait</span>(<span class="dig">1</span>)
     <span class="kw">for</span> target <span class="kw">in</span> target_list:
+        <span class="skw">click</span>(Location(<span class="dig">1200</span>, <span class="dig">500</span>))
+        <span class="skw">wait</span>(<span class="dig">1</span>)
         bookmark(target=target)
 
     <span class="skw">click</span>(Pattern(<img src="1557995822824.png" />).similar(<span class="dig">0.90</span>))

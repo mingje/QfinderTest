@@ -68,6 +68,8 @@ def qfinder_bookmark_sort():
     move_to(type = "top")
     wait(1)
     for target in target_list:
+        click(Location(1200, 500))
+        wait(1)
         bookmark(target=target)
     
     click(Pattern("1557995822824.png").similar(0.90))
