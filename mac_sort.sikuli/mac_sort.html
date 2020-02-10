@@ -76,17 +76,17 @@
 Settings.OcrTextSearch = True
 Settings.OcrTextRead = True
 <span class="kw">import</span> sys
-
-nas_name = sys.argv[<span class="dig">1</span>]
-nas_lanip1 = sys.argv[<span class="dig">2</span>]
-nas_ac = sys.argv[<span class="dig">3</span>]
-nas_pwd = sys.argv[<span class="dig">4</span>]
 <span class="str">"""
-nas_name = "AT-TVS473"
-nas_lanip1 = "10.20.241.197"
-nas_ac = "admin"
-nas_pwd = "dqvtvs473"
+nas_name = sys.argv[1]
+nas_lanip1 = sys.argv[2]
+nas_ac = sys.argv[3]
+nas_pwd = sys.argv[4]
 """</span>
+nas_name = <span class="str">"AT-TVS473"</span>
+nas_lanip1 = <span class="str">"10.20.241.197"</span>
+nas_ac = <span class="str">"admin"</span>
+nas_pwd = <span class="str">"dqvtvs473"</span>
+
 target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas_pwd)
 <span class="kw">print</span>(target)
 
@@ -107,7 +107,7 @@ target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas
         i = i[<span class="dig">0</span>]
         q = replace_str(i,<span class="str">'O0'</span>,<span class="str">'00'</span>,<span class="str">'SE'</span>,<span class="str">'5E'</span>,<span class="str">'OB'</span>,<span class="str">'0B'</span>,<span class="str">'OE'</span>,<span class="str">'0E'</span>,<span class="str">'O8'</span>,<span class="str">'08'</span>,<span class="str">'OA'</span>,<span class="str">'0A'</span>,
                 <span class="str">'U4'</span>,<span class="str">'04'</span>,<span class="str">'O7'</span>,<span class="str">'07'</span>,<span class="str">'DA'</span>,<span class="str">'0A'</span>,<span class="str">'D0'</span>,<span class="str">'00'</span>,<span class="str">'ZA'</span>,<span class="str">'2A'</span>,<span class="str">'OF'</span>,<span class="str">'0F'</span>,<span class="str">'S'</span>,<span class="str">'5'</span>,
-                <span class="str">'OC'</span>,<span class="str">'0C'</span>,<span class="str">'O4'</span>,<span class="str">'04'</span>,<span class="str">'O2'</span>,<span class="str">'02'</span>,<span class="str">'~'</span>,<span class="str">'-'</span>,<span class="str">' '</span>,<span class="str">''</span>)
+                <span class="str">'OC'</span>,<span class="str">'0C'</span>,<span class="str">'O4'</span>,<span class="str">'04'</span>,<span class="str">'O2'</span>,<span class="str">'02'</span>,<span class="str">'~'</span>,<span class="str">'-'</span>,<span class="str">' '</span>,<span class="str">''</span>,<span class="str">'98'</span>,<span class="str">'9B'</span>)
         <span class="kw">if</span> len(q) == <span class="dig">17</span> <span class="kw">and</span> q.count(<span class="str">'-'</span>) == <span class="dig">5</span>:
             maclist.append(q)
         <span class="kw">else</span>:
