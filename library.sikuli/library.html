@@ -265,7 +265,7 @@ Settings.OcrTextRead = True
         bookmark_target = target[<span class="str">'icon_highlight'</span>]
     <span class="kw">else</span>:
         <span class="kw">print</span>(<span class="str">"FAIL"</span>)
-    <span class="skw">click</span>(<img src="1557995537850.png" />)
+    <span class="skw">click</span>(<img src="1581307703276.png" />)
     picture = <span class="skw">find</span>(bookmark_target)
     picture_x = picture.getX()
     <span class="kw">print</span>(picture_x)
@@ -274,7 +274,7 @@ Settings.OcrTextRead = True
     bookmark_region = Region(picture_x-<span class="dig">45</span>,picture_y+<span class="dig">1</span>,<span class="dig">42</span>,<span class="dig">25</span>)
     lo = Location(picture_x-<span class="dig">45</span>,picture_y+<span class="dig">1</span>)
     hover(lo)
-    <span class="kw">if</span> bookmark_region.exists(<img src="1557832935307.png" />):
+    <span class="kw">if</span> bookmark_region.exists(Pattern(<img src="1557832935307.png" />).exact()):
         <span class="kw">print</span>(<span class="str">"Bookmark PASS"</span>)
         flag = <span class="dig">1</span>
     <span class="kw">else</span>:

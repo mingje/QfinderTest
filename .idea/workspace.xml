@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f5fcc245-b6af-4e11-a119-3275ee87f343" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-    </list>
+    <list default="true" id="f5fcc245-b6af-4e11-a119-3275ee87f343" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,8 +13,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main_login.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="174" column="23" lean-forward="true" selection-start-line="174" selection-start-column="23" selection-end-line="174" selection-end-column="23" />
+            <state relative-caret-position="-265">
+              <caret line="190" column="62" lean-forward="true" selection-start-line="190" selection-start-column="62" selection-end-line="190" selection-end-column="62" />
             </state>
           </provider>
         </entry>
@@ -24,7 +22,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/library.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="-2592">
               <folding>
                 <element signature="e#0#22#0" expanded="true" />
               </folding>
@@ -54,8 +52,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="9" />
-    <option name="y" value="33" />
+    <option name="x" value="31" />
+    <option name="y" value="328" />
     <option name="width" value="1890" />
     <option name="height" value="996" />
   </component>
@@ -65,8 +63,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane" />
       <pane id="Scope" />
+      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -128,7 +126,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="6" y="22" width="1260" height="664" extended-state="0" />
+    <frame x="21" y="219" width="1260" height="664" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
@@ -160,19 +158,19 @@
     <entry file="file://$PROJECT_DIR$/Report/QfinderWin106.6.7.0613_2019-07-11~17.49.52.html" />
     <entry file="file://$PROJECT_DIR$/img/test015_config.png" />
     <entry file="file://$PROJECT_DIR$/../Jenkins/workspace/QfinderWindowsRegression_TS231P2/Qfinder_test/main_login.py" />
-    <entry file="file://$PROJECT_DIR$/main_login.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="174" column="23" lean-forward="true" selection-start-line="174" selection-start-column="23" selection-end-line="174" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/library.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="-2592">
           <folding>
             <element signature="e#0#22#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main_login.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-265">
+          <caret line="190" column="62" lean-forward="true" selection-start-line="190" selection-start-column="62" selection-end-line="190" selection-end-column="62" />
         </state>
       </provider>
     </entry>

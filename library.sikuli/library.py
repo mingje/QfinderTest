@@ -193,7 +193,7 @@ def bookmark(target):
         bookmark_target = target['icon_highlight']
     else:
         print("FAIL")
-    click("1557995537850.png")
+    click("1581307703276.png")
     picture = find(bookmark_target)
     picture_x = picture.getX()
     print(picture_x)
@@ -202,7 +202,7 @@ def bookmark(target):
     bookmark_region = Region(picture_x-45,picture_y+1,42,25)
     lo = Location(picture_x-45,picture_y+1)
     hover(lo)
-    if bookmark_region.exists("1557832935307.png"):   
+    if bookmark_region.exists(Pattern("1557832935307.png").exact()):   
         print("Bookmark PASS")
         flag = 1
     else:
