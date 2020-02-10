@@ -24,7 +24,7 @@ def qfinder_myQNAP_sort():
     click("1557906681939.png")
     wait(1)
     
-    s = Region(Region(583,282,133,373))
+    s = Region(Region(563,281,139,373))
     myqnap_str = s.text()
     myqnap_list = myqnap_str.splitlines()
     print(myqnap_list)
@@ -44,6 +44,7 @@ def qfinder_myQNAP_sort():
         q = q.replace('87l','871')
         q = q.replace('alorna','aloma')
         q = q.replace('"\xc2\xb0Y570pro',"roy670pro")
+        q = q.replace('\xef\xac\x81871test','871test')
         myqnaplist.append(q)
     print(myqnaplist)
     a = sorted(myqnaplist,key=str.lower)

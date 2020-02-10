@@ -4,17 +4,17 @@ Settings.OcrTextSearch = True
 Settings.OcrTextRead = True
 
 import sys
-
+"""
 nas_name = sys.argv[1]
 nas_lanip1 = sys.argv[2]
 nas_ac = sys.argv[3]
 nas_pwd = sys.argv[4]
 """
-nas_name = "AT-TVS473"
-nas_lanip1 = "10.20.241.197"
+nas_name = "AT-TS231P2"
+nas_lanip1 = "10.20.241.192"
 nas_ac = "admin"
-nas_pwd = "dqvtvs473"
-"""
+nas_pwd = "dqvts231p2"
+
 target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas_pwd)
 print(target)
 
@@ -44,7 +44,7 @@ def qfinder_network_driver():
         click(Pattern("1557390790842.png").similar(0.80))
         print("max window")
         wait(2)
-        a = Region(Region(124,1,90,19))
+        a = Region(Region(94,0,92,19))
         t = a.text()
         print(t)
         if t == target["lanip1"]:

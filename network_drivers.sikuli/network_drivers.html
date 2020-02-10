@@ -76,17 +76,17 @@ Settings.OcrTextSearch = True
 Settings.OcrTextRead = True
 
 <span class="kw">import</span> sys
-
-nas_name = sys.argv[<span class="dig">1</span>]
-nas_lanip1 = sys.argv[<span class="dig">2</span>]
-nas_ac = sys.argv[<span class="dig">3</span>]
-nas_pwd = sys.argv[<span class="dig">4</span>]
 <span class="str">"""
-nas_name = "AT-TVS473"
-nas_lanip1 = "10.20.241.197"
-nas_ac = "admin"
-nas_pwd = "dqvtvs473"
+nas_name = sys.argv[1]
+nas_lanip1 = sys.argv[2]
+nas_ac = sys.argv[3]
+nas_pwd = sys.argv[4]
 """</span>
+nas_name = <span class="str">"AT-TS231P2"</span>
+nas_lanip1 = <span class="str">"10.20.241.192"</span>
+nas_ac = <span class="str">"admin"</span>
+nas_pwd = <span class="str">"dqvts231p2"</span>
+
 target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas_pwd)
 <span class="kw">print</span>(target)
 
@@ -116,7 +116,7 @@ target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas
         <span class="skw">click</span>(Pattern(<img src="1557390790842.png" />).similar(<span class="dig">0.80</span>))
         <span class="kw">print</span>(<span class="str">"max window"</span>)
         <span class="skw">wait</span>(<span class="dig">2</span>)
-        a = Region(Region(<span class="dig">124</span>,<span class="dig">1</span>,<span class="dig">90</span>,<span class="dig">19</span>))
+        a = Region(Region(<span class="dig">94</span>,<span class="dig">0</span>,<span class="dig">92</span>,<span class="dig">19</span>))
         t = a.text()
         <span class="kw">print</span>(t)
         <span class="kw">if</span> t == target[<span class="str">"lanip1"</span>]:
