@@ -14,8 +14,8 @@ for i in range(len(sys.argv)):
         targetx = nas_detail(name = sys.argv[i])
         target_list.append(targetx)
 print(target_list)
-
 """
+
 nas_name = "AT-TS231P2"
 nas_name1 = "AT-TVS473"
 target1 = nas_detail(name = nas_name)
@@ -26,16 +26,20 @@ print(target_list)
 def qfinder_bookmark_sort():
     # open qfinder
     open_qfinder()
-    s = Region(Region(5,283,45,371))
-    r = Region(Region(1260,606,20,53))
+    wait(1)
     move_to(type = "top")
+    wait(1)
+    click(Location(1200, 500))
+    wait(1)
+    s = Region(1,280,44,373)
+    r = Region(Region(1260,606,20,53))
     
     # clean bookmark
     for i in range(10):
         # clean bookmark on current page
-        for i in range(14):
-            if s.exists(Pattern("1557990451641.png").similar(0.80)):
-                click(Pattern("1557990451641.png").similar(0.80))     
+        for j in range(14):
+            if s.exists(Pattern("1557990451641.png").similar(0.90)):
+                click(Pattern("1557990451641.png").similar(0.90))     
             elif s.exists(Pattern("1581041647863.png").exact()):
                 click(Pattern("1557996053481.png").exact()) 
             else:

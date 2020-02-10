@@ -86,8 +86,8 @@ target_list = []
         targetx = nas_detail(name = sys.argv[i])
         target_list.append(targetx)
 <span class="kw">print</span>(target_list)
-
 <span class="str">"""
+
 nas_name = "AT-TS231P2"
 nas_name1 = "AT-TVS473"
 target1 = nas_detail(name = nas_name)
@@ -98,16 +98,20 @@ print(target_list)
 <span class="kw">def</span> qfinder_bookmark_sort():
     <span class="cmt"># open qfinder</span>
     open_qfinder()
-    s = Region(Region(<span class="dig">5</span>,<span class="dig">283</span>,<span class="dig">45</span>,<span class="dig">371</span>))
-    r = Region(Region(<span class="dig">1260</span>,<span class="dig">606</span>,<span class="dig">20</span>,<span class="dig">53</span>))
+    <span class="skw">wait</span>(<span class="dig">1</span>)
     move_to(<span class="skw">type</span> = <span class="str">"top"</span>)
+    <span class="skw">wait</span>(<span class="dig">1</span>)
+    <span class="skw">click</span>(Location(<span class="dig">1200</span>, <span class="dig">500</span>))
+    <span class="skw">wait</span>(<span class="dig">1</span>)
+    s = Region(<span class="dig">1</span>,<span class="dig">280</span>,<span class="dig">44</span>,<span class="dig">373</span>)
+    r = Region(Region(<span class="dig">1260</span>,<span class="dig">606</span>,<span class="dig">20</span>,<span class="dig">53</span>))
 
     <span class="cmt"># clean bookmark</span>
     <span class="kw">for</span> i <span class="kw">in</span> range(<span class="dig">10</span>):
         <span class="cmt"># clean bookmark on current page</span>
-        <span class="kw">for</span> i <span class="kw">in</span> range(<span class="dig">14</span>):
-            <span class="kw">if</span> s.exists(Pattern(<img src="1557990451641.png" />).similar(<span class="dig">0.80</span>)):
-                <span class="skw">click</span>(Pattern(<img src="1557990451641.png" />).similar(<span class="dig">0.80</span>))
+        <span class="kw">for</span> j <span class="kw">in</span> range(<span class="dig">14</span>):
+            <span class="kw">if</span> s.exists(Pattern(<img src="1557990451641.png" />).similar(<span class="dig">0.90</span>)):
+                <span class="skw">click</span>(Pattern(<img src="1557990451641.png" />).similar(<span class="dig">0.90</span>))
             <span class="kw">elif</span> s.exists(Pattern(<img src="1581041647863.png" />).exact()):
                 <span class="skw">click</span>(Pattern(<img src="1557996053481.png" />).exact())
             <span class="kw">else</span>:
