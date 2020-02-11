@@ -23,7 +23,7 @@ def qfinder_reboot():
     for i in range(3):
         type(Key.DOWN)
     type(Key.ENTER)
-    wait(5)
+    wait(10)
     if exists("1557375692116.png"):
         print("open login window")
         flag = 1
