@@ -24,9 +24,10 @@ def qfinder_detail_check():
     #  find target NAS
     find_target_nas(name = target["name"], lanip1 = target["lanip1"])
     wait(1)
-    if exists("1581472730212.png"):
-        click("1581472730212.png")
-    elif exists("1581472808743.png"):
+    if exists(Pattern("1581472730212.png").similar(0.80)):
+        click(Pattern("1581472730212.png").similar(0.80))
+        print("b")
+    elif exists(Pattern("1581472808743.png").similar(0.80)):
         print("Already bookmark")
     else:
         pass
