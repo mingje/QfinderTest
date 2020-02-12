@@ -9,10 +9,10 @@ nas_lanip1 = sys.argv[2]
 nas_ac = sys.argv[3]
 nas_pwd = sys.argv[4]
 """
-nas_name = "AT-TVS473"
-nas_lanip1 = "10.20.241.197"
+nas_name = "Jack-TS932X"
+nas_lanip1 = "10.20.240.109"
 nas_ac = "admin"
-nas_pwd = "dqvtvs473"
+nas_pwd = "jack2030"
 """
 target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas_pwd)
 print(target)
