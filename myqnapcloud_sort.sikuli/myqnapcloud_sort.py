@@ -45,6 +45,7 @@ def qfinder_myQNAP_sort():
         q = q.replace('alorna','aloma')
         q = q.replace('"\xc2\xb0Y570pro',"roy670pro")
         q = q.replace('\xef\xac\x81871test','871test')
+        q = q.replace('\xef\xac\x82871test','871test')
         myqnaplist.append(q)
     print(myqnaplist)
     a = sorted(myqnaplist,key=str.lower)
