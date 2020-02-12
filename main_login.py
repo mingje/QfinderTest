@@ -91,7 +91,7 @@ class QfinderTest(unittest.TestCase):
         """
         im = ImageGrab.grab()
         im.save('{}/{}.png'.format(os.path.abspath(img_path), img_name))
-
+"""
     @BeautifulReport.add_test_img('test001_Version_sort')
     def test001_Version_sort(self):
         fun_name = sys._getframe().f_code.co_name
@@ -175,7 +175,7 @@ class QfinderTest(unittest.TestCase):
             print(flag)
         os.remove("result.txt")
         assert flag == "True", fun_name + " case fail"
-    
+"""
     @BeautifulReport.add_test_img('test008_detail_check')
     def test008_detail_check(self):
         fun_name = sys._getframe().f_code.co_name
@@ -187,7 +187,7 @@ class QfinderTest(unittest.TestCase):
             print(flag)
         os.remove("result.txt")
         assert flag == "True", fun_name + " case fail"
-    
+"""
     @BeautifulReport.add_test_img('test009_onlineNAS_avarage')
     def test009_onlineNAS_avarage(self):
         fun_name = sys._getframe().f_code.co_name
@@ -199,7 +199,7 @@ class QfinderTest(unittest.TestCase):
             print(flag)
         os.remove("result.txt")
         assert flag == "True", fun_name + " case fail"
-
+"""
     @BeautifulReport.add_test_img('test010_media_upload')
     def test010_media_upload(self):
         library.folder_clean(hostname=target_info_lanip, port=22, username=target_info_ac, password=target_info_pwd)
