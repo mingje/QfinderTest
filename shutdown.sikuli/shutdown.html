@@ -89,11 +89,13 @@ target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas
     <span class="cmt">#  find target NAS</span>
     find_target_nas(name = target[<span class="str">"name"</span>], lanip1 = target[<span class="str">"lanip1"</span>])
     <span class="skw">wait</span>(<span class="dig">1</span>)
-    <span class="skw">click</span>(<img src="1557736549093.png" />)
+    <span class="skw">doubleClick</span>(<img src="1557736549093.png" />)
+    <span class="skw">wait</span>(<span class="dig">1</span>)
     <span class="kw">for</span> i <span class="kw">in</span> range(<span class="dig">4</span>):
         <span class="skw">type</span>(Key.DOWN)
+        <span class="skw">wait</span>(<span class="dig">1</span>)
     <span class="skw">type</span>(Key.ENTER)
-    <span class="skw">wait</span>(<span class="dig">1</span>)
+    <span class="skw">wait</span>(<span class="dig">20</span>)
     <span class="kw">if</span> exists(<img src="1557375692116.png" />):
         <span class="kw">print</span>(<span class="str">"open login window"</span>)
     <span class="kw">else</span>:
@@ -102,7 +104,7 @@ target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas
     <span class="skw">type</span>(Key.TAB)
     <span class="skw">type</span>(target[<span class="str">"pwd"</span>])
     <span class="skw">type</span>(Key.ENTER)
-    <span class="skw">wait</span>(<span class="dig">3</span>)
+    <span class="skw">wait</span>(<span class="dig">5</span>)
     <span class="kw">if</span> exists(<img src="1557743664241.png" />):
         <span class="kw">print</span>(<span class="str">"start to shutdown"</span>)
         flag = <span class="str">"True"</span>

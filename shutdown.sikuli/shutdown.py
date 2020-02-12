@@ -17,11 +17,13 @@ def qfinder_shutdown():
     #  find target NAS
     find_target_nas(name = target["name"], lanip1 = target["lanip1"])
     wait(1)
-    click("1557736549093.png")
+    doubleClick("1557736549093.png")
+    wait(1)
     for i in range(4):
         type(Key.DOWN)
+        wait(1)
     type(Key.ENTER)
-    wait(1)
+    wait(20)
     if exists("1557375692116.png"):
         print("open login window")
     else:       
@@ -30,7 +32,7 @@ def qfinder_shutdown():
     type(Key.TAB)
     type(target["pwd"])
     type(Key.ENTER)
-    wait(3)
+    wait(5)
     if exists("1557743664241.png"):
         print("start to shutdown")
         flag = "True"
