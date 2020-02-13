@@ -162,8 +162,9 @@ Settings.OcrTextRead = True
 
 <span class="kw">def</span> enter_config(ac, pwd):
 
-    <span class="skw">click</span>(<img src="1557300544512.png" />)
     <span class="skw">wait</span>(<span class="dig">1</span>)
+    <span class="skw">click</span>(<img src="1557300544512.png" />)
+    <span class="skw">wait</span>(<span class="dig">5</span>)
     <span class="kw">if</span> exists(<img src="1557375692116.png" />):
         <span class="kw">print</span>(<span class="str">"open login window"</span>)
         flag = <span class="dig">1</span>
@@ -171,8 +172,12 @@ Settings.OcrTextRead = True
         flag = <span class="dig">0</span>
     <span class="kw">assert</span> flag == <span class="dig">1</span>, <span class="str">"open login window FAIL"</span>
     <span class="skw">type</span>(ac)
+    <span class="skw">wait</span>(<span class="dig">1</span>)
     <span class="skw">type</span>(Key.TAB)
+    <span class="skw">wait</span>(<span class="dig">1</span>)
+    <span class="kw">print</span>(pwd)
     <span class="skw">type</span>(pwd)
+    <span class="skw">wait</span>(<span class="dig">1</span>)
     <span class="skw">type</span>(Key.ENTER)
     <span class="skw">wait</span>(<span class="dig">5</span>)
     wait_please(loop=<span class="dig">50</span>, time=<span class="dig">2</span>)

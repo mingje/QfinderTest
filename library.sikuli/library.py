@@ -90,8 +90,9 @@ def find_target_nas(**kwargs):
 
 def enter_config(ac, pwd):
     
-    click("1557300544512.png")
     wait(1)
+    click("1557300544512.png")
+    wait(5)
     if exists("1557375692116.png"):
         print("open login window")
         flag = 1
@@ -99,8 +100,12 @@ def enter_config(ac, pwd):
         flag = 0
     assert flag == 1, "open login window FAIL"
     type(ac)
+    wait(1)
     type(Key.TAB)
+    wait(1)
+    print(pwd)
     type(pwd)
+    wait(1)
     type(Key.ENTER)
     wait(5)
     wait_please(loop=50, time=2)

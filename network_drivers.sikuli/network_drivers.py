@@ -33,8 +33,11 @@ def qfinder_network_driver():
     wait(10)
     if exists("1557390582065.png"):
         type(target["ac"])
+        wait(1)
         type(Key.TAB)
+        wait(1)
         type(target["pwd"])
+        wait(1)
         type(Key.ENTER)
         wait(5)
     else:
