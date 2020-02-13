@@ -114,6 +114,11 @@ target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas
     <span class="kw">else</span>:
         <span class="kw">print</span>(<span class="str">"shutdown PASS"</span>)
         flag = <span class="str">"True"</span>
+    <span class="kw">try</span>:
+        closeApp(<span class="str">"chrome"</span>)
+        <span class="kw">print</span>(<span class="str">"close chrome"</span>)
+    <span class="kw">except</span>:
+        <span class="kw">pass</span>
     <span class="kw">with</span> open(<span class="str">"result.txt"</span>, <span class="str">"w"</span>) <span class="kw">as</span> fp:
        fp.write(flag)
 

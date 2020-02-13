@@ -42,6 +42,11 @@ def qfinder_shutdown_UI():
     else:
         print("shutdown PASS")
         flag = "True"
+    try:
+        closeApp("chrome")
+        print("close chrome")
+    except:
+        pass    
     with open("result.txt", "w") as fp:
        fp.write(flag) 
 
