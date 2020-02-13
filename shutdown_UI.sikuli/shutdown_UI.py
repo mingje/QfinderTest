@@ -24,9 +24,24 @@ def qfinder_shutdown_UI():
     if exists("1557737704530.png"):
         print("shutdown PASS")
         flag = "True"
-    else:
+    elif exists("1557310210160.png"):
         print("shutdown FAIL")
         flag = "False"
+    elif exists("1557310336279.png"):
+        print("shutdown FAIL")
+        flag = "False"
+    elif exists("1562579603836.png"):
+        print("shutdown FAIL")
+        flag = "False"
+    elif exists("1562561110248.png"):
+        print("shutdown FAIL")
+        flag = "False"
+    elif exists("1562561186884.png"):
+        print("shutdown FAIL")
+        flag = "False"
+    else:
+        print("shutdown PASS")
+        flag = "True"
     with open("result.txt", "w") as fp:
        fp.write(flag) 
 

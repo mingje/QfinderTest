@@ -96,9 +96,24 @@ target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas
     <span class="kw">if</span> exists(<img src="1557737704530.png" />):
         <span class="kw">print</span>(<span class="str">"shutdown PASS"</span>)
         flag = <span class="str">"True"</span>
-    <span class="kw">else</span>:
+    <span class="kw">elif</span> exists(<img src="1557310210160.png" />):
         <span class="kw">print</span>(<span class="str">"shutdown FAIL"</span>)
         flag = <span class="str">"False"</span>
+    <span class="kw">elif</span> exists(<img src="1557310336279.png" />):
+        <span class="kw">print</span>(<span class="str">"shutdown FAIL"</span>)
+        flag = <span class="str">"False"</span>
+    <span class="kw">elif</span> exists(<img src="1562579603836.png" />):
+        <span class="kw">print</span>(<span class="str">"shutdown FAIL"</span>)
+        flag = <span class="str">"False"</span>
+    <span class="kw">elif</span> exists(<img src="1562561110248.png" />):
+        <span class="kw">print</span>(<span class="str">"shutdown FAIL"</span>)
+        flag = <span class="str">"False"</span>
+    <span class="kw">elif</span> exists(<img src="1562561186884.png" />):
+        <span class="kw">print</span>(<span class="str">"shutdown FAIL"</span>)
+        flag = <span class="str">"False"</span>
+    <span class="kw">else</span>:
+        <span class="kw">print</span>(<span class="str">"shutdown PASS"</span>)
+        flag = <span class="str">"True"</span>
     <span class="kw">with</span> open(<span class="str">"result.txt"</span>, <span class="str">"w"</span>) <span class="kw">as</span> fp:
        fp.write(flag)
 
