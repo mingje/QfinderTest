@@ -12,6 +12,7 @@ def nas_detail(**kwargs):
     nas = {}
     nas["name"] = kwargs.get("name")
     nas["icon"] = path + kwargs.get("name") + "\\" + kwargs.get("name") + ".png"
+    nas["icon_1"] = path + kwargs.get("name") + "\\" + kwargs.get("name") + "_1.png"
     nas["icon_highlight"] = path + kwargs.get("name") + "\\" + kwargs.get("name") + "_highlight.png"
     nas["icon_g"] = path + kwargs.get("name") + "\\" + kwargs.get("name") + "_g.png"
     nas["icon_gh"] = path + kwargs.get("name") + "\\" + kwargs.get("name") + "_gh.png"    
