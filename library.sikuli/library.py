@@ -20,8 +20,13 @@ def open_qfinder():
     Qfinder = "C:\Program Files (x86)\QNAP\Qfinder\QfinderPro.exe"
     openApp(Qfinder)
     wait_please(loop=50, time=2)
+    wait(10)
+    click("1581651434184.png")
+    wait_please(loop=50, time=2)
+    wait(10)
     if exists ("1557215006398.png"):
-        print("Open Qfinder")
+        click("1557215006398.png")
+        print("Open Qfinder success")
         flag = 1
     else:
         flag = 0

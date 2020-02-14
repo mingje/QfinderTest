@@ -92,8 +92,13 @@ Settings.OcrTextRead = True
     Qfinder = <span class="str">"C:\Program Files (x86)\QNAP\Qfinder\QfinderPro.exe"</span>
     openApp(Qfinder)
     wait_please(loop=<span class="dig">50</span>, time=<span class="dig">2</span>)
+    <span class="skw">wait</span>(<span class="dig">10</span>)
+    <span class="skw">click</span>(<img src="1581651434184.png" />)
+    wait_please(loop=<span class="dig">50</span>, time=<span class="dig">2</span>)
+    <span class="skw">wait</span>(<span class="dig">10</span>)
     <span class="kw">if</span> exists (<img src="1557215006398.png" />):
-        <span class="kw">print</span>(<span class="str">"Open Qfinder"</span>)
+        <span class="skw">click</span>(<img src="1557215006398.png" />)
+        <span class="kw">print</span>(<span class="str">"Open Qfinder success"</span>)
         flag = <span class="dig">1</span>
     <span class="kw">else</span>:
         flag = <span class="dig">0</span>
