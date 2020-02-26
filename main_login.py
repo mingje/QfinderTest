@@ -420,7 +420,7 @@ if __name__ == '__main__':
                                  2] + '/' + report_path1 + '/' + report_title
         #  Upload DQV server
         try:
-            library_db.upload_from_local_file('10.20.241.100', 'admin', 'qwerty543', 22, report_path, dqvserver_path)
+            library_db.upload_from_local_file('10.20.205.100', 'admin', 'qwerty543', 22, report_path, dqvserver_path)
         except ConnectionError as error_upload_dqv_fail:
             print("Fail to upload to DQV server")
             print(error_upload_dqv_fail)
