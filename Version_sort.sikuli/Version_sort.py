@@ -43,6 +43,7 @@ def qfinder_version_sort():
         q = q.replace('4.2.5','4.2.6')
         q = q.replace('1.o.1','1.0.1')
         q = q.replace('o.o.1','0.0.1')
+        q = q.replace('0175','q175')
         verlist.append(q)
     print(verlist)
     a = sorted(verlist)
