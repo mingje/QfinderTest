@@ -72,10 +72,13 @@
 <pre class="sikuli-code">
 <span class="kw">from</span> sikuli <span class="kw">import</span> *
 <span class="kw">from</span> nas_info <span class="kw">import</span> *
+<span class="kw">import</span> sys
 
 Settings.OcrTextSearch = True
 Settings.OcrTextRead = True
 <span class="kw">def</span> move_to(<span class="skw">type</span>):
+    fun_name = sys._getframe().f_code.co_name
+    <span class="kw">print</span>(<span class="str">"*** Start to "</span> + fun_name + <span class="str">" ***"</span>)
     <span class="kw">if</span> <span class="skw">type</span> == <span class="str">"top"</span>:
         <span class="kw">if</span> exists(<img src="1557993168704.png" />):
             <span class="skw">dragDrop</span>(<img src="1557993168704.png" />, <img src="1557993187173.png" />)
@@ -86,14 +89,18 @@ Settings.OcrTextRead = True
             <span class="skw">dragDrop</span>(<img src="1557993168704.png" />, <img src="1558066322938.png" />)
         <span class="kw">else</span>:
             <span class="kw">pass</span>
+    <span class="kw">print</span>(<span class="str">"--- End "</span> + fun_name + <span class="str">" ---"</span>)
 
 <span class="cmt"># open qfinder</span>
 <span class="kw">def</span> open_qfinder():
+    fun_name = sys._getframe().f_code.co_name
+    <span class="kw">print</span>(<span class="str">"*** Start to "</span> + fun_name + <span class="str">" ***"</span>)
     Qfinder = <span class="str">"C:\Program Files (x86)\QNAP\Qfinder\QfinderPro.exe"</span>
     openApp(Qfinder)
     wait_please(loop=<span class="dig">50</span>, time=<span class="dig">2</span>)
     <span class="skw">wait</span>(<span class="dig">10</span>)
     <span class="skw">click</span>(<img src="1581651434184.png" />)
+    <span class="kw">print</span>(<span class="str">"click refresh button in main"</span>)
     wait_please(loop=<span class="dig">50</span>, time=<span class="dig">2</span>)
     <span class="skw">wait</span>(<span class="dig">10</span>)
     <span class="kw">if</span> exists (<img src="1557215006398.png" />):
@@ -104,11 +111,15 @@ Settings.OcrTextRead = True
         flag = <span class="dig">0</span>
     <span class="kw">assert</span> flag == <span class="dig">1</span>, <span class="str">"Open Qfinder FAIL"</span>
     <span class="skw">click</span>(Pattern(<img src="1562128466510.png" />).similar(<span class="dig">0.80</span>))
+    <span class="kw">print</span>(<span class="str">"Max Qfinder UI"</span>)
     <span class="skw">wait</span>(<span class="dig">1</span>)
+    <span class="kw">print</span>(<span class="str">"--- End "</span> + fun_name + <span class="str">" ---"</span>)
     <span class="kw">return</span> flag
 
 <span class="cmt"># find target NAS</span>
 <span class="kw">def</span> find_target_nas(**kwargs):
+    fun_name = sys._getframe().f_code.co_name
+    <span class="kw">print</span>(<span class="str">"*** Start to "</span> + fun_name + <span class="str">" ***"</span>)
     target = nas_detail(**kwargs)
     <span class="kw">print</span>(target)
     move_to(<span class="skw">type</span>=<span class="str">'top'</span>)
@@ -163,12 +174,15 @@ Settings.OcrTextRead = True
                 <span class="kw">break</span>
     <span class="kw">assert</span> flag == <span class="dig">1</span>, <span class="str">"Find target FAIL"</span>
     <span class="skw">wait</span>(<span class="dig">2</span>)
+    <span class="kw">print</span>(<span class="str">"--- End "</span> + fun_name + <span class="str">" ---"</span>)
     <span class="kw">return</span> flag
 
 <span class="kw">def</span> enter_config(ac, pwd):
-
+    fun_name = sys._getframe().f_code.co_name
+    <span class="kw">print</span>(<span class="str">"*** Start to "</span> + fun_name + <span class="str">" ***"</span>)
     <span class="skw">wait</span>(<span class="dig">1</span>)
     <span class="skw">click</span>(<img src="1557300544512.png" />)
+    <span class="kw">print</span>(<span class="str">"click config button in main"</span>)
     <span class="skw">wait</span>(<span class="dig">5</span>)
     <span class="kw">if</span> exists(<img src="1557375692116.png" />):
         <span class="kw">print</span>(<span class="str">"open login window"</span>)
@@ -187,9 +201,11 @@ Settings.OcrTextRead = True
     <span class="skw">wait</span>(<span class="dig">5</span>)
     wait_please(loop=<span class="dig">50</span>, time=<span class="dig">2</span>)
     <span class="kw">if</span> exists(<img src="1557302801616.png" />):
+        <span class="kw">print</span>(<span class="str">"open config UI"</span>)
         flag = <span class="dig">1</span>
     <span class="kw">else</span>:
         flag = <span class="dig">0</span>
+    <span class="kw">print</span>(<span class="str">"--- End "</span> + fun_name + <span class="str">" ---"</span>)
     <span class="kw">assert</span> flag == <span class="dig">1</span>, <span class="str">"Open config error"</span>
 
 
@@ -222,8 +238,10 @@ Settings.OcrTextRead = True
     <span class="kw">return</span> b
 
 <span class="kw">def</span> login_open_web():
+    fun_name = sys._getframe().f_code.co_name
+    <span class="kw">print</span>(<span class="str">"*** Start to "</span> + fun_name + <span class="str">" ***"</span>)
     <span class="skw">click</span>(<img src="1557309643274.png" />)
-    <span class="kw">print</span>(<span class="str">"click login button"</span>)
+    <span class="kw">print</span>(<span class="str">"click login button in main"</span>)
     <span class="skw">wait</span>(<span class="dig">10</span>)
     <span class="kw">if</span> exists(<img src="1557309257444-1.png" />):
         <span class="kw">print</span>(<span class="str">"Min window"</span>)
@@ -265,7 +283,7 @@ Settings.OcrTextRead = True
         <span class="kw">print</span>(<span class="str">"close chrome"</span>)
     <span class="kw">except</span>:
         <span class="kw">pass</span>
-
+    <span class="kw">print</span>(<span class="str">"--- End "</span> + fun_name + <span class="str">" ---"</span>)
     <span class="kw">return</span> flag
 
 <span class="kw">def</span> replace_str(replacestr, *args):
@@ -276,12 +294,15 @@ Settings.OcrTextRead = True
     <span class="kw">return</span> replacestr
 
 <span class="kw">def</span> bookmark(target):
+    fun_name = sys._getframe().f_code.co_name
+    <span class="kw">print</span>(<span class="str">"*** Start to "</span> + fun_name + <span class="str">" ***"</span>)
     <span class="cmt">#  find target NAS</span>
     <span class="kw">if</span> find_target_nas(name = target[<span class="str">"name"</span>]) == <span class="dig">1</span>:
         bookmark_target = target[<span class="str">'icon_highlight'</span>]
     <span class="kw">else</span>:
         <span class="kw">print</span>(<span class="str">"FAIL"</span>)
     <span class="skw">click</span>(<img src="1581307703276.png" />)
+    <span class="kw">print</span>(<span class="str">"bookmark button in main"</span>)
     picture = <span class="skw">find</span>(bookmark_target)
     picture_x = picture.getX()
     <span class="kw">print</span>(picture_x)
@@ -296,9 +317,12 @@ Settings.OcrTextRead = True
     <span class="kw">else</span>:
         <span class="kw">print</span>(<span class="str">"FAIL"</span>)
         flag = <span class="dig">0</span>
+    <span class="kw">print</span>(<span class="str">"--- End "</span> + fun_name + <span class="str">" ---"</span>)
     <span class="kw">return</span> flag
 
 <span class="kw">def</span> check_bookmark(target_list,<span class="skw">type</span>):
+    fun_name = sys._getframe().f_code.co_name
+    <span class="kw">print</span>(<span class="str">"*** Start to "</span> + fun_name + <span class="str">" ***"</span>)
     <span class="kw">if</span> <span class="skw">type</span> == <span class="str">"top"</span>:
         move_to(<span class="skw">type</span> = <span class="str">"top"</span>)
     <span class="kw">else</span>:
@@ -345,16 +369,22 @@ Settings.OcrTextRead = True
         <span class="kw">print</span>(<span class="str">'PASS bookmark'</span>)
     <span class="kw">else</span>:
         <span class="kw">print</span>(<span class="str">'FAIL bookmark'</span>)
+    <span class="kw">print</span>(<span class="str">"--- End "</span> + fun_name + <span class="str">" ---"</span>)
     <span class="kw">return</span> flag
 
 <span class="kw">def</span> upload_action(uploadfile, up_policy):
+    fun_name = sys._getframe().f_code.co_name
+    <span class="kw">print</span>(<span class="str">"*** Start to "</span> + fun_name + <span class="str">" ***"</span>)
     <span class="skw">click</span>(<img src="1560414599541-1.png" />)
+    <span class="kw">print</span>(<span class="str">"click create upload job button"</span>)
     <span class="skw">wait</span>(<span class="dig">1</span>)
     <span class="skw">click</span>(Pattern(<img src="1560481192508.png" />).similar(<span class="dig">0.90</span>))
+    <span class="kw">print</span>(<span class="str">"click add file button"</span>)
     <span class="skw">wait</span>(<span class="dig">1</span>)
     <span class="skw">type</span>(uploadfile)
     <span class="skw">type</span>(Key.ENTER)
     <span class="skw">click</span>(<img src="1560481294073.png" />)
+    <span class="kw">print</span>(<span class="str">"click change destination button"</span>)
     <span class="kw">for</span> i <span class="kw">in</span> range(<span class="dig">15</span>):
         <span class="skw">wait</span>(<span class="dig">2</span>)
         <span class="kw">if</span> exists(<img src="1560481327682.png" />):
@@ -386,6 +416,7 @@ Settings.OcrTextRead = True
     <span class="skw">type</span>(Key.ENTER)
     <span class="skw">wait</span>(<span class="dig">1</span>)
     <span class="skw">click</span>(<img src="1560486267746.png" />)
+    <span class="kw">print</span>(<span class="str">"click start upload button"</span>)
     flag = <span class="dig">0</span>
     <span class="kw">for</span> i <span class="kw">in</span> range(<span class="dig">20</span>):
         <span class="skw">wait</span>(<span class="dig">5</span>)
@@ -395,6 +426,7 @@ Settings.OcrTextRead = True
             <span class="kw">break</span>
         <span class="kw">else</span>:
             flag = <span class="dig">0</span>
+    <span class="kw">print</span>(<span class="str">"--- End "</span> + fun_name + <span class="str">" ---"</span>)
     <span class="kw">return</span> flag
 <span class="cmt">#find_target_nas(name = "Steven-TS551", lanip1 = "10.20.241.196")</span>
 

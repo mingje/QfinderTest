@@ -16,9 +16,10 @@ nas_ac = "admin"
 nas_pwd = "jack2030"
 """
 target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas_pwd)
-print(target)
 
 def qfinder_detail_check():
+    fun_name = sys._getframe().f_code.co_name
+    print("*** Start to " + fun_name + " ***")
     # open qfinder
     open_qfinder()
     #  find target NAS
@@ -26,7 +27,7 @@ def qfinder_detail_check():
     wait(1)
     if exists(Pattern("1581472730212.png").similar(0.80)):
         click(Pattern("1581472730212.png").similar(0.80))
-        print("b")
+        print("click bookmark button in main")
     elif exists(Pattern("1581472808743.png").similar(0.80)):
         print("Already bookmark")
     else:
@@ -34,6 +35,7 @@ def qfinder_detail_check():
     wait(2)
         
     click(Pattern("1557474541748.png").similar(0.90))
+    print("click detail button in main")
     hover("1557478254156.png")
     for i in range(10):
         try:
@@ -77,7 +79,7 @@ def qfinder_detail_check():
         print("detail PASS")
     with open("result.txt", "w") as fp:
        fp.write(flag) 
-
+    print("--- End " + fun_name + " ---")
 
 if __name__ == "__main__":
     qfinder_detail_check() 

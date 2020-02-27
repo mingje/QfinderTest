@@ -96,6 +96,8 @@ target_list = [target1,target2]
 <span class="kw">print</span>(target_list)
 
 <span class="kw">def</span> qfinder_bookmark_sort():
+    fun_name = sys._getframe().f_code.co_name
+    <span class="kw">print</span>(<span class="str">"*** Start to "</span> + fun_name + <span class="str">" ***"</span>)
     <span class="cmt"># open qfinder</span>
     open_qfinder()
     <span class="skw">wait</span>(<span class="dig">1</span>)
@@ -145,6 +147,7 @@ target_list = [target1,target2]
         bookmark(target=target)
 
     <span class="skw">click</span>(Pattern(<img src="1557995822824.png" />).similar(<span class="dig">0.90</span>))
+    <span class="kw">print</span>(<span class="str">"click Bookmark field"</span>)
     <span class="skw">wait</span>(<span class="dig">1</span>)
     <span class="skw">click</span>(Location(<span class="dig">1200</span>, <span class="dig">500</span>))
     <span class="skw">wait</span>(<span class="dig">1</span>)
@@ -163,6 +166,7 @@ target_list = [target1,target2]
             flag = <span class="str">"False"</span>
     <span class="kw">with</span> open(<span class="str">"result.txt"</span>, <span class="str">"w"</span>) <span class="kw">as</span> fp:
        fp.write(flag)
+    <span class="kw">print</span>(<span class="str">"--- End "</span> + fun_name + <span class="str">" ---"</span>)
 
 
 <span class="kw">if</span> __name__ == <span class="str">"__main__"</span>:

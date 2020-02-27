@@ -24,6 +24,8 @@ target_list = [target1,target2]
 print(target_list)
 
 def qfinder_bookmark_sort():
+    fun_name = sys._getframe().f_code.co_name
+    print("*** Start to " + fun_name + " ***")
     # open qfinder
     open_qfinder()
     wait(1)
@@ -73,6 +75,7 @@ def qfinder_bookmark_sort():
         bookmark(target=target)
     
     click(Pattern("1557995822824.png").similar(0.90))
+    print("click Bookmark field")
     wait(1)
     click(Location(1200, 500))
     wait(1)
@@ -91,6 +94,7 @@ def qfinder_bookmark_sort():
             flag = "False"
     with open("result.txt", "w") as fp:
        fp.write(flag) 
+    print("--- End " + fun_name + " ---")
           
 
 if __name__ == "__main__":

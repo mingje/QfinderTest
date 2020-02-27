@@ -1,5 +1,6 @@
 from nas_info import *
 from library import *
+import sys
 
 Settings.OcrTextSearch = True
 Settings.OcrTextRead = True
@@ -17,20 +18,20 @@ nas_ac = "admin"
 nas_pwd = "dqvtvs473"
 """
 target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas_pwd)
-print(target)
 
 def qfinder_version_sort():
+    fun_name = sys._getframe().f_code.co_name
+    print("*** Start to " + fun_name + " ***")
     # open qfinder
     open_qfinder()
 
     click("1557904363051.png")
-    print("click version")
+    print("click version field")
     wait(1)
-    
     s = Region(Region(909,283,78,372))
     ver_str = s.text()
     ver_list = ver_str.splitlines()
-    print(ver_list)
+    print("Initial list: " + str(ver_list))
     
     # rm space, exchange"l","S"
     verlist = []
@@ -45,11 +46,11 @@ def qfinder_version_sort():
         q = q.replace('o.o.1','0.0.1')
         q = q.replace('0175','q175')
         verlist.append(q)
-    print(verlist)
+    print("Switch list: " + str(verlist))
     a = sorted(verlist)
     b = sorted(verlist, reverse=True)
-    print(a)
-    print(b)
+    print("Sorted list: " + str(a))
+    print("Sorted list: " + str(b))
     if verlist == []:
         print("list fail")
         flag = "False"
@@ -61,6 +62,7 @@ def qfinder_version_sort():
         flag = "False"
     with open("result.txt", "w") as fp:
        fp.write(flag) 
+    print("--- End " + fun_name + " ---")
      
     
 if __name__ == "__main__":

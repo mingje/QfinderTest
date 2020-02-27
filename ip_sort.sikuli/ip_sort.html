@@ -88,18 +88,21 @@ nas_ac = "admin"
 nas_pwd = "dqvtvs473"
 """</span>
 target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas_pwd)
-<span class="kw">print</span>(target)
+
 
 <span class="kw">def</span> qfinder_ip_sort():
+    fun_name = sys._getframe().f_code.co_name
+    <span class="kw">print</span>(<span class="str">"*** Start to "</span> + fun_name + <span class="str">" ***"</span>)
     <span class="cmt"># open qfinder</span>
     open_qfinder()
     <span class="skw">click</span>(<img src="1557892638363.png" />)
+    <span class="kw">print</span>(<span class="str">"click IP address field"</span>)
     <span class="skw">wait</span>(<span class="dig">1</span>)
 
     s = Region(Region(<span class="dig">409</span>,<span class="dig">283</span>,<span class="dig">102</span>,<span class="dig">370</span>))
     ip_str = s.text()
     ip_list = ip_str.splitlines()
-    <span class="kw">print</span>(ip_list)
+    <span class="kw">print</span>(<span class="str">"Initial list: "</span> + str(ip_list))
     <span class="cmt"># rm space</span>
     iplist = []
     <span class="kw">for</span> i <span class="kw">in</span> ip_list:
@@ -109,15 +112,15 @@ target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas
         q = q.replace(<span class="str">'l'</span>,<span class="str">'1'</span>)
         q = q.replace(<span class="str">'S'</span>,<span class="str">'5'</span>)
         iplist.append(q)
-    <span class="kw">print</span>(iplist)
+    <span class="kw">print</span>(<span class="str">"Switch list: "</span> + str(iplist))
     lot = map(inet_aton, iplist)
     lot1 = map(inet_aton, iplist)
     lot.sort()
     lot1.sort(reverse=True)
     iplist1 = map(inet_ntoa, lot)
     iplist2 = map(inet_ntoa, lot1)
-    <span class="kw">print</span>(iplist1)
-    <span class="kw">print</span>(iplist2)
+    <span class="kw">print</span>(<span class="str">"Sorted list: "</span> + str(iplist1))
+    <span class="kw">print</span>(<span class="str">"Sorted list: "</span> + str(iplist2))
     <span class="kw">if</span> iplist == []:
         <span class="kw">print</span>(<span class="str">"list fail"</span>)
         flag = <span class="str">"False"</span>
@@ -129,7 +132,7 @@ target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas
         flag = <span class="str">"False"</span>
     <span class="kw">with</span> open(<span class="str">"result.txt"</span>, <span class="str">"w"</span>) <span class="kw">as</span> fp:
        fp.write(flag)
-
+    <span class="kw">print</span>(<span class="str">"--- End "</span> + fun_name + <span class="str">" ---"</span>)
 
 <span class="kw">if</span> __name__ == <span class="str">"__main__"</span>:
     qfinder_ip_sort()

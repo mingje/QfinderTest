@@ -88,19 +88,20 @@ nas_ac = sys.argv[<span class="dig">3</span>]
 nas_pwd = sys.argv[<span class="dig">4</span>]
 
 target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas_pwd)
-<span class="kw">print</span>(target)
 
 <span class="kw">def</span> qfinder_device_sort():
-
+    fun_name = sys._getframe().f_code.co_name
+    <span class="kw">print</span>(<span class="str">"*** Start to "</span> + fun_name + <span class="str">" ***"</span>)
     <span class="cmt"># open qfinder</span>
     open_qfinder()
     <span class="skw">click</span>(<img src="1557978035944.png" />)
+    <span class="kw">print</span>(<span class="str">"click device type field"</span>)
     <span class="skw">wait</span>(<span class="dig">1</span>)
 
     s = Region(Region(<span class="dig">786</span>,<span class="dig">280</span>,<span class="dig">119</span>,<span class="dig">373</span>))
     device_str = s.text()
     device_list = device_str.splitlines()
-    <span class="kw">print</span>(device_list)
+    <span class="kw">print</span>(<span class="str">"Initial list: "</span> + str(device_list))
     check_list = [<span class="str">'TS'</span>,<span class="str">'TVS'</span>,<span class="str">'D2 Pro'</span>,<span class="str">'ES1640dc'</span>,<span class="str">'HS'</span>,<span class="str">'Mustang'</span>,<span class="str">'QGenie'</span>,<span class="str">'QWU'</span>,
             <span class="str">'TBS'</span>,<span class="str">'TES'</span>,<span class="str">'TDS'</span>,<span class="str">'QuCPE'</span>,<span class="str">'NAS'</span>,<span class="str">'vQTS'</span>,<span class="str">'QSW'</span>,<span class="str">'QGD'</span>]
     <span class="cmt"># rm space</span>
@@ -114,11 +115,11 @@ target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas
             devicelist.append(q)
         <span class="kw">else</span>:
             <span class="kw">print</span>(<span class="str">"drop item"</span>)
-    <span class="kw">print</span>(devicelist)
+    <span class="kw">print</span>(<span class="str">"Switch list: "</span> + str(devicelist))
     a = sorted(devicelist,key=str.lower)
     b = sorted(devicelist, reverse=True, key=str.upper)
-    <span class="kw">print</span>(a)
-    <span class="kw">print</span>(b)
+    <span class="kw">print</span>(<span class="str">"Sorted list: "</span> + str(a))
+    <span class="kw">print</span>(<span class="str">"Sorted list: "</span> + str(b))
     <span class="kw">if</span> devicelist == []:
         <span class="kw">print</span>(<span class="str">"list fail"</span>)
         flag = <span class="str">"False"</span>
@@ -130,6 +131,7 @@ target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas
         flag = <span class="str">"False"</span>
     <span class="kw">with</span> open(<span class="str">"result.txt"</span>, <span class="str">"w"</span>) <span class="kw">as</span> fp:
        fp.write(flag)
+    <span class="kw">print</span>(<span class="str">"--- End "</span> + fun_name + <span class="str">" ---"</span>)
 
 <span class="kw">if</span> __name__ == <span class="str">"__main__"</span>:
     qfinder_device_sort()

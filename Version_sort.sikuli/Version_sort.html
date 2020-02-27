@@ -72,6 +72,7 @@
 <pre class="sikuli-code">
 <span class="kw">from</span> nas_info <span class="kw">import</span> *
 <span class="kw">from</span> library <span class="kw">import</span> *
+<span class="kw">import</span> sys
 
 Settings.OcrTextSearch = True
 Settings.OcrTextRead = True
@@ -89,20 +90,20 @@ nas_ac = "admin"
 nas_pwd = "dqvtvs473"
 """</span>
 target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas_pwd)
-<span class="kw">print</span>(target)
 
 <span class="kw">def</span> qfinder_version_sort():
+    fun_name = sys._getframe().f_code.co_name
+    <span class="kw">print</span>(<span class="str">"*** Start to "</span> + fun_name + <span class="str">" ***"</span>)
     <span class="cmt"># open qfinder</span>
     open_qfinder()
 
     <span class="skw">click</span>(<img src="1557904363051.png" />)
-    <span class="kw">print</span>(<span class="str">"click version"</span>)
+    <span class="kw">print</span>(<span class="str">"click version field"</span>)
     <span class="skw">wait</span>(<span class="dig">1</span>)
-
     s = Region(Region(<span class="dig">909</span>,<span class="dig">283</span>,<span class="dig">78</span>,<span class="dig">372</span>))
     ver_str = s.text()
     ver_list = ver_str.splitlines()
-    <span class="kw">print</span>(ver_list)
+    <span class="kw">print</span>(<span class="str">"Initial list: "</span> + str(ver_list))
 
     <span class="cmt"># rm space, exchange"l","S"</span>
     verlist = []
@@ -117,11 +118,11 @@ target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas
         q = q.replace(<span class="str">'o.o.1'</span>,<span class="str">'0.0.1'</span>)
         q = q.replace(<span class="str">'0175'</span>,<span class="str">'q175'</span>)
         verlist.append(q)
-    <span class="kw">print</span>(verlist)
+    <span class="kw">print</span>(<span class="str">"Switch list: "</span> + str(verlist))
     a = sorted(verlist)
     b = sorted(verlist, reverse=True)
-    <span class="kw">print</span>(a)
-    <span class="kw">print</span>(b)
+    <span class="kw">print</span>(<span class="str">"Sorted list: "</span> + str(a))
+    <span class="kw">print</span>(<span class="str">"Sorted list: "</span> + str(b))
     <span class="kw">if</span> verlist == []:
         <span class="kw">print</span>(<span class="str">"list fail"</span>)
         flag = <span class="str">"False"</span>
@@ -133,6 +134,7 @@ target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas
         flag = <span class="str">"False"</span>
     <span class="kw">with</span> open(<span class="str">"result.txt"</span>, <span class="str">"w"</span>) <span class="kw">as</span> fp:
        fp.write(flag)
+    <span class="kw">print</span>(<span class="str">"--- End "</span> + fun_name + <span class="str">" ---"</span>)
 
 
 <span class="kw">if</span> __name__ == <span class="str">"__main__"</span>:

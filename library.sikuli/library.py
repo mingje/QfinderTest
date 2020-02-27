@@ -1,9 +1,12 @@
 from sikuli import *
 from nas_info import *
+import sys
 
 Settings.OcrTextSearch = True
 Settings.OcrTextRead = True
 def move_to(type):
+    fun_name = sys._getframe().f_code.co_name
+    print("*** Start to " + fun_name + " ***")
     if type == "top":
         if exists("1557993168704.png"):
             dragDrop("1557993168704.png", "1557993187173.png")
@@ -14,14 +17,18 @@ def move_to(type):
             dragDrop("1557993168704.png", "1558066322938.png")
         else:
             pass
+    print("--- End " + fun_name + " ---")
 
 # open qfinder
 def open_qfinder():
+    fun_name = sys._getframe().f_code.co_name
+    print("*** Start to " + fun_name + " ***")
     Qfinder = "C:\Program Files (x86)\QNAP\Qfinder\QfinderPro.exe"
     openApp(Qfinder)
     wait_please(loop=50, time=2)
     wait(10)
     click("1581651434184.png")
+    print("click refresh button in main")
     wait_please(loop=50, time=2)
     wait(10)
     if exists ("1557215006398.png"):
@@ -32,11 +39,15 @@ def open_qfinder():
         flag = 0
     assert flag == 1, "Open Qfinder FAIL"
     click(Pattern("1562128466510.png").similar(0.80))
+    print("Max Qfinder UI")
     wait(1)
+    print("--- End " + fun_name + " ---")
     return flag
 
 # find target NAS
 def find_target_nas(**kwargs):
+    fun_name = sys._getframe().f_code.co_name
+    print("*** Start to " + fun_name + " ***")
     target = nas_detail(**kwargs)
     print(target)
     move_to(type='top')
@@ -91,12 +102,15 @@ def find_target_nas(**kwargs):
                 break
     assert flag == 1, "Find target FAIL"
     wait(2)
+    print("--- End " + fun_name + " ---")
     return flag
 
 def enter_config(ac, pwd):
-    
+    fun_name = sys._getframe().f_code.co_name
+    print("*** Start to " + fun_name + " ***")
     wait(1)
     click("1557300544512.png")
+    print("click config button in main")
     wait(5)
     if exists("1557375692116.png"):
         print("open login window")
@@ -115,9 +129,11 @@ def enter_config(ac, pwd):
     wait(5)
     wait_please(loop=50, time=2)
     if exists("1557302801616.png"):
+        print("open config UI")
         flag = 1
     else:
         flag = 0
+    print("--- End " + fun_name + " ---")
     assert flag == 1, "Open config error"
     
 
@@ -150,8 +166,10 @@ def get_region_text(x,y,w,h):
     return b
 
 def login_open_web():      
+    fun_name = sys._getframe().f_code.co_name
+    print("*** Start to " + fun_name + " ***")
     click("1557309643274.png")
-    print("click login button")
+    print("click login button in main")
     wait(10)
     if exists("1557309257444-1.png"):
         print("Min window")
@@ -193,7 +211,7 @@ def login_open_web():
         print("close chrome")
     except:
         pass
-    
+    print("--- End " + fun_name + " ---")
     return flag
 
 def replace_str(replacestr, *args):
@@ -204,12 +222,15 @@ def replace_str(replacestr, *args):
     return replacestr
 
 def bookmark(target):
+    fun_name = sys._getframe().f_code.co_name
+    print("*** Start to " + fun_name + " ***")
     #  find target NAS
     if find_target_nas(name = target["name"]) == 1:
         bookmark_target = target['icon_highlight']
     else:
         print("FAIL")
     click("1581307703276.png")
+    print("bookmark button in main")
     picture = find(bookmark_target)
     picture_x = picture.getX()
     print(picture_x)
@@ -224,9 +245,12 @@ def bookmark(target):
     else:
         print("FAIL")
         flag = 0
+    print("--- End " + fun_name + " ---")
     return flag
 
 def check_bookmark(target_list,type):
+    fun_name = sys._getframe().f_code.co_name
+    print("*** Start to " + fun_name + " ***")
     if type == "top":
         move_to(type = "top")
     else:
@@ -273,16 +297,22 @@ def check_bookmark(target_list,type):
         print('PASS bookmark')
     else:
         print('FAIL bookmark')
+    print("--- End " + fun_name + " ---")
     return flag 
 
 def upload_action(uploadfile, up_policy):
+    fun_name = sys._getframe().f_code.co_name
+    print("*** Start to " + fun_name + " ***")
     click("1560414599541-1.png")
+    print("click create upload job button")
     wait(1)
     click(Pattern("1560481192508.png").similar(0.90))
+    print("click add file button")
     wait(1)
     type(uploadfile)
     type(Key.ENTER)
     click("1560481294073.png")
+    print("click change destination button")
     for i in range(15):
         wait(2)
         if exists("1560481327682.png"):
@@ -314,6 +344,7 @@ def upload_action(uploadfile, up_policy):
     type(Key.ENTER)
     wait(1)
     click("1560486267746.png")
+    print("click start upload button")
     flag = 0
     for i in range(20):
         wait(5)
@@ -323,5 +354,6 @@ def upload_action(uploadfile, up_policy):
             break
         else:
             flag = 0
+    print("--- End " + fun_name + " ---")
     return flag
 #find_target_nas(name = "Steven-TS551", lanip1 = "10.20.241.196")
