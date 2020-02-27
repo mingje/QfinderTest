@@ -16,7 +16,6 @@ nas_ac = "admin"
 nas_pwd = "dqvtvs473"
 
 target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas_pwd)
-print(target["name"])
 
 def qfinder_mac_sort():
     fun_name = sys._getframe().f_code.co_name
@@ -44,8 +43,11 @@ def qfinder_mac_sort():
         else:
             print("drop item")
     print("Switch list: " + str(maclist))
+    print("Sorting...")
     a = sorted(maclist,key=str.lower)
+    print("Sorting a")
     b = sorted(maclist, reverse=True, key=str.upper)
+    print("Sorting b")
     print("Sorted list: " + (a))
     print("Sorted list: " + (b))
     if maclist == []:

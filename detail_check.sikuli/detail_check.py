@@ -16,6 +16,7 @@ nas_ac = "admin"
 nas_pwd = "jack2030"
 """
 target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas_pwd)
+print("Target is: " + target["name"])
 
 def qfinder_detail_check():
     fun_name = sys._getframe().f_code.co_name

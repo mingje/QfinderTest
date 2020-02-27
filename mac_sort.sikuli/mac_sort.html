@@ -88,7 +88,6 @@ nas_ac = <span class="str">"admin"</span>
 nas_pwd = <span class="str">"dqvtvs473"</span>
 
 target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas_pwd)
-<span class="kw">print</span>(target[<span class="str">"name"</span>])
 
 <span class="kw">def</span> qfinder_mac_sort():
     fun_name = sys._getframe().f_code.co_name
@@ -116,8 +115,11 @@ target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas
         <span class="kw">else</span>:
             <span class="kw">print</span>(<span class="str">"drop item"</span>)
     <span class="kw">print</span>(<span class="str">"Switch list: "</span> + str(maclist))
+    <span class="kw">print</span>(<span class="str">"Sorting..."</span>)
     a = sorted(maclist,key=str.lower)
+    <span class="kw">print</span>(<span class="str">"Sorting a"</span>)
     b = sorted(maclist, reverse=True, key=str.upper)
+    <span class="kw">print</span>(<span class="str">"Sorting b"</span>)
     <span class="kw">print</span>(<span class="str">"Sorted list: "</span> + (a))
     <span class="kw">print</span>(<span class="str">"Sorted list: "</span> + (b))
     <span class="kw">if</span> maclist == []:

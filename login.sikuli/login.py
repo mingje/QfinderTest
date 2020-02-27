@@ -15,7 +15,7 @@ nas_ac = "admin"
 nas_pwd = "jack2030"
 """
 target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas_pwd)
-print(target)
+print("Target is: " + target["name"])
 
 def login_open_web():     
     # open qfinder

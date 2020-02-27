@@ -17,7 +17,7 @@ nas_ac = "admin"
 nas_pwd = "dqvtvs473"
 """
 target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas_pwd)
-print(target)
+print("Target is: " + target["name"])
 
 def qfinder_config():
     # open qfinder

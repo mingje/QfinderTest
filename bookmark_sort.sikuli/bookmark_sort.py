@@ -21,7 +21,6 @@ nas_name1 = "AT-TVS473"
 target1 = nas_detail(name = nas_name)
 target2 = nas_detail(name = nas_name1)
 target_list = [target1,target2]
-print(target_list)
 
 def qfinder_bookmark_sort():
     fun_name = sys._getframe().f_code.co_name
