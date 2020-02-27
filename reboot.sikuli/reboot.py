@@ -10,15 +10,18 @@ nas_lanip1 = sys.argv[2]
 nas_ac = sys.argv[3]
 nas_pwd = sys.argv[4]
 target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas_pwd)
-print(target)
+print(target["name"])
 
 def qfinder_reboot():
+    fun_name = sys._getframe().f_code.co_name
+    print("*** Start to " + fun_name + " ***")
     # open qfinder
     open_qfinder()
     # find target NAS
     find_target_nas(name = target["name"], lanip1 = target["lanip1"])
     wait(1)
     click("1562724193568.png")
+    print("click tools")
     wait(1)
     for i in range(3):
         type(Key.DOWN)
@@ -43,6 +46,7 @@ def qfinder_reboot():
         flag = "False"
     with open("result.txt", "w") as fp:
            fp.write(flag) 
-
+    print("--- End " + fun_name + " ---")
+    
 if __name__ == "__main__":
     qfinder_reboot() 

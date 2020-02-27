@@ -49,7 +49,7 @@ def find_target_nas(**kwargs):
     fun_name = sys._getframe().f_code.co_name
     print("*** Start to " + fun_name + " ***")
     target = nas_detail(**kwargs)
-    print(target)
+    print(target["name"])
     move_to(type='top')
     for i in range(200):
         if exists (Pattern(target['icon']).similar(0.85)):

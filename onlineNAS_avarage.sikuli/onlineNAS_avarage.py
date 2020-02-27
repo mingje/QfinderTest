@@ -15,15 +15,18 @@ nas_ac = "admin"
 nas_pwd = "dqvtvs473"
 """
 target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas_pwd)
-print(target)
+print(target["name"])
 
 def qfinder_onlineNAS():
+    fun_name = sys._getframe().f_code.co_name
+    print("*** Start to " + fun_name + " ***")
     # open qfinder
     open_qfinder()
     
     num_list = []
     for i in range(5):
         click("1558084798037.png")
+        print("click refresh button")
         wait(2)
         wait_please(loop=10,time=10)
         wait(20)
@@ -55,6 +58,7 @@ def qfinder_onlineNAS():
     print(flag)
     with open("result.txt", "w") as fp:
        fp.write(flag) 
-       
+    print("--- End " + fun_name + " ---")
+    
 if __name__ == "__main__":
     qfinder_onlineNAS() 

@@ -18,17 +18,19 @@ nas_ac = "admin"
 nas_pwd = "dqvtvs473"
 """
 target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas_pwd)
-print(target)
+print(target["name"])
 
 def qfinder_media_upload():
+    fun_name = sys._getframe().f_code.co_name
+    print("*** Start to " + fun_name + " ***")
     # open qfinder
     open_qfinder()
     
     #  find target NAS
     find_target_nas(name = target["name"], lanip1 = target["lanip1"])
     
-    
     click("1560414427699.png")
+    print("click media upload button in main")
     for i in range(3):
         wait(3)
         if exists("1557375692116.png"):
@@ -42,6 +44,7 @@ def qfinder_media_upload():
     type(Key.TAB)
     type(target["pwd"])
     type(Key.ENTER)
+    print("input ac & pwd")
     for i in range(3):
         wait(10)
         if exists("1560414599541.png"):
@@ -75,6 +78,7 @@ def qfinder_media_upload():
     with open("result.txt", "w") as fp:
        fp.write(flag) 
     os.system("taskkill /f /im QfinderUpload.exe")
+    print("--- End " + fun_name + " ---")
     
 if __name__ == "__main__":
     qfinder_media_upload() 

@@ -121,7 +121,7 @@ Settings.OcrTextRead = True
     fun_name = sys._getframe().f_code.co_name
     <span class="kw">print</span>(<span class="str">"*** Start to "</span> + fun_name + <span class="str">" ***"</span>)
     target = nas_detail(**kwargs)
-    <span class="kw">print</span>(target)
+    <span class="kw">print</span>(target[<span class="str">"name"</span>])
     move_to(<span class="skw">type</span>=<span class="str">'top'</span>)
     <span class="kw">for</span> i <span class="kw">in</span> range(<span class="dig">200</span>):
         <span class="kw">if</span> exists (Pattern(target[<span class="str">'icon'</span>]).similar(<span class="dig">0.85</span>)):

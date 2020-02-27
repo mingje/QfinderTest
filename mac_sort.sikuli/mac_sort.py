@@ -16,18 +16,21 @@ nas_ac = "admin"
 nas_pwd = "dqvtvs473"
 
 target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas_pwd)
-print(target)
+print(target["name"])
 
 def qfinder_mac_sort():
+    fun_name = sys._getframe().f_code.co_name
+    print("*** Start to " + fun_name + " ***")
     # open qfinder
     open_qfinder()
     click("1557911466975.png")
+    print("click mac address field")
     wait(1)
     
     s = Region(Region(1030,282,132,373))
     mac_str = s.text()
     mac_list = mac_str.splitlines()
-    print(mac_list)
+    print("Initial list:" + str(mac_list))
     # rm space, exchange"l","S"
     maclist = []
     for i in mac_list:
@@ -40,11 +43,11 @@ def qfinder_mac_sort():
             maclist.append(q)
         else:
             print("drop item")
-    print(maclist)
+    print("Switch list: " + str(maclist))
     a = sorted(maclist,key=str.lower)
     b = sorted(maclist, reverse=True, key=str.upper)
-    print(a)
-    print(b)
+    print("Sorted list: " + (a))
+    print("Sorted list: " + (b))
     if maclist == []:
         print("list fail")
         flag = "False"
@@ -56,7 +59,7 @@ def qfinder_mac_sort():
         flag = "False"
     with open("result.txt", "w") as fp:
        fp.write(flag) 
-
+    print("--- End " + fun_name + " ---")
 
 if __name__ == "__main__":
     qfinder_mac_sort() 

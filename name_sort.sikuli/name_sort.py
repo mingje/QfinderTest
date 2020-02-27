@@ -15,7 +15,7 @@ nas_ac = "admin"
 nas_pwd = "dqvtvs473"
 """
 target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas_pwd)
-print(target)
+print(target["name"])
 
 device_list = ['Aloma-TVS682T','Aloma-TVS871t1','Andy-TS253B','Andy-TS453A','Andy-TVS463',
         'AT-TS231P2','AT-TS253BE','AT-TS432XU','AT-TVS473','AT-TS453BT3','AT-TS677-A', 
@@ -29,16 +29,18 @@ device_list = ['Aloma-TVS682T','Aloma-TVS871t1','Andy-TS253B','Andy-TS453A','And
         'Roy-QWU01','Roy-QNE3','Roy-QNE1','RoyHsu-NC-Auto','RoyHsu-670Pro','Roy-682T','RexTVS871T']
 
 def qfinder_name_sort():
+    fun_name = sys._getframe().f_code.co_name
+    print("*** Start to " + fun_name + " ***")
     # open qfinder
     open_qfinder()
     
     click("1557885931619.png")
+    print("click name field")
     wait(1)
     name_region = Region(Region(51,282,232,372))
     name_str = name_region.text()
-    print(name_str)
     current_name_list = name_str.splitlines()
-    print(current_name_list)
+    print("Initial list: " + str(current_name_list))
     # rm space
     d = []
     for i in current_name_list:
@@ -60,11 +62,11 @@ def qfinder_name_sort():
             correct_list.append(q)
         else:
             print("not in list")
-    print(correct_list)
+    print("Switch list: " + str(correct_list))
     a = sorted(correct_list,key=str.lower)
     b = sorted(correct_list, reverse=True, key=str.upper)
-    print(a)
-    print(b)
+    print("Sorted list: " + str(a))
+    print("Sorted list: " + str(b))
     if a == [] or correct_list == []:
         print("list fail")
         flag = "False"
@@ -76,7 +78,7 @@ def qfinder_name_sort():
         flag = "False"
     with open("result.txt", "w") as fp:
        fp.write(flag) 
-
+    print("--- End " + fun_name + " ---")
 
 if __name__ == "__main__":
      qfinder_name_sort()

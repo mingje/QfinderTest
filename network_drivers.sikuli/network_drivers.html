@@ -88,9 +88,11 @@ nas_ac = "admin"
 nas_pwd = "dqvts231p2"
 """</span>
 target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas_pwd)
-<span class="kw">print</span>(target)
+<span class="kw">print</span>(target[<span class="str">"name"</span>])
 
 <span class="kw">def</span> qfinder_network_driver():
+    fun_name = sys._getframe().f_code.co_name
+    <span class="kw">print</span>(<span class="str">"*** Start to "</span> + fun_name + <span class="str">" ***"</span>)
     <span class="cmt"># open qfinder</span>
     open_qfinder()
     <span class="skw">click</span>(<img src="1557739083182.png" />)
@@ -104,6 +106,7 @@ target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas
     <span class="kw">print</span>(<span class="str">"click network drivers button"</span>)
     <span class="skw">wait</span>(<span class="dig">10</span>)
     <span class="kw">if</span> exists(<img src="1557390582065.png" />):
+        <span class="kw">print</span>(<span class="str">"find input network drive window"</span>)
         <span class="skw">type</span>(target[<span class="str">"ac"</span>])
         <span class="skw">wait</span>(<span class="dig">1</span>)
         <span class="skw">type</span>(Key.TAB)
@@ -112,6 +115,7 @@ target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas
         <span class="skw">wait</span>(<span class="dig">1</span>)
         <span class="skw">type</span>(Key.ENTER)
         <span class="skw">wait</span>(<span class="dig">5</span>)
+        <span class="kw">print</span>(<span class="str">"input ac &amp; pwd"</span>)
     <span class="kw">else</span>:
         <span class="kw">pass</span>
 
@@ -138,6 +142,7 @@ target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas
 
     <span class="kw">with</span> open(<span class="str">"result.txt"</span>, <span class="str">"w"</span>) <span class="kw">as</span> fp:
        fp.write(flag)
+    <span class="kw">print</span>(<span class="str">"--- End "</span> + fun_name + <span class="str">" ---"</span>)
 
 <span class="kw">if</span> __name__ == <span class="str">"__main__"</span>:
     qfinder_network_driver()

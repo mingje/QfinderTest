@@ -87,7 +87,7 @@ nas_ac = "admin"
 nas_pwd = "dqvtvs473"
 """</span>
 target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas_pwd)
-<span class="kw">print</span>(target)
+<span class="kw">print</span>(target[<span class="str">"name"</span>])
 
 device_list = [<span class="str">'Aloma-TVS682T'</span>,<span class="str">'Aloma-TVS871t1'</span>,<span class="str">'Andy-TS253B'</span>,<span class="str">'Andy-TS453A'</span>,<span class="str">'Andy-TVS463'</span>,
         <span class="str">'AT-TS231P2'</span>,<span class="str">'AT-TS253BE'</span>,<span class="str">'AT-TS432XU'</span>,<span class="str">'AT-TVS473'</span>,<span class="str">'AT-TS453BT3'</span>,<span class="str">'AT-TS677-A'</span>,
@@ -101,16 +101,18 @@ device_list = [<span class="str">'Aloma-TVS682T'</span>,<span class="str">'Aloma
         <span class="str">'Roy-QWU01'</span>,<span class="str">'Roy-QNE3'</span>,<span class="str">'Roy-QNE1'</span>,<span class="str">'RoyHsu-NC-Auto'</span>,<span class="str">'RoyHsu-670Pro'</span>,<span class="str">'Roy-682T'</span>,<span class="str">'RexTVS871T'</span>]
 
 <span class="kw">def</span> qfinder_name_sort():
+    fun_name = sys._getframe().f_code.co_name
+    <span class="kw">print</span>(<span class="str">"*** Start to "</span> + fun_name + <span class="str">" ***"</span>)
     <span class="cmt"># open qfinder</span>
     open_qfinder()
 
     <span class="skw">click</span>(<img src="1557885931619.png" />)
+    <span class="kw">print</span>(<span class="str">"click name field"</span>)
     <span class="skw">wait</span>(<span class="dig">1</span>)
     name_region = Region(Region(<span class="dig">51</span>,<span class="dig">282</span>,<span class="dig">232</span>,<span class="dig">372</span>))
     name_str = name_region.text()
-    <span class="kw">print</span>(name_str)
     current_name_list = name_str.splitlines()
-    <span class="kw">print</span>(current_name_list)
+    <span class="kw">print</span>(<span class="str">"Initial list: "</span> + str(current_name_list))
     <span class="cmt"># rm space</span>
     d = []
     <span class="kw">for</span> i <span class="kw">in</span> current_name_list:
@@ -132,11 +134,11 @@ device_list = [<span class="str">'Aloma-TVS682T'</span>,<span class="str">'Aloma
             correct_list.append(q)
         <span class="kw">else</span>:
             <span class="kw">print</span>(<span class="str">"not in list"</span>)
-    <span class="kw">print</span>(correct_list)
+    <span class="kw">print</span>(<span class="str">"Switch list: "</span> + str(correct_list))
     a = sorted(correct_list,key=str.lower)
     b = sorted(correct_list, reverse=True, key=str.upper)
-    <span class="kw">print</span>(a)
-    <span class="kw">print</span>(b)
+    <span class="kw">print</span>(<span class="str">"Sorted list: "</span> + str(a))
+    <span class="kw">print</span>(<span class="str">"Sorted list: "</span> + str(b))
     <span class="kw">if</span> a == [] <span class="kw">or</span> correct_list == []:
         <span class="kw">print</span>(<span class="str">"list fail"</span>)
         flag = <span class="str">"False"</span>
@@ -148,7 +150,7 @@ device_list = [<span class="str">'Aloma-TVS682T'</span>,<span class="str">'Aloma
         flag = <span class="str">"False"</span>
     <span class="kw">with</span> open(<span class="str">"result.txt"</span>, <span class="str">"w"</span>) <span class="kw">as</span> fp:
        fp.write(flag)
-
+    <span class="kw">print</span>(<span class="str">"--- End "</span> + fun_name + <span class="str">" ---"</span>)
 
 <span class="kw">if</span> __name__ == <span class="str">"__main__"</span>:
      qfinder_name_sort()

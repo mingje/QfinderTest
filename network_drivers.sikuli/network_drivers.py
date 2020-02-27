@@ -16,9 +16,11 @@ nas_ac = "admin"
 nas_pwd = "dqvts231p2"
 """
 target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas_pwd)
-print(target)
+print(target["name"])
 
 def qfinder_network_driver():
+    fun_name = sys._getframe().f_code.co_name
+    print("*** Start to " + fun_name + " ***")
     # open qfinder
     open_qfinder()
     click("1557739083182.png")
@@ -32,6 +34,7 @@ def qfinder_network_driver():
     print("click network drivers button")
     wait(10)
     if exists("1557390582065.png"):
+        print("find input network drive window")
         type(target["ac"])
         wait(1)
         type(Key.TAB)
@@ -40,6 +43,7 @@ def qfinder_network_driver():
         wait(1)
         type(Key.ENTER)
         wait(5)
+        print("input ac & pwd")
     else:
         pass
     
@@ -66,6 +70,7 @@ def qfinder_network_driver():
     
     with open("result.txt", "w") as fp:
        fp.write(flag) 
-
+    print("--- End " + fun_name + " ---")
+    
 if __name__ == "__main__":
     qfinder_network_driver() 

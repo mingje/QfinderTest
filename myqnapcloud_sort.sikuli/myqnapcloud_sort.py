@@ -16,18 +16,21 @@ nas_ac = "admin"
 nas_pwd = "dqvtvs473"
 """
 target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas_pwd)
-print(target)
+print(target["name"])
 
 def qfinder_myQNAP_sort():
+    fun_name = sys._getframe().f_code.co_name
+    print("*** Start to " + fun_name + " ***")
     # open qfinder
     open_qfinder()
     click("1557906681939.png")
+    print("click myQNAPcloud field")
     wait(1)
     
     s = Region(Region(563,281,139,373))
     myqnap_str = s.text()
     myqnap_list = myqnap_str.splitlines()
-    print(myqnap_list)
+    print("Initial list: " + str(myqnap_list))
     # rm space, exchange"l","S"
     myqnaplist = []
     for i in myqnap_list:
@@ -47,11 +50,11 @@ def qfinder_myQNAP_sort():
         q = q.replace('\xef\xac\x81871test','871test')
         q = q.replace('\xef\xac\x82871test','871test')
         myqnaplist.append(q)
-    print(myqnaplist)
+    print("Switch list: " + str(myqnaplist))
     a = sorted(myqnaplist,key=str.lower)
     b = sorted(myqnaplist, reverse=True, key=str.upper)
-    print(a)
-    print(b)
+    print("Sorted list: " + str(a))
+    print("Sorted list: " + str(b))
     if myqnaplist == []:
         print("list fail")
         flag = "False"
@@ -63,6 +66,7 @@ def qfinder_myQNAP_sort():
         flag = "False"
     with open("result.txt", "w") as fp:
        fp.write(flag) 
-       
+    print("--- End " + fun_name + " ---")
+    
 if __name__ == "__main__":
     qfinder_myQNAP_sort()
