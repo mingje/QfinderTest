@@ -10,7 +10,7 @@ nas_lanip1 = sys.argv[2]
 nas_ac = sys.argv[3]
 nas_pwd = sys.argv[4]
 target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas_pwd)
-print(target["name"])
+print("Target is: " + target["name"])
 
 def qfinder_reboot():
     fun_name = sys._getframe().f_code.co_name
