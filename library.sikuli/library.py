@@ -127,11 +127,13 @@ def enter_config(ac, pwd):
     wait(1)
     type(Key.ENTER)
     wait(5)
+    print("input ac & pwd")
     wait_please(loop=50, time=2)
     if exists("1557302801616.png"):
         print("open config UI")
         flag = 1
     else:
+        print("open config UI fail")
         flag = 0
     print("--- End " + fun_name + " ---")
     assert flag == 1, "Open config error"

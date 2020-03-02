@@ -199,11 +199,13 @@ Settings.OcrTextRead = True
     <span class="skw">wait</span>(<span class="dig">1</span>)
     <span class="skw">type</span>(Key.ENTER)
     <span class="skw">wait</span>(<span class="dig">5</span>)
+    <span class="kw">print</span>(<span class="str">"input ac &amp; pwd"</span>)
     wait_please(loop=<span class="dig">50</span>, time=<span class="dig">2</span>)
     <span class="kw">if</span> exists(<img src="1557302801616.png" />):
         <span class="kw">print</span>(<span class="str">"open config UI"</span>)
         flag = <span class="dig">1</span>
     <span class="kw">else</span>:
+        <span class="kw">print</span>(<span class="str">"open config UI fail"</span>)
         flag = <span class="dig">0</span>
     <span class="kw">print</span>(<span class="str">"--- End "</span> + fun_name + <span class="str">" ---"</span>)
     <span class="kw">assert</span> flag == <span class="dig">1</span>, <span class="str">"Open config error"</span>

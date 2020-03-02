@@ -25,7 +25,8 @@ device_list = ['Aloma-TVS682T','Aloma-TVS871t1','Andy-TS253B','Andy-TS453A','And
         'RoyHsu-882ST','RoyHsu682T',"RexTS831X",'Rex-TS431','Rex-TS253Pro','Rex-TS253B-02', 
         'Rex-TS253B','RexTS228A','RoyHsu-670PRO','Rex-VM2TS1277','Rex-TS832X','rexTS470',
         'AT-Hero473','ATQsyncTS1277','ATQsyncTs253b','ATQsyncTVS871T','ATQsyncTVS882','TS451',
-        'Roy-QWU01','Roy-QNE3','Roy-QNE1','RoyHsu-NC-Auto','RoyHsu-670Pro','Roy-682T','RexTVS871T']
+        'Roy-QWU01','Roy-QNE3','Roy-QNE1','RoyHsu-NC-Auto','RoyHsu-670Pro','Roy-682T','RexTVS871T',
+        'Andy-TS431X2','Andy-TS451','chehung1277','AT-TS532X']
 
 def qfinder_name_sort():
     fun_name = sys._getframe().f_code.co_name
