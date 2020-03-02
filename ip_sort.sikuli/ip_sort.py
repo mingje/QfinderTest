@@ -27,7 +27,7 @@ def qfinder_ip_sort():
     print("click IP address field")
     wait(2)
     
-    s = Region(Region(409,283,102,370))
+    s = Region(Region(402,280,109,375))
     ip_str = s.text()
     ip_list = ip_str.splitlines()
     print("Initial list: " + str(ip_list))
