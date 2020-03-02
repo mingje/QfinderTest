@@ -15,7 +15,6 @@ nas_ac = "admin"
 nas_pwd = "dqvtvs473"
 """
 target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas_pwd)
-print(target["name"])
 
 device_list = ['Aloma-TVS682T','Aloma-TVS871t1','Andy-TS253B','Andy-TS453A','Andy-TVS463',
         'AT-TS231P2','AT-TS253BE','AT-TS432XU','AT-TVS473','AT-TS453BT3','AT-TS677-A', 

@@ -9,7 +9,7 @@ nas_lanip1 = sys.argv[2]
 nas_ac = sys.argv[3]
 nas_pwd = sys.argv[4]
 target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas_pwd)
-print(target)
+print("Target is: " + target["name"])
 
 def qfinder_shutdown_UI():    
     for i in range(6):

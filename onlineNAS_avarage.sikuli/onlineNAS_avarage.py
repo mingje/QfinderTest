@@ -15,7 +15,7 @@ nas_ac = "admin"
 nas_pwd = "dqvtvs473"
 """
 target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas_pwd)
-print(target["name"])
+
 
 def qfinder_onlineNAS():
     fun_name = sys._getframe().f_code.co_name

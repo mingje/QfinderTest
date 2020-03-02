@@ -25,7 +25,7 @@ def qfinder_ip_sort():
     open_qfinder()
     click("1557892638363.png")
     print("click IP address field")
-    wait(1)
+    wait(2)
     
     s = Region(Region(409,283,102,370))
     ip_str = s.text()

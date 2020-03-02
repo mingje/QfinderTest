@@ -82,6 +82,7 @@ nas_lanip1 = sys.argv[<span class="dig">2</span>]
 nas_ac = sys.argv[<span class="dig">3</span>]
 nas_pwd = sys.argv[<span class="dig">4</span>]
 target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas_pwd)
+<span class="kw">print</span>(<span class="str">"Target is: "</span> + target[<span class="str">"name"</span>])
 
 <span class="kw">def</span> qfinder_wakeup():
     fun_name = sys._getframe().f_code.co_name
