@@ -45,6 +45,7 @@ def qfinder_version_sort():
         q = q.replace('1.o.1','1.0.1')
         q = q.replace('o.o.1','0.0.1')
         q = q.replace('0175','q175')
+        q = q.replace('q175I','q175')
         verlist.append(q)
     print("Switch list: " + str(verlist))
     a = sorted(verlist)
