@@ -48,8 +48,8 @@ def qfinder_mac_sort():
     print("Sorting a")
     b = sorted(maclist, reverse=True, key=str.upper)
     print("Sorting b")
-    print("Sorted list: " + (a))
-    print("Sorted list: " + (b))
+    print("Sorted list: " + str(a))
+    print("Sorted list: " + str(b))
     if maclist == []:
         print("list fail")
         flag = "False"

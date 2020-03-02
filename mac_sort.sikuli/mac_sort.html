@@ -120,8 +120,8 @@ target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas
     <span class="kw">print</span>(<span class="str">"Sorting a"</span>)
     b = sorted(maclist, reverse=True, key=str.upper)
     <span class="kw">print</span>(<span class="str">"Sorting b"</span>)
-    <span class="kw">print</span>(<span class="str">"Sorted list: "</span> + (a))
-    <span class="kw">print</span>(<span class="str">"Sorted list: "</span> + (b))
+    <span class="kw">print</span>(<span class="str">"Sorted list: "</span> + str(a))
+    <span class="kw">print</span>(<span class="str">"Sorted list: "</span> + str(b))
     <span class="kw">if</span> maclist == []:
         <span class="kw">print</span>(<span class="str">"list fail"</span>)
         flag = <span class="str">"False"</span>
