@@ -45,6 +45,7 @@ def qfinder_shutdown():
     type(Key.ENTER)
     wait(5)
     print("input ac & pwd")
+    wait(3)
     if exists("1557743664241.png"):
         print("start to shutdown")
         flag = "True"
