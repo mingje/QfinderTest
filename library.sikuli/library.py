@@ -307,7 +307,7 @@ def upload_action(uploadfile, up_policy):
     print("*** Start to " + fun_name + " ***")
     click("1560414599541-1.png")
     print("click create upload job button")
-    wait(1)
+    wait(5)
     click(Pattern("1560481192508.png").similar(0.90))
     print("click add file button")
     wait(1)
