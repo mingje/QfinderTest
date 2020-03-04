@@ -45,7 +45,7 @@ def qfinder_config():
     wait(1)
     region_text = Env.getClipboard().strip()
     print(region_text)
-    assert region_text == target["name"], "device name display error"
+    assert region_text == "TARGETNAS", "device name display error"
     
     type("ATtest")
     wait(1)
