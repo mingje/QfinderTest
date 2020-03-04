@@ -120,7 +120,7 @@ def qfinder_config():
     print(region_text)
     assert region_text == "ATtest", "device name display error"
     
-    type(target["name"])
+    type("TARGETNAS")
     wait(1)
     click("1560739387095.png")
     wait(1)
