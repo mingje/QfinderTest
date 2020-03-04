@@ -124,33 +124,33 @@ Settings.OcrTextRead = True
     <span class="kw">print</span>(<span class="str">"Target is: "</span> + str(target[<span class="str">"name"</span>]))
     move_to(<span class="skw">type</span>=<span class="str">'top'</span>)
     <span class="kw">for</span> i <span class="kw">in</span> range(<span class="dig">200</span>):
-        <span class="kw">if</span> exists (Pattern(target[<span class="str">'icon'</span>]).similar(<span class="dig">0.85</span>)):
+        <span class="kw">if</span> exists (Pattern(target[<span class="str">'icon'</span>]).similar(<span class="dig">0.90</span>)):
             <span class="kw">print</span>(target[<span class="str">"icon"</span>])
-            <span class="skw">click</span>(Pattern(target[<span class="str">'icon'</span>]).similar(<span class="dig">0.85</span>))
+            <span class="skw">click</span>(Pattern(target[<span class="str">'icon'</span>]).similar(<span class="dig">0.90</span>))
             flag = <span class="dig">1</span>
             <span class="kw">print</span>(<span class="str">"find target icon"</span>)
             <span class="kw">break</span>
-        <span class="kw">elif</span> exists (Pattern(target[<span class="str">'icon_1'</span>]).similar(<span class="dig">0.85</span>)):
+        <span class="kw">elif</span> exists (Pattern(target[<span class="str">'icon_1'</span>]).similar(<span class="dig">0.90</span>)):
             <span class="kw">print</span>(target[<span class="str">"icon_g"</span>])
-            <span class="skw">click</span>(Pattern(target[<span class="str">'icon_1'</span>]).similar(<span class="dig">0.85</span>))
+            <span class="skw">click</span>(Pattern(target[<span class="str">'icon_1'</span>]).similar(<span class="dig">0.90</span>))
             flag = <span class="dig">1</span>
             <span class="kw">print</span>(<span class="str">"find target icon_g"</span>)
             <span class="kw">break</span>
-        <span class="kw">elif</span> exists (Pattern(target[<span class="str">'icon_g'</span>]).similar(<span class="dig">0.85</span>)):
+        <span class="kw">elif</span> exists (Pattern(target[<span class="str">'icon_g'</span>]).similar(<span class="dig">0.90</span>)):
             <span class="kw">print</span>(target[<span class="str">"icon_g"</span>])
-            <span class="skw">click</span>(Pattern(target[<span class="str">'icon_g'</span>]).similar(<span class="dig">0.85</span>))
+            <span class="skw">click</span>(Pattern(target[<span class="str">'icon_g'</span>]).similar(<span class="dig">0.90</span>))
             flag = <span class="dig">1</span>
             <span class="kw">print</span>(<span class="str">"find target icon_g"</span>)
             <span class="kw">break</span>
-        <span class="kw">elif</span> exists (Pattern(target[<span class="str">'icon_highlight'</span>]).similar(<span class="dig">0.85</span>)):
+        <span class="kw">elif</span> exists (Pattern(target[<span class="str">'icon_highlight'</span>]).similar(<span class="dig">0.90</span>)):
             <span class="kw">print</span>(target[<span class="str">"icon_highlight"</span>])
-            <span class="skw">click</span>(Pattern(target[<span class="str">'icon_highlight'</span>]).similar(<span class="dig">0.85</span>))
+            <span class="skw">click</span>(Pattern(target[<span class="str">'icon_highlight'</span>]).similar(<span class="dig">0.90</span>))
             flag = <span class="dig">1</span>
             <span class="kw">print</span>(<span class="str">"find target icon_highlight"</span>)
             <span class="kw">break</span>
-        <span class="kw">elif</span> exists (Pattern(target[<span class="str">'icon_gh'</span>]).similar(<span class="dig">0.85</span>)):
+        <span class="kw">elif</span> exists (Pattern(target[<span class="str">'icon_gh'</span>]).similar(<span class="dig">0.90</span>)):
             <span class="kw">print</span>(target[<span class="str">"icon_gh"</span>])
-            <span class="skw">click</span>(Pattern(target[<span class="str">'icon_gh'</span>]).similar(<span class="dig">0.85</span>))
+            <span class="skw">click</span>(Pattern(target[<span class="str">'icon_gh'</span>]).similar(<span class="dig">0.90</span>))
             flag = <span class="dig">1</span>
             <span class="kw">print</span>(<span class="str">"find target icon_gh"</span>)
             <span class="kw">break</span>
