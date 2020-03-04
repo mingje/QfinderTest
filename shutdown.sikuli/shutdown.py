@@ -40,8 +40,11 @@ def qfinder_shutdown():
     else:       
         print("open login window FAIL") 
     type(target["ac"])
+    wait(1)
     type(Key.TAB)
+    wait(1)
     type(target["pwd"])
+    wait(1)
     type(Key.ENTER)
     wait(5)
     print("input ac & pwd")

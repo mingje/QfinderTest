@@ -79,6 +79,7 @@ def qfinder_config():
     for i in range(2):
         wait(1)
         type(Key.TAB)
+        wait(1)
         type("ATtest")
     wait(1)
     

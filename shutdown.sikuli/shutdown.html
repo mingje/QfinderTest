@@ -112,8 +112,11 @@ target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas
     <span class="kw">else</span>:
         <span class="kw">print</span>(<span class="str">"open login window FAIL"</span>)
     <span class="skw">type</span>(target[<span class="str">"ac"</span>])
+    <span class="skw">wait</span>(<span class="dig">1</span>)
     <span class="skw">type</span>(Key.TAB)
+    <span class="skw">wait</span>(<span class="dig">1</span>)
     <span class="skw">type</span>(target[<span class="str">"pwd"</span>])
+    <span class="skw">wait</span>(<span class="dig">1</span>)
     <span class="skw">type</span>(Key.ENTER)
     <span class="skw">wait</span>(<span class="dig">5</span>)
     <span class="kw">print</span>(<span class="str">"input ac &amp; pwd"</span>)

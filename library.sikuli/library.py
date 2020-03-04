@@ -310,7 +310,7 @@ def upload_action(uploadfile, up_policy):
     wait(5)
     click(Pattern("1560481192508.png").similar(0.90))
     print("click add file button")
-    wait(1)
+    wait(3)
     type(uploadfile)
     type(Key.ENTER)
     click("1560481294073.png")
