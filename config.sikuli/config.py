@@ -20,6 +20,8 @@ target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas
 print("Target is: " + target["name"])
 
 def qfinder_config():
+    fun_name = sys._getframe().f_code.co_name
+    print("*** Start to " + fun_name + " ***")
     # open qfinder
     open_qfinder()
     for i in range(2):
@@ -77,6 +79,7 @@ def qfinder_config():
     for i in range(2):
         wait(1)
         type(Key.TAB)
+        wait(1)
         type("ATtest")
     wait(1)
     
@@ -144,6 +147,7 @@ def qfinder_config():
             flag = "False"
     with open("result.txt", "w") as fp:
        fp.write(flag) 
+    print("--- End " + fun_name + " ---")
 
     """
     # refresh list
