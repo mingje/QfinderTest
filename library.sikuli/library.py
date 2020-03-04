@@ -52,33 +52,33 @@ def find_target_nas(**kwargs):
     print("Target is: " + str(target["name"]))
     move_to(type='top')
     for i in range(200):
-        if exists (Pattern(target['icon']).similar(0.85)):
+        if exists (Pattern(target['icon']).similar(0.80)):
             print(target["icon"])
-            click(Pattern(target['icon']).similar(0.85))
+            click(Pattern(target['icon']).similar(0.80))
             flag = 1
             print("find target icon")
             break
-        elif exists (Pattern(target['icon_1']).similar(0.85)):
+        elif exists (Pattern(target['icon_1']).similar(0.80)):
+            print(target["icon_1"])
+            click(Pattern(target['icon_1']).similar(0.80))
+            flag = 1
+            print("find target icon_1")
+            break
+        elif exists (Pattern(target['icon_g']).similar(0.80)):
             print(target["icon_g"])
-            click(Pattern(target['icon_1']).similar(0.85))
+            click(Pattern(target['icon_g']).similar(0.80))
             flag = 1
             print("find target icon_g")
             break
-        elif exists (Pattern(target['icon_g']).similar(0.85)):
-            print(target["icon_g"])
-            click(Pattern(target['icon_g']).similar(0.85))
-            flag = 1
-            print("find target icon_g")
-            break
-        elif exists (Pattern(target['icon_highlight']).similar(0.85)):
+        elif exists (Pattern(target['icon_highlight']).similar(0.80)):
             print(target["icon_highlight"])
-            click(Pattern(target['icon_highlight']).similar(0.85))
+            click(Pattern(target['icon_highlight']).similar(0.80))
             flag = 1
             print("find target icon_highlight")
             break
-        elif exists (Pattern(target['icon_gh']).similar(0.85)):
+        elif exists (Pattern(target['icon_gh']).similar(0.80)):
             print(target["icon_gh"])
-            click(Pattern(target['icon_gh']).similar(0.85))
+            click(Pattern(target['icon_gh']).similar(0.80))
             flag = 1
             print("find target icon_gh")
             break
