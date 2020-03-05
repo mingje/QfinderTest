@@ -44,8 +44,98 @@ def open_qfinder():
     print("--- End " + fun_name + " ---")
     return flag
 
-# find target NAS
+def search_target(find_screenshot):
+    findall_list = []
+    try:
+        all_list = findAll(Pattern(find_screenshot).similar(0.80)
+        for i in all_list:
+            finall_list.append(i)
+    except:
+        print("Not find target")
+    return findall_list
+
+def confirm_target(ta_list):
+    flag = 0
+    for i in ta_list:
+        click(i)
+        wait(1)
+        click("1583378173145.png")
+        wait(1)
+        type("a", KeyModifier.CTRL)
+        wait(1)
+        type("c", KeyModifier.CTRL)
+        wait(1)
+        region_text = Env.getClipboard().strip()
+        print(region_text)
+        region_text = region_text.split("(")
+        s = region_text[0]
+        print(region_text[0])
+        d = s[:-1]
+        click("1583391115643.png")
+        wait(1)
+        if d == targrt['name']:
+            print("ok")
+            flag = 1
+            break
+        else:
+            print("fail")
+            flag = 0
+    return flag                                
+
 def find_target_nas(**kwargs):
+    fun_name = sys._getframe().f_code.co_name
+    print("*** Start to " + fun_name + " ***")
+    target = nas_detail(**kwargs)
+    print("Target is: " + str(target["name"]))
+    move_to(type='top')
+    for i in range(200):
+        w_list = search_target(target['icon'])
+        w_list1 = search_target(target['icon_1'])
+        w_list2 = search_target(target['icon_g'])
+        w_list3 = search_target(target['icon_highlight'])
+        w_list4 = search_target(target['icon_gh'])
+        total_list = [w_list, w_list1, w_list2, w_list3, w_list4]
+        k = 0
+        for k in total_list:
+            k = k + len(k)
+        if k != 0:
+            for i in total_list:
+                if len(i) != 0:      
+                    if confirm_target(i) == 1:
+                        print(target["icon"]) 
+                        flag = 1
+                        print("find target icon")
+                        break
+                else:
+                    pass
+        
+        else:
+            last_name_current = Region(Region(49,632,95,20))
+            last_name_current = last_name_current.text()
+            if exists(Pattern("1557215418598.png").similar(0.80)):
+                for i in range(14):
+                    click(Pattern("1557215418598.png").similar(0.80))
+                last_name = Region(Region(49,632,95,20))
+                last_name = last_name.text()
+                if last_name_current == last_name:
+                    print("Not find target")
+                    flag = 0
+                    break
+                else:
+                    pass
+            else:
+                print("Not find target")
+                flag = 0
+                break
+    assert flag == 1, "Find target FAIL"
+    wait(2)
+    print("--- End " + fun_name + " ---")
+    return flag
+
+
+
+# find target NAS
+def find_target_nas_original(**kwargs):
     fun_name = sys._getframe().f_code.co_name
     print("*** Start to " + fun_name + " ***")
     target = nas_detail(**kwargs)

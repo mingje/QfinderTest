@@ -1,0 +1,169 @@
+
+<html>
+   <head>
+      <style type="text/css">
+         .sikuli-code {
+            font-size: 20px;
+            font-family: "Osaka-mono", Monospace;
+            line-height: 1.5em;
+            display:table-cell;
+            white-space: pre-wrap;       /* css-3 */
+            white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+            white-space: -pre-wrap;      /* Opera 4-6 */
+            white-space: -o-pre-wrap;    /* Opera 7 */
+            word-wrap: break-word;       /* Internet Explorer 5.5+ */
+            width: 99%;   /* remove horizontal scroll-bar when viewing in IE7 */
+         }
+         .sikuli-code img {
+            vertical-align: middle;
+            margin: 2px;
+            border: 1px solid #ccc;
+            padding: 2px;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-box-shadow: 1px 1px 1px gray;
+            -webkit-box-shadow: 1px 1px 2px gray;
+         }
+         .kw {
+            color: blue;
+         }
+         .skw {
+            color: rgb(63, 127, 127);
+         }
+
+         .str {
+            color: rgb(128, 0, 0);
+         }
+
+         .dig {
+            color: rgb(128, 64, 0);
+         }
+
+         .cmt {
+            color: rgb(200, 0, 200);
+         }
+
+         h2 {
+            display: inline;
+            font-weight: normal;
+         }
+
+         .info {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+            display: none;
+         }
+
+         a {
+            color: #9D2900;
+         }
+
+         body {
+            font-family: "Trebuchet MS", Arial, Sans-Serif;
+         }
+
+      </style>
+   </head>
+<body>
+<div class="info">
+<h2>findnas.sikuli</h2> <a href="findnas.zip">(Download this script)</a>
+</div>
+<pre class="sikuli-code">
+a = [<span class="dig">1</span>,<span class="dig">2</span>,<span class="dig">3</span>]
+b = [<span class="dig">4</span>,<span class="dig">5</span>,<span class="dig">6</span>]
+c = []
+d = [a,b,c]
+x = <span class="dig">0</span>
+<span class="kw">for</span> i <span class="kw">in</span> d:
+    x = x + len(i)
+    <span class="kw">print</span>(x)
+
+
+
+
+<span class="str">"""
+def search_target(find_screenshot):
+    findall_list = []
+    try:
+        all_list = findAll(Pattern(find_screenshot).similar(0.80)
+        for i in all_list:
+            finall_list.append(i)
+    except:
+        print("Not find target")
+    return findall_list
+
+def confirm_target(ta_list):
+    flag = 0
+    for i in ta_list:
+        click(i)
+        wait(1)
+        click("1583378173145.png")
+        wait(1)
+        type("a", KeyModifier.CTRL)
+        wait(1)
+        type("c", KeyModifier.CTRL)
+        wait(1)
+        region_text = Env.getClipboard().strip()
+        print(region_text)
+        region_text = region_text.split("(")
+        s = region_text[0]
+        print(region_text[0])
+        d = s[:-1]
+        if d == targrt['name']:
+            print("ok")
+            flag = 1
+            break
+        else:
+            print("fail")
+            flag = 0
+    return flag
+
+if len(search_target()) != 0:
+    w_list = search_target()
+    confirm_target(w_list)
+else:
+    print("nono")
+
+       
+print(target["icon"])
+click(Pattern(target['icon']).similar(0.80))
+flag = 1
+print("find target icon")
+break
+
+   
+def search_target():
+    b = []
+    try:
+        a = findAll("1583378114002.png")
+        for i in a:
+            b.append(i)
+    except:
+        print("Not find target")
+    return b
+
+b = []
+for i in a:
+    b.append(i)
+    click(i)
+    wait(1)
+    click("1583378173145.png")
+    wait(1)
+    type("a", KeyModifier.CTRL)
+    wait(1)
+    type("c", KeyModifier.CTRL)
+    wait(1)
+    region_text = Env.getClipboard().strip()
+    print(region_text)
+    region_text = region_text.split("(")
+    s = region_text[0]
+    print(region_text[0])
+    d = s[:-1]
+    print(d)
+    
+print(len(b))
+"""</span>
+</pre>
+</body>
+</html>
