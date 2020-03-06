@@ -170,7 +170,9 @@ def confirm_target3(nas_picture, lanip1):
     return flag
 
 
-def check_target(screenpath):
+def check_target(screenpath, lanip1):
+    fun_name = sys._getframe().f_code.co_name
+    print("*** Start to " + fun_name + " ***")
     w_list = search_target(screenpath)
     print(w_list)
     flag = 0
@@ -197,14 +199,19 @@ def find_target_nas(**kwargs):
     move_to(type='top')
     for i in range(200):
         if check_target(target['icon']) == 1:
+            flag = 1
             break
-        elif check_target(target['icon_1']) == 1:
+        elif check_target(target['icon_1'],target["lanip1"]) == 1:
+            flag = 1
             break
-        elif check_target(target['icon_g']) == 1:
+        elif check_target(target['icon_g'],target["lanip1"]) == 1:
+            flag = 1
             break
-        elif check_target(target['icon_highlight']) == 1:
+        elif check_target(target['icon_highlight'],target["lanip1"]) == 1:
+            flag = 1
             break
-        elif check_target(target['icon_gh']) == 1:
+        elif check_target(target['icon_gh'],target["lanip1"]) == 1:
+            flag = 1
             break
         else:
             print("next page ")
