@@ -44,15 +44,19 @@ def open_qfinder():
     print("--- End " + fun_name + " ---")
     return flag
 
-def search_target(find_screenshot):
-    findall_list = []
+def search_target(screens):
+    fun_name = sys._getframe().f_code.co_name
+    print("*** Start to " + fun_name + " ***")
+    b_list = []
     try:
-        all_list = findAll(Pattern(find_screenshot).similar(0.80)
+        all_list = findAll(Pattern(screens).similar(0.80))
         for i in all_list:
-            finall_list.append(i)
+            hover(i)
+            b_list.append(i)
     except:
         print("Not find target")
-    return findall_list
+    print("--- End " + fun_name + " ---")
+    return b_list
 
 def confirm_target(ta_list):
     flag = 0
@@ -80,13 +84,54 @@ def confirm_target(ta_list):
         else:
             print("fail")
             flag = 0
-    return flag                                
+    return flag      
+
+def confirm_target2(ta_list, lanip1):
+    fun_name = sys._getframe().f_code.co_name
+    print("*** Start to " + fun_name + " ***")
+    flag = 0
+    for i in ta_list:
+        click(i)
+        print("click target")
+        wait(1)
+        click("1583407685337-1.png")    
+        print("click login button in main")
+        wait(3)
+        reg1 = Region(429,35,670,33)
+        reg1.click("1583407764208-1.png")
+        type("a", KeyModifier.CTRL)
+        wait(1)
+        type("c", KeyModifier.CTRL)
+        wait(1)
+        region_text = Env.getClipboard().strip()
+        print(region_text)
+        aa = region_text.split("/")
+        print(aa)
+        ss = aa[2]
+        qq = ss.split(":")
+        print(qq)
+        ff = qq[0]
+        if ff == lanip1:
+            print("ip match, get target")
+            flag = 1
+        else:
+            print("ip not match")
+            flag = 0
+        try:
+            closeApp("chrome")
+            print("close chrome")
+        except:
+            pass  
+    print("--- End " + fun_name + " ---")   
+    return flag
+
 
 def find_target_nas(**kwargs):
     fun_name = sys._getframe().f_code.co_name
     print("*** Start to " + fun_name + " ***")
     target = nas_detail(**kwargs)
     print("Target is: " + str(target["name"]))
+    print(target)
     move_to(type='top')
     for i in range(200):
         w_list = search_target(target['icon'])
@@ -96,12 +141,12 @@ def find_target_nas(**kwargs):
         w_list4 = search_target(target['icon_gh'])
         total_list = [w_list, w_list1, w_list2, w_list3, w_list4]
         k = 0
-        for k in total_list:
-            k = k + len(k)
+        for t in total_list:
+            k = k + len(t)
         if k != 0:
             for i in total_list:
                 if len(i) != 0:      
-                    if confirm_target(i) == 1:
+                    if confirm_target2(i,lanip1 = target["lanip1"]) == 1:
                         print(target["icon"]) 
                         flag = 1
                         print("find target icon")
