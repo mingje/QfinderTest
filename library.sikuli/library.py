@@ -114,6 +114,7 @@ def confirm_target2(ta_list, lanip1):
         if ff == lanip1:
             print("ip match, get target")
             flag = 1
+            break
         else:
             print("ip not match")
             flag = 0
