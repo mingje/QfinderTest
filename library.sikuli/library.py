@@ -167,7 +167,7 @@ def find_target_nas(**kwargs):
                     pass
         
         else:
-            print("next page")
+            print("next page ")
             last_name_current = Region(Region(49,632,95,20))
             last_name_current = last_name_current.text()
             if exists(Pattern("1557215418598.png").similar(0.80)):
