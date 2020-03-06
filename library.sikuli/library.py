@@ -132,8 +132,106 @@ def confirm_target2(ta_list, lanip1):
     print("--- End " + fun_name + " ---")   
     return flag
 
+def confirm_target3(nas_picture, lanip1):
+    fun_name = sys._getframe().f_code.co_name
+    print("*** Start to " + fun_name + " ***")
+    click(nas_picture)
+    print("click target")
+    wait(1)
+    click("1583407685337-1.png")    
+    print("click login button in main")
+    wait(3)
+    reg1 = Region(429,35,670,33)
+    reg1.click("1583407764208-1.png")
+    type("a", KeyModifier.CTRL)
+    wait(1)
+    type("c", KeyModifier.CTRL)
+    wait(1)
+    region_text = Env.getClipboard().strip()
+    print(region_text)
+    aa = region_text.split("/")
+    print(aa)
+    ss = aa[2]
+    qq = ss.split(":")
+    print(qq)
+    ff = qq[0]
+    if ff == lanip1:
+        print("ip match, get target")
+        flag = 1
+    else:
+        print("ip not match")
+        flag = 0
+    try:
+        closeApp("chrome")
+        print("close chrome")
+    except:
+        pass  
+    print("--- End " + fun_name + " ---")   
+    return flag
+
+
+def check_target(screenpath):
+    w_list = search_target(screenpath)
+    print(w_list)
+    flag = 0
+    if len(w_list) != 0:
+        for i in w_list:    
+            if confirm_target3(i,lanip1 = target["lanip1"]) == 1:
+                print(target["icon"]) 
+                flag = 1
+                print("find target icon")
+                break
+            else:
+                flag = 0
+    else:
+        print("No item in list")
+        flag = 0
+    return flag   
 
 def find_target_nas(**kwargs):
+    fun_name = sys._getframe().f_code.co_name
+    print("*** Start to " + fun_name + " ***")
+    target = nas_detail(**kwargs)
+    print("Target is: " + str(target["name"]) + str(target['lanip1']))
+    print(target)
+    move_to(type='top')
+    for i in range(200):
+        if check_target(target['icon']) == 1:
+            break
+        elif check_target(target['icon_1']) == 1:
+            break
+        elif check_target(target['icon_g']) == 1:
+            break
+        elif check_target(target['icon_highlight']) == 1:
+            break
+        elif check_target(target['icon_gh']) == 1:
+            break
+        else:
+            print("next page ")
+            last_name_current = Region(Region(49,632,95,20))
+            last_name_current = last_name_current.text()
+            if exists(Pattern("1557215418598.png").similar(0.80)):
+                for i in range(14):
+                    click(Pattern("1557215418598.png").similar(0.80))
+                last_name = Region(Region(49,632,95,20))
+                last_name = last_name.text()
+                if last_name_current == last_name:
+                    print("Not find target")
+                    flag = 0
+                    break
+                else:
+                    pass
+            else:
+                print("Not find target")
+                flag = 0
+                break
+    assert flag == 1, "Find target FAIL"
+    wait(2)
+    print("--- End " + fun_name + " ---")
+    return flag
+
+
+def find_target_nas_1(**kwargs):
     fun_name = sys._getframe().f_code.co_name
     print("*** Start to " + fun_name + " ***")
     target = nas_detail(**kwargs)
