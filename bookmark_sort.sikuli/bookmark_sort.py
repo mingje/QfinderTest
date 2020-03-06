@@ -4,7 +4,6 @@ Settings.OcrTextSearch = True
 Settings.OcrTextRead = True
 
 
-import sys
 """
 target_list = []
 for i in range(len(sys.argv)):

@@ -198,7 +198,7 @@ def find_target_nas(**kwargs):
     print(target)
     move_to(type='top')
     for i in range(200):
-        if check_target(target['icon']) == 1:
+        if check_target(target['icon'],target["lanip1"]) == 1:
             flag = 1
             break
         elif check_target(target['icon_1'],target["lanip1"]) == 1:
