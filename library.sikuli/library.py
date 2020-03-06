@@ -90,6 +90,7 @@ def confirm_target2(ta_list, lanip1):
     fun_name = sys._getframe().f_code.co_name
     print("*** Start to " + fun_name + " ***")
     flag = 0
+    print(ta_list)
     for i in ta_list:
         click(i)
         print("click target")
@@ -114,6 +115,11 @@ def confirm_target2(ta_list, lanip1):
         if ff == lanip1:
             print("ip match, get target")
             flag = 1
+            try:
+                closeApp("chrome")
+                print("close chrome")
+            except:
+                pass  
             break
         else:
             print("ip not match")
@@ -131,15 +137,20 @@ def find_target_nas(**kwargs):
     fun_name = sys._getframe().f_code.co_name
     print("*** Start to " + fun_name + " ***")
     target = nas_detail(**kwargs)
-    print("Target is: " + str(target["name"]))
+    print("Target is: " + str(target["name"]) + str(target['lanip1']))
     print(target)
     move_to(type='top')
     for i in range(200):
         w_list = search_target(target['icon'])
+        print(w_list)
         w_list1 = search_target(target['icon_1'])
+        print(w_list1)
         w_list2 = search_target(target['icon_g'])
+        print(w_list2)
         w_list3 = search_target(target['icon_highlight'])
+        print(w_list3)
         w_list4 = search_target(target['icon_gh'])
+        print(w_list4)
         total_list = [w_list, w_list1, w_list2, w_list3, w_list4]
         k = 0
         for t in total_list:
@@ -156,6 +167,7 @@ def find_target_nas(**kwargs):
                     pass
         
         else:
+            print("next page")
             last_name_current = Region(Region(49,632,95,20))
             last_name_current = last_name_current.text()
             if exists(Pattern("1557215418598.png").similar(0.80)):

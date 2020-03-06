@@ -18,8 +18,10 @@ print(target_list)
 
 nas_name = "AT-TS231P2"
 nas_name1 = "AT-TVS473"
-target1 = nas_detail(name = nas_name)
-target2 = nas_detail(name = nas_name1)
+nas_nameip = "10.20.205.75"
+nas_nameip1 = "10.20.204.124"
+target1 = nas_detail(name = nas_name, lanip1 = nas_nameip)
+target2 = nas_detail(name = nas_name1, lanip = nas_nameip1)
 target_list = [target1,target2]
 
 def qfinder_bookmark_sort():
