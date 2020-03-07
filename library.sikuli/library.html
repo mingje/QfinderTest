@@ -158,51 +158,7 @@ Settings.OcrTextRead = True
             flag = <span class="dig">0</span>
     <span class="kw">return</span> flag
 
-<span class="kw">def</span> confirm_target2(ta_list, lanip1):
-    fun_name = sys._getframe().f_code.co_name
-    <span class="kw">print</span>(<span class="str">"*** Start to "</span> + fun_name + <span class="str">" ***"</span>)
-    flag = <span class="dig">0</span>
-    <span class="kw">print</span>(ta_list)
-    <span class="kw">for</span> i <span class="kw">in</span> ta_list:
-        <span class="skw">click</span>(i)
-        <span class="kw">print</span>(<span class="str">"click target"</span>)
-        <span class="skw">wait</span>(<span class="dig">1</span>)
-        <span class="skw">click</span>(<img src="1583407685337-1.png" />)
-        <span class="kw">print</span>(<span class="str">"click login button in main"</span>)
-        <span class="skw">wait</span>(<span class="dig">3</span>)
-        reg1 = Region(<span class="dig">429</span>,<span class="dig">35</span>,<span class="dig">670</span>,<span class="dig">33</span>)
-        reg1.<span class="skw">click</span>(<img src="1583407764208-1.png" />)
-        <span class="skw">type</span>(<span class="str">"a"</span>, KeyModifier.CTRL)
-        <span class="skw">wait</span>(<span class="dig">1</span>)
-        <span class="skw">type</span>(<span class="str">"c"</span>, KeyModifier.CTRL)
-        <span class="skw">wait</span>(<span class="dig">1</span>)
-        region_text = Env.getClipboard().strip()
-        <span class="kw">print</span>(region_text)
-        aa = region_text.split(<span class="str">"/"</span>)
-        <span class="kw">print</span>(aa)
-        ss = aa[<span class="dig">2</span>]
-        qq = ss.split(<span class="str">":"</span>)
-        <span class="kw">print</span>(qq)
-        ff = qq[<span class="dig">0</span>]
-        <span class="kw">if</span> ff == lanip1:
-            <span class="kw">print</span>(<span class="str">"ip match, get target"</span>)
-            flag = <span class="dig">1</span>
-            <span class="kw">try</span>:
-                closeApp(<span class="str">"chrome"</span>)
-                <span class="kw">print</span>(<span class="str">"close chrome"</span>)
-            <span class="kw">except</span>:
-                <span class="kw">pass</span>
-            <span class="kw">break</span>
-        <span class="kw">else</span>:
-            <span class="kw">print</span>(<span class="str">"ip not match"</span>)
-            flag = <span class="dig">0</span>
-        <span class="kw">try</span>:
-            closeApp(<span class="str">"chrome"</span>)
-            <span class="kw">print</span>(<span class="str">"close chrome"</span>)
-        <span class="kw">except</span>:
-            <span class="kw">pass</span>
-    <span class="kw">print</span>(<span class="str">"--- End "</span> + fun_name + <span class="str">" ---"</span>)
-    <span class="kw">return</span> flag
+
 
 <span class="kw">def</span> confirm_target3(nas_picture, lanip1):
     fun_name = sys._getframe().f_code.co_name
@@ -250,8 +206,7 @@ Settings.OcrTextRead = True
     flag = <span class="dig">0</span>
     <span class="kw">if</span> len(w_list) != <span class="dig">0</span>:
         <span class="kw">for</span> i <span class="kw">in</span> w_list:
-            <span class="kw">if</span> confirm_target3(i,lanip1 = target[<span class="str">"lanip1"</span>]) == <span class="dig">1</span>:
-                <span class="kw">print</span>(target[<span class="str">"icon"</span>])
+            <span class="kw">if</span> confirm_target3(i,lanip1) == <span class="dig">1</span>:
                 flag = <span class="dig">1</span>
                 <span class="kw">print</span>(<span class="str">"find target icon"</span>)
                 <span class="kw">break</span>
@@ -309,126 +264,6 @@ Settings.OcrTextRead = True
     <span class="kw">print</span>(<span class="str">"--- End "</span> + fun_name + <span class="str">" ---"</span>)
     <span class="kw">return</span> flag
 
-
-<span class="kw">def</span> find_target_nas_1(**kwargs):
-    fun_name = sys._getframe().f_code.co_name
-    <span class="kw">print</span>(<span class="str">"*** Start to "</span> + fun_name + <span class="str">" ***"</span>)
-    target = nas_detail(**kwargs)
-    <span class="kw">print</span>(<span class="str">"Target is: "</span> + str(target[<span class="str">"name"</span>]) + str(target[<span class="str">'lanip1'</span>]))
-    <span class="kw">print</span>(target)
-    move_to(<span class="skw">type</span>=<span class="str">'top'</span>)
-    <span class="kw">for</span> i <span class="kw">in</span> range(<span class="dig">200</span>):
-        w_list = search_target(target[<span class="str">'icon'</span>])
-        <span class="kw">print</span>(w_list)
-        w_list1 = search_target(target[<span class="str">'icon_1'</span>])
-        <span class="kw">print</span>(w_list1)
-        w_list2 = search_target(target[<span class="str">'icon_g'</span>])
-        <span class="kw">print</span>(w_list2)
-        w_list3 = search_target(target[<span class="str">'icon_highlight'</span>])
-        <span class="kw">print</span>(w_list3)
-        w_list4 = search_target(target[<span class="str">'icon_gh'</span>])
-        <span class="kw">print</span>(w_list4)
-        total_list = [w_list, w_list1, w_list2, w_list3, w_list4]
-        k = <span class="dig">0</span>
-        <span class="kw">for</span> t <span class="kw">in</span> total_list:
-            k = k + len(t)
-        <span class="kw">if</span> k != <span class="dig">0</span>:
-            <span class="kw">for</span> i <span class="kw">in</span> total_list:
-                <span class="kw">if</span> len(i) != <span class="dig">0</span>:
-                    <span class="kw">if</span> confirm_target2(i,lanip1 = target[<span class="str">"lanip1"</span>]) == <span class="dig">1</span>:
-                        <span class="kw">print</span>(target[<span class="str">"icon"</span>])
-                        flag = <span class="dig">1</span>
-                        <span class="kw">print</span>(<span class="str">"find target icon"</span>)
-                        <span class="kw">break</span>
-                <span class="kw">else</span>:
-                    <span class="kw">pass</span>
-
-        <span class="kw">else</span>:
-            <span class="kw">print</span>(<span class="str">"next page "</span>)
-            last_name_current = Region(Region(<span class="dig">49</span>,<span class="dig">632</span>,<span class="dig">95</span>,<span class="dig">20</span>))
-            last_name_current = last_name_current.text()
-            <span class="kw">if</span> exists(Pattern(<img src="1557215418598.png" />).similar(<span class="dig">0.80</span>)):
-                <span class="kw">for</span> i <span class="kw">in</span> range(<span class="dig">14</span>):
-                    <span class="skw">click</span>(Pattern(<img src="1557215418598.png" />).similar(<span class="dig">0.80</span>))
-                last_name = Region(Region(<span class="dig">49</span>,<span class="dig">632</span>,<span class="dig">95</span>,<span class="dig">20</span>))
-                last_name = last_name.text()
-                <span class="kw">if</span> last_name_current == last_name:
-                    <span class="kw">print</span>(<span class="str">"Not find target"</span>)
-                    flag = <span class="dig">0</span>
-                    <span class="kw">break</span>
-                <span class="kw">else</span>:
-                    <span class="kw">pass</span>
-            <span class="kw">else</span>:
-                <span class="kw">print</span>(<span class="str">"Not find target"</span>)
-                flag = <span class="dig">0</span>
-                <span class="kw">break</span>
-    <span class="kw">assert</span> flag == <span class="dig">1</span>, <span class="str">"Find target FAIL"</span>
-    <span class="skw">wait</span>(<span class="dig">2</span>)
-    <span class="kw">print</span>(<span class="str">"--- End "</span> + fun_name + <span class="str">" ---"</span>)
-    <span class="kw">return</span> flag
-
-
-
-<span class="cmt"># find target NAS</span>
-<span class="kw">def</span> find_target_nas_original(**kwargs):
-    fun_name = sys._getframe().f_code.co_name
-    <span class="kw">print</span>(<span class="str">"*** Start to "</span> + fun_name + <span class="str">" ***"</span>)
-    target = nas_detail(**kwargs)
-    <span class="kw">print</span>(<span class="str">"Target is: "</span> + str(target[<span class="str">"name"</span>]))
-    move_to(<span class="skw">type</span>=<span class="str">'top'</span>)
-    <span class="kw">for</span> i <span class="kw">in</span> range(<span class="dig">200</span>):
-        <span class="kw">if</span> exists (Pattern(target[<span class="str">'icon'</span>]).similar(<span class="dig">0.80</span>)):
-            <span class="kw">print</span>(target[<span class="str">"icon"</span>])
-            <span class="skw">click</span>(Pattern(target[<span class="str">'icon'</span>]).similar(<span class="dig">0.80</span>))
-            flag = <span class="dig">1</span>
-            <span class="kw">print</span>(<span class="str">"find target icon"</span>)
-            <span class="kw">break</span>
-        <span class="kw">elif</span> exists (Pattern(target[<span class="str">'icon_1'</span>]).similar(<span class="dig">0.80</span>)):
-            <span class="kw">print</span>(target[<span class="str">"icon_1"</span>])
-            <span class="skw">click</span>(Pattern(target[<span class="str">'icon_1'</span>]).similar(<span class="dig">0.80</span>))
-            flag = <span class="dig">1</span>
-            <span class="kw">print</span>(<span class="str">"find target icon_1"</span>)
-            <span class="kw">break</span>
-        <span class="kw">elif</span> exists (Pattern(target[<span class="str">'icon_g'</span>]).similar(<span class="dig">0.80</span>)):
-            <span class="kw">print</span>(target[<span class="str">"icon_g"</span>])
-            <span class="skw">click</span>(Pattern(target[<span class="str">'icon_g'</span>]).similar(<span class="dig">0.80</span>))
-            flag = <span class="dig">1</span>
-            <span class="kw">print</span>(<span class="str">"find target icon_g"</span>)
-            <span class="kw">break</span>
-        <span class="kw">elif</span> exists (Pattern(target[<span class="str">'icon_highlight'</span>]).similar(<span class="dig">0.80</span>)):
-            <span class="kw">print</span>(target[<span class="str">"icon_highlight"</span>])
-            <span class="skw">click</span>(Pattern(target[<span class="str">'icon_highlight'</span>]).similar(<span class="dig">0.80</span>))
-            flag = <span class="dig">1</span>
-            <span class="kw">print</span>(<span class="str">"find target icon_highlight"</span>)
-            <span class="kw">break</span>
-        <span class="kw">elif</span> exists (Pattern(target[<span class="str">'icon_gh'</span>]).similar(<span class="dig">0.80</span>)):
-            <span class="kw">print</span>(target[<span class="str">"icon_gh"</span>])
-            <span class="skw">click</span>(Pattern(target[<span class="str">'icon_gh'</span>]).similar(<span class="dig">0.80</span>))
-            flag = <span class="dig">1</span>
-            <span class="kw">print</span>(<span class="str">"find target icon_gh"</span>)
-            <span class="kw">break</span>
-        <span class="kw">else</span>:
-            last_name_current = Region(Region(<span class="dig">49</span>,<span class="dig">632</span>,<span class="dig">95</span>,<span class="dig">20</span>))
-            last_name_current = last_name_current.text()
-            <span class="kw">if</span> exists(Pattern(<img src="1557215418598.png" />).similar(<span class="dig">0.80</span>)):
-                <span class="kw">for</span> i <span class="kw">in</span> range(<span class="dig">14</span>):
-                    <span class="skw">click</span>(Pattern(<img src="1557215418598.png" />).similar(<span class="dig">0.80</span>))
-                last_name = Region(Region(<span class="dig">49</span>,<span class="dig">632</span>,<span class="dig">95</span>,<span class="dig">20</span>))
-                last_name = last_name.text()
-                <span class="kw">if</span> last_name_current == last_name:
-                    <span class="kw">print</span>(<span class="str">"Not find target"</span>)
-                    flag = <span class="dig">0</span>
-                    <span class="kw">break</span>
-                <span class="kw">else</span>:
-                    <span class="kw">pass</span>
-            <span class="kw">else</span>:
-                <span class="kw">print</span>(<span class="str">"Not find target"</span>)
-                flag = <span class="dig">0</span>
-                <span class="kw">break</span>
-    <span class="kw">assert</span> flag == <span class="dig">1</span>, <span class="str">"Find target FAIL"</span>
-    <span class="skw">wait</span>(<span class="dig">2</span>)
-    <span class="kw">print</span>(<span class="str">"--- End "</span> + fun_name + <span class="str">" ---"</span>)
-    <span class="kw">return</span> flag
 
 <span class="kw">def</span> enter_config(ac, pwd):
     fun_name = sys._getframe().f_code.co_name
@@ -551,8 +386,9 @@ Settings.OcrTextRead = True
 <span class="kw">def</span> bookmark(target):
     fun_name = sys._getframe().f_code.co_name
     <span class="kw">print</span>(<span class="str">"*** Start to "</span> + fun_name + <span class="str">" ***"</span>)
+    <span class="kw">print</span>(target)
     <span class="cmt">#  find target NAS</span>
-    <span class="kw">if</span> find_target_nas(name = target[<span class="str">"name"</span>]) == <span class="dig">1</span>:
+    <span class="kw">if</span> find_target_nas(name = target[<span class="str">"name"</span>],lanip1 = target[<span class="str">'lanip1'</span>]) == <span class="dig">1</span>:
         bookmark_target = target[<span class="str">'icon_highlight'</span>]
     <span class="kw">else</span>:
         <span class="kw">print</span>(<span class="str">"FAIL"</span>)
@@ -685,6 +521,13 @@ Settings.OcrTextRead = True
     <span class="kw">return</span> flag
 <span class="cmt">#find_target_nas(name = "Steven-TS551", lanip1 = "10.20.241.196")</span>
 
+
+<span class="kw">def</span> b():
+    xx = <span class="str">"abc"</span>
+    <span class="kw">if</span> xx == c(xx):
+        <span class="kw">print</span>(<span class="str">"ok"</span>)
+<span class="kw">def</span> c(datt):
+    <span class="kw">return</span> datt
 </pre>
 </body>
 </html>

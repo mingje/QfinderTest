@@ -1,0 +1,286 @@
+
+<html>
+   <head>
+      <style type="text/css">
+         .sikuli-code {
+            font-size: 20px;
+            font-family: "Osaka-mono", Monospace;
+            line-height: 1.5em;
+            display:table-cell;
+            white-space: pre-wrap;       /* css-3 */
+            white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+            white-space: -pre-wrap;      /* Opera 4-6 */
+            white-space: -o-pre-wrap;    /* Opera 7 */
+            word-wrap: break-word;       /* Internet Explorer 5.5+ */
+            width: 99%;   /* remove horizontal scroll-bar when viewing in IE7 */
+         }
+         .sikuli-code img {
+            vertical-align: middle;
+            margin: 2px;
+            border: 1px solid #ccc;
+            padding: 2px;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-box-shadow: 1px 1px 1px gray;
+            -webkit-box-shadow: 1px 1px 2px gray;
+         }
+         .kw {
+            color: blue;
+         }
+         .skw {
+            color: rgb(63, 127, 127);
+         }
+
+         .str {
+            color: rgb(128, 0, 0);
+         }
+
+         .dig {
+            color: rgb(128, 64, 0);
+         }
+
+         .cmt {
+            color: rgb(200, 0, 200);
+         }
+
+         h2 {
+            display: inline;
+            font-weight: normal;
+         }
+
+         .info {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+            display: none;
+         }
+
+         a {
+            color: #9D2900;
+         }
+
+         body {
+            font-family: "Trebuchet MS", Arial, Sans-Serif;
+         }
+
+      </style>
+   </head>
+<body>
+<div class="info">
+<h2>testt.sikuli</h2> <a href="testt.zip">(Download this script)</a>
+</div>
+<pre class="sikuli-code">
+<span class="kw">def</span> confirm_target2(ta_list, lanip1):
+    fun_name = sys._getframe().f_code.co_name
+    <span class="kw">print</span>(<span class="str">"*** Start to "</span> + fun_name + <span class="str">" ***"</span>)
+    flag = <span class="dig">0</span>
+    <span class="kw">print</span>(ta_list)
+    <span class="kw">for</span> i <span class="kw">in</span> ta_list:
+        <span class="skw">click</span>(i)
+        <span class="kw">print</span>(<span class="str">"click target"</span>)
+        <span class="skw">wait</span>(<span class="dig">1</span>)
+        <span class="skw">click</span>(<img src="1583407685337-1.png" />)
+        <span class="kw">print</span>(<span class="str">"click login button in main"</span>)
+        <span class="skw">wait</span>(<span class="dig">3</span>)
+        reg1 = Region(<span class="dig">429</span>,<span class="dig">35</span>,<span class="dig">670</span>,<span class="dig">33</span>)
+        reg1.<span class="skw">click</span>(<img src="1583510293595.png" />)
+        <span class="skw">type</span>(<span class="str">"a"</span>, KeyModifier.CTRL)
+        <span class="skw">wait</span>(<span class="dig">1</span>)
+        <span class="skw">type</span>(<span class="str">"c"</span>, KeyModifier.CTRL)
+        <span class="skw">wait</span>(<span class="dig">1</span>)
+        region_text = Env.getClipboard().strip()
+        <span class="kw">print</span>(region_text)
+        aa = region_text.split(<span class="str">"/"</span>)
+        <span class="kw">print</span>(aa)
+        ss = aa[<span class="dig">2</span>]
+        qq = ss.split(<span class="str">":"</span>)
+        <span class="kw">print</span>(qq)
+        ff = qq[<span class="dig">0</span>]
+        <span class="kw">if</span> ff == lanip1:
+            <span class="kw">print</span>(<span class="str">"ip match, get target"</span>)
+            flag = <span class="dig">1</span>
+            <span class="kw">try</span>:
+                closeApp(<span class="str">"chrome"</span>)
+                <span class="kw">print</span>(<span class="str">"close chrome"</span>)
+            <span class="kw">except</span>:
+                <span class="kw">pass</span>
+            <span class="kw">break</span>
+        <span class="kw">else</span>:
+            <span class="kw">print</span>(<span class="str">"ip not match"</span>)
+            flag = <span class="dig">0</span>
+        <span class="kw">try</span>:
+            closeApp(<span class="str">"chrome"</span>)
+            <span class="kw">print</span>(<span class="str">"close chrome"</span>)
+        <span class="kw">except</span>:
+            <span class="kw">pass</span>
+    <span class="kw">print</span>(<span class="str">"--- End "</span> + fun_name + <span class="str">" ---"</span>)
+    <span class="kw">return</span> flagdef confirm_target2(ta_list, lanip1):
+    fun_name = sys._getframe().f_code.co_name
+    <span class="kw">print</span>(<span class="str">"*** Start to "</span> + fun_name + <span class="str">" ***"</span>)
+    flag = <span class="dig">0</span>
+    <span class="kw">print</span>(ta_list)
+    <span class="kw">for</span> i <span class="kw">in</span> ta_list:
+        <span class="skw">click</span>(i)
+        <span class="kw">print</span>(<span class="str">"click target"</span>)
+        <span class="skw">wait</span>(<span class="dig">1</span>)
+        <span class="skw">click</span>(<img src="1583407685337-2.png" />)
+        <span class="kw">print</span>(<span class="str">"click login button in main"</span>)
+        <span class="skw">wait</span>(<span class="dig">3</span>)
+        reg1 = Region(<span class="dig">429</span>,<span class="dig">35</span>,<span class="dig">670</span>,<span class="dig">33</span>)
+        reg1.<span class="skw">click</span>(<img src="1583510293595-1.png" />)
+        <span class="skw">type</span>(<span class="str">"a"</span>, KeyModifier.CTRL)
+        <span class="skw">wait</span>(<span class="dig">1</span>)
+        <span class="skw">type</span>(<span class="str">"c"</span>, KeyModifier.CTRL)
+        <span class="skw">wait</span>(<span class="dig">1</span>)
+        region_text = Env.getClipboard().strip()
+        <span class="kw">print</span>(region_text)
+        aa = region_text.split(<span class="str">"/"</span>)
+        <span class="kw">print</span>(aa)
+        ss = aa[<span class="dig">2</span>]
+        qq = ss.split(<span class="str">":"</span>)
+        <span class="kw">print</span>(qq)
+        ff = qq[<span class="dig">0</span>]
+        <span class="kw">if</span> ff == lanip1:
+            <span class="kw">print</span>(<span class="str">"ip match, get target"</span>)
+            flag = <span class="dig">1</span>
+            <span class="kw">try</span>:
+                closeApp(<span class="str">"chrome"</span>)
+                <span class="kw">print</span>(<span class="str">"close chrome"</span>)
+            <span class="kw">except</span>:
+                <span class="kw">pass</span>
+            <span class="kw">break</span>
+        <span class="kw">else</span>:
+            <span class="kw">print</span>(<span class="str">"ip not match"</span>)
+            flag = <span class="dig">0</span>
+        <span class="kw">try</span>:
+            closeApp(<span class="str">"chrome"</span>)
+            <span class="kw">print</span>(<span class="str">"close chrome"</span>)
+        <span class="kw">except</span>:
+            <span class="kw">pass</span>
+    <span class="kw">print</span>(<span class="str">"--- End "</span> + fun_name + <span class="str">" ---"</span>)
+    <span class="kw">return</span> flag
+
+<span class="kw">def</span> find_target_nas_1(**kwargs):
+    fun_name = sys._getframe().f_code.co_name
+    <span class="kw">print</span>(<span class="str">"*** Start to "</span> + fun_name + <span class="str">" ***"</span>)
+    target = nas_detail(**kwargs)
+    <span class="kw">print</span>(<span class="str">"Target is: "</span> + str(target[<span class="str">"name"</span>]) + str(target[<span class="str">'lanip1'</span>]))
+    <span class="kw">print</span>(target)
+    move_to(<span class="skw">type</span>=<span class="str">'top'</span>)
+    <span class="kw">for</span> i <span class="kw">in</span> range(<span class="dig">200</span>):
+        w_list = search_target(target[<span class="str">'icon'</span>])
+        <span class="kw">print</span>(w_list)
+        w_list1 = search_target(target[<span class="str">'icon_1'</span>])
+        <span class="kw">print</span>(w_list1)
+        w_list2 = search_target(target[<span class="str">'icon_g'</span>])
+        <span class="kw">print</span>(w_list2)
+        w_list3 = search_target(target[<span class="str">'icon_highlight'</span>])
+        <span class="kw">print</span>(w_list3)
+        w_list4 = search_target(target[<span class="str">'icon_gh'</span>])
+        <span class="kw">print</span>(w_list4)
+        total_list = [w_list, w_list1, w_list2, w_list3, w_list4]
+        k = <span class="dig">0</span>
+        <span class="kw">for</span> t <span class="kw">in</span> total_list:
+            k = k + len(t)
+        <span class="kw">if</span> k != <span class="dig">0</span>:
+            <span class="kw">for</span> i <span class="kw">in</span> total_list:
+                <span class="kw">if</span> len(i) != <span class="dig">0</span>:
+                    <span class="kw">if</span> confirm_target2(i,lanip1 = target[<span class="str">"lanip1"</span>]) == <span class="dig">1</span>:
+                        <span class="kw">print</span>(target[<span class="str">"icon"</span>])
+                        flag = <span class="dig">1</span>
+                        <span class="kw">print</span>(<span class="str">"find target icon"</span>)
+                        <span class="kw">break</span>
+                <span class="kw">else</span>:
+                    <span class="kw">pass</span>
+
+        <span class="kw">else</span>:
+            <span class="kw">print</span>(<span class="str">"next page "</span>)
+            last_name_current = Region(Region(<span class="dig">49</span>,<span class="dig">632</span>,<span class="dig">95</span>,<span class="dig">20</span>))
+            last_name_current = last_name_current.text()
+            <span class="kw">if</span> exists(Pattern(<img src="1557215418598.png" />).similar(<span class="dig">0.80</span>)):
+                <span class="kw">for</span> i <span class="kw">in</span> range(<span class="dig">14</span>):
+                    <span class="skw">click</span>(Pattern(<img src="1557215418598.png" />).similar(<span class="dig">0.80</span>))
+                last_name = Region(Region(<span class="dig">49</span>,<span class="dig">632</span>,<span class="dig">95</span>,<span class="dig">20</span>))
+                last_name = last_name.text()
+                <span class="kw">if</span> last_name_current == last_name:
+                    <span class="kw">print</span>(<span class="str">"Not find target"</span>)
+                    flag = <span class="dig">0</span>
+                    <span class="kw">break</span>
+                <span class="kw">else</span>:
+                    <span class="kw">pass</span>
+            <span class="kw">else</span>:
+                <span class="kw">print</span>(<span class="str">"Not find target"</span>)
+                flag = <span class="dig">0</span>
+                <span class="kw">break</span>
+    <span class="str">"""
+    assert flag == 1, "Find target FAIL"
+    """</span>
+    <span class="skw">wait</span>(<span class="dig">2</span>)
+    <span class="kw">print</span>(<span class="str">"--- End "</span> + fun_name + <span class="str">" ---"</span>)
+    <span class="kw">return</span> flag
+
+
+
+<span class="cmt"># find target NAS</span>
+<span class="kw">def</span> find_target_nas_original(**kwargs):
+    fun_name = sys._getframe().f_code.co_name
+    <span class="kw">print</span>(<span class="str">"*** Start to "</span> + fun_name + <span class="str">" ***"</span>)
+    target = nas_detail(**kwargs)
+    <span class="kw">print</span>(<span class="str">"Target is: "</span> + str(target[<span class="str">"name"</span>]))
+    move_to(<span class="skw">type</span>=<span class="str">'top'</span>)
+    <span class="kw">for</span> i <span class="kw">in</span> range(<span class="dig">200</span>):
+        <span class="kw">if</span> exists (Pattern(target[<span class="str">'icon'</span>]).similar(<span class="dig">0.80</span>)):
+            <span class="kw">print</span>(target[<span class="str">"icon"</span>])
+            <span class="skw">click</span>(Pattern(target[<span class="str">'icon'</span>]).similar(<span class="dig">0.80</span>))
+            flag = <span class="dig">1</span>
+            <span class="kw">print</span>(<span class="str">"find target icon"</span>)
+            <span class="kw">break</span>
+        <span class="kw">elif</span> exists (Pattern(target[<span class="str">'icon_1'</span>]).similar(<span class="dig">0.80</span>)):
+            <span class="kw">print</span>(target[<span class="str">"icon_1"</span>])
+            <span class="skw">click</span>(Pattern(target[<span class="str">'icon_1'</span>]).similar(<span class="dig">0.80</span>))
+            flag = <span class="dig">1</span>
+            <span class="kw">print</span>(<span class="str">"find target icon_1"</span>)
+            <span class="kw">break</span>
+        <span class="kw">elif</span> exists (Pattern(target[<span class="str">'icon_g'</span>]).similar(<span class="dig">0.80</span>)):
+            <span class="kw">print</span>(target[<span class="str">"icon_g"</span>])
+            <span class="skw">click</span>(Pattern(target[<span class="str">'icon_g'</span>]).similar(<span class="dig">0.80</span>))
+            flag = <span class="dig">1</span>
+            <span class="kw">print</span>(<span class="str">"find target icon_g"</span>)
+            <span class="kw">break</span>
+        <span class="kw">elif</span> exists (Pattern(target[<span class="str">'icon_highlight'</span>]).similar(<span class="dig">0.80</span>)):
+            <span class="kw">print</span>(target[<span class="str">"icon_highlight"</span>])
+            <span class="skw">click</span>(Pattern(target[<span class="str">'icon_highlight'</span>]).similar(<span class="dig">0.80</span>))
+            flag = <span class="dig">1</span>
+            <span class="kw">print</span>(<span class="str">"find target icon_highlight"</span>)
+            <span class="kw">break</span>
+        <span class="kw">elif</span> exists (Pattern(target[<span class="str">'icon_gh'</span>]).similar(<span class="dig">0.80</span>)):
+            <span class="kw">print</span>(target[<span class="str">"icon_gh"</span>])
+            <span class="skw">click</span>(Pattern(target[<span class="str">'icon_gh'</span>]).similar(<span class="dig">0.80</span>))
+            flag = <span class="dig">1</span>
+            <span class="kw">print</span>(<span class="str">"find target icon_gh"</span>)
+            <span class="kw">break</span>
+        <span class="kw">else</span>:
+            last_name_current = Region(Region(<span class="dig">49</span>,<span class="dig">632</span>,<span class="dig">95</span>,<span class="dig">20</span>))
+            last_name_current = last_name_current.text()
+            <span class="kw">if</span> exists(Pattern(<img src="1557215418598.png" />).similar(<span class="dig">0.80</span>)):
+                <span class="kw">for</span> i <span class="kw">in</span> range(<span class="dig">14</span>):
+                    <span class="skw">click</span>(Pattern(<img src="1557215418598.png" />).similar(<span class="dig">0.80</span>))
+                last_name = Region(Region(<span class="dig">49</span>,<span class="dig">632</span>,<span class="dig">95</span>,<span class="dig">20</span>))
+                last_name = last_name.text()
+                <span class="kw">if</span> last_name_current == last_name:
+                    <span class="kw">print</span>(<span class="str">"Not find target"</span>)
+                    flag = <span class="dig">0</span>
+                    <span class="kw">break</span>
+                <span class="kw">else</span>:
+                    <span class="kw">pass</span>
+            <span class="kw">else</span>:
+                <span class="kw">print</span>(<span class="str">"Not find target"</span>)
+                flag = <span class="dig">0</span>
+                <span class="kw">break</span>
+    <span class="kw">assert</span> flag == <span class="dig">1</span>, <span class="str">"Find target FAIL"</span>
+    <span class="skw">wait</span>(<span class="dig">2</span>)
+    <span class="kw">print</span>(<span class="str">"--- End "</span> + fun_name + <span class="str">" ---"</span>)
+    <span class="kw">return</span> flag
+</pre>
+</body>
+</html>

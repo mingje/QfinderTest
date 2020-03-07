@@ -89,10 +89,10 @@ print(target_list)
 
 nas_name = <span class="str">"AT-TS231P2"</span>
 nas_name1 = <span class="str">"AT-TVS473"</span>
-nas_lanip = <span class="str">"10.20.205.75"</span>
+nas_lanip = <span class="str">"192.168.0.100"</span>
 nas_lanip1 = <span class="str">"10.20.204.124"</span>
 target1 = nas_detail(name = nas_name, lanip1 = nas_lanip)
-target2 = nas_detail(name = nas_name1, lanip1 = nas_laneip1)
+target2 = nas_detail(name = nas_name1, lanip1 = nas_lanip1)
 target_list = [target1,target2]
 
 <span class="kw">def</span> qfinder_bookmark_sort():
@@ -142,6 +142,7 @@ target_list = [target1,target2]
     move_to(<span class="skw">type</span> = <span class="str">"top"</span>)
     <span class="skw">wait</span>(<span class="dig">1</span>)
     <span class="kw">for</span> target <span class="kw">in</span> target_list:
+        <span class="kw">print</span>(target[<span class="str">'name'</span>] + target[<span class="str">'lanip1'</span>])
         <span class="skw">click</span>(Location(<span class="dig">1200</span>, <span class="dig">500</span>))
         <span class="skw">wait</span>(<span class="dig">1</span>)
         bookmark(target=target)
