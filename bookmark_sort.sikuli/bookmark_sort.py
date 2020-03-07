@@ -17,7 +17,7 @@ print(target_list)
 
 nas_name = "AT-TS231P2"
 nas_name1 = "AT-TVS473"
-nas_lanip = "192.168.0.100"
+nas_lanip = "10.20.205.75"
 nas_lanip1 = "10.20.204.124"
 target1 = nas_detail(name = nas_name, lanip1 = nas_lanip)
 target2 = nas_detail(name = nas_name1, lanip1 = nas_lanip1)
