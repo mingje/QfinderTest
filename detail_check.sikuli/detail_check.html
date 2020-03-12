@@ -115,42 +115,47 @@ target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas
         <span class="kw">try</span>:
             waitVanish(<img src="1557302307072.png" />,<span class="dig">10</span>)
             <span class="kw">if</span> <span class="skw">find</span>(<img src="1557474742418.png" />):
+                <span class="kw">print</span>(<span class="str">"open device detail page"</span>)
                 flag = <span class="dig">1</span>
                 <span class="kw">break</span>
             <span class="kw">elif</span> <span class="skw">find</span>(<img src="1557477457185.png" />):
                 flag = <span class="dig">0</span>
                 <span class="kw">break</span>
             <span class="kw">else</span>:
-                <span class="kw">pass</span>
+                <span class="kw">print</span>(<span class="str">"Unknown status"</span>)
+                flag = <span class="dig">0</span>
         <span class="kw">except</span>:
             flag = <span class="dig">0</span>
     <span class="kw">assert</span> flag == <span class="dig">1</span>, <span class="str">"Open detail FAIL"</span>
 
-    detail_window = Region(Region(<span class="dig">403</span>,<span class="dig">163</span>,<span class="dig">471</span>,<span class="dig">347</span>))
-    <span class="kw">for</span> i <span class="kw">in</span> range(<span class="dig">3</span>):
-        detail_window.<span class="skw">click</span>(<img src="1557400195347.png" />)
+<span class="str">"""
+    
+    detail_window = Region(Region(403,163,471,347))
+    for i in range(3):
+        detail_window.click("1557400195347.png")
     check_result = []
-    <span class="kw">for</span> i <span class="kw">in</span> target[<span class="str">"detail_check"</span>]:
-        <span class="kw">if</span> detail_window.exists(Pattern(i).similar(<span class="dig">0.90</span>)):
-            <span class="kw">print</span>(<span class="str">"detail check PASS"</span>)
-            check_result.append(<span class="str">"P"</span>)
-        <span class="kw">else</span>:
-            <span class="kw">print</span>(<span class="str">"detail check FAIL"</span>)
-            check_result.append(<span class="str">"F"</span>)
-        <span class="kw">if</span> detail_window.exists(Pattern(<img src="1557482984281.png" />).similar(<span class="dig">0.90</span>)):
-            <span class="kw">print</span>(<span class="str">"Find end"</span>)
-            <span class="kw">break</span>
-        <span class="kw">else</span>:
-            <span class="kw">for</span> j <span class="kw">in</span> range(<span class="dig">11</span>):
-                detail_window.<span class="skw">click</span>(<img src="1557400195347.png" />)
-            <span class="skw">wait</span>(<span class="dig">1</span>)
-    <span class="kw">print</span>(check_result)
-    <span class="kw">if</span> <span class="str">"F"</span> <span class="kw">in</span> check_result:
-        <span class="kw">print</span>(<span class="str">"detail FAIL"</span>)
-        flag = <span class="str">"False"</span>
-    <span class="kw">else</span>:
-        flag = <span class="str">"True"</span>
-        <span class="kw">print</span>(<span class="str">"detail PASS"</span>)
+    for i in target["detail_check"]:
+        if detail_window.exists(Pattern(i).similar(0.90)):
+            print("detail check PASS")
+            check_result.append("P")
+        else:
+            print("detail check FAIL")
+            check_result.append("F")
+        if detail_window.exists(Pattern("1557482984281.png").similar(0.90)):
+            print("Find end")
+            break
+        else:
+            for j in range(11):
+                detail_window.click("1557400195347.png")
+            wait(1)
+    print(check_result)
+    if "F" in check_result:
+        print("detail FAIL")
+        flag = "False"       
+    else:
+        flag = "True"
+        print("detail PASS")
+"""</span>
     <span class="kw">with</span> open(<span class="str">"result.txt"</span>, <span class="str">"w"</span>) <span class="kw">as</span> fp:
        fp.write(flag)
     <span class="kw">print</span>(<span class="str">"--- End "</span> + fun_name + <span class="str">" ---"</span>)

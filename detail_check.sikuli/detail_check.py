@@ -43,16 +43,20 @@ def qfinder_detail_check():
         try:
             waitVanish("1557302307072.png",10)
             if find("1557474742418.png"):
+                print("open device detail page")
                 flag = 1
                 break
             elif find("1557477457185.png"):
                 flag = 0
                 break
             else:
-                pass
+                print("Unknown status")
+                flag = 0
         except:
             flag = 0
     assert flag == 1, "Open detail FAIL"
+
+"""
     
     detail_window = Region(Region(403,163,471,347))
     for i in range(3):
@@ -79,6 +83,7 @@ def qfinder_detail_check():
     else:
         flag = "True"
         print("detail PASS")
+"""
     with open("result.txt", "w") as fp:
        fp.write(flag) 
     print("--- End " + fun_name + " ---")
