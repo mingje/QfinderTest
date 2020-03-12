@@ -72,6 +72,7 @@ target_info_name = sys.argv[2]
 target_info_lanip = sys.argv[3]
 target_info_ac = sys.argv[4]
 target_info_pwd = sys.argv[5]
+target_info_qid = sys.argv[6]
 
 class QfinderTest(unittest.TestCase):
 
@@ -180,7 +181,8 @@ class QfinderTest(unittest.TestCase):
     def test008_detail_check(self):
         fun_name = sys._getframe().f_code.co_name
         sikuli_runcase = "C:\\sikuli\\runsikulix -r " + current_path + "\\detail_check.sikuli -f " + logfile\
-                         + fun_name + ".txt --args " + target_info_name + " " + target_info_lanip + " " + target_info_ac + " " + target_info_pwd
+                         + fun_name + ".txt --args " + target_info_name + " " + target_info_lanip + " " + target_info_ac \
+                         + " " + target_info_pwd + " " + target_info_qid
         subprocess.run(sikuli_runcase, shell=True)
         with open("result.txt", "r") as fp:
             flag = fp.read()
@@ -206,7 +208,7 @@ class QfinderTest(unittest.TestCase):
         fun_name = sys._getframe().f_code.co_name
         sikuli_runcase = "C:\\sikuli\\runsikulix -r " + current_path + "\\media_upload.sikuli -d -f " + logfile\
                         + fun_name + ".txt --args " + target_info_name + " " + target_info_lanip + " " + target_info_ac + " " + \
-                            target_info_pwd
+                            target_info_pwd + " " + target_info_qid
         subprocess.run(sikuli_runcase, shell=True)
         with open("result.txt", "r") as fp:
             flag = fp.read()
@@ -220,7 +222,8 @@ class QfinderTest(unittest.TestCase):
     def test011_login(self):
         fun_name = sys._getframe().f_code.co_name
         sikuli_runcase = "C:\\sikuli\\runsikulix -r " + current_path + "\\login.sikuli -f " + logfile\
-                         + fun_name + ".txt --args " + target_info_name + " " + target_info_lanip + " " + target_info_ac + " " + target_info_pwd
+                         + fun_name + ".txt --args " + target_info_name + " " + target_info_lanip + " " + target_info_ac\
+                         + " " + target_info_pwd + " " + target_info_qid
         subprocess.run(sikuli_runcase, shell=True)
         with open("result.txt", "r") as fp:
             flag = fp.read()
@@ -232,7 +235,8 @@ class QfinderTest(unittest.TestCase):
     def test012_network_drivers(self):
         fun_name = sys._getframe().f_code.co_name
         sikuli_runcase = "C:\\sikuli\\runsikulix -r " + current_path + "\\network_drivers.sikuli -f " + logfile\
-                         + fun_name + ".txt --args " + target_info_name + " " + target_info_lanip + " " + target_info_ac + " " + target_info_pwd
+                         + fun_name + ".txt --args " + target_info_name + " " + target_info_lanip + " " + target_info_ac\
+                         + " " + target_info_pwd + " " + target_info_qid
         subprocess.run(sikuli_runcase, shell=True)
         with open("result.txt", "r") as fp:
             flag = fp.read()
@@ -245,7 +249,7 @@ class QfinderTest(unittest.TestCase):
         fun_name = sys._getframe().f_code.co_name
         sikuli_runcase = "C:\\sikuli\\runsikulix -r " + current_path + "\\shutdown.sikuli -d -f " + logfile\
                          + fun_name + ".txt --args " + target_info_name + " " + target_info_lanip + " " + target_info_ac + " " + \
-                         target_info_pwd
+                         target_info_pwd + " " + target_info_qid
         subprocess.run(sikuli_runcase, shell=True)
         with open("result.txt", "r") as fp:
             flag = fp.read()
@@ -255,7 +259,7 @@ class QfinderTest(unittest.TestCase):
         library.shutdown_check(hostname=target_info_lanip, port=22, username=target_info_ac, password=target_info_pwd)
         sikuli_runcase = "C:\\sikuli\\runsikulix -r " + current_path + "\\shutdown_UI.sikuli -d -f " + logfile + "shutdown_UI.txt --args " \
                          + target_info_name + " " + target_info_lanip + " " + target_info_ac + " " + \
-                         target_info_pwd
+                         target_info_pwd + " " + target_info_qid
         subprocess.run(sikuli_runcase, shell=True)
         with open("result.txt", "r") as fp:
             flag = fp.read()
@@ -268,7 +272,7 @@ class QfinderTest(unittest.TestCase):
         fun_name = sys._getframe().f_code.co_name
         sikuli_runcase = "C:\\sikuli\\runsikulix -r " + current_path + "\\wakeup.sikuli -d -f " + logfile\
                          + fun_name + ".txt --args " + target_info_name + " " + target_info_lanip + " " + target_info_ac + " " + \
-                         target_info_pwd
+                         target_info_pwd + " " + target_info_qid
         subprocess.run(sikuli_runcase, shell=True)
         with open("result.txt", "r") as fp:
             flag = fp.read()
@@ -278,7 +282,7 @@ class QfinderTest(unittest.TestCase):
         library.alive_check(hostname=target_info_lanip, port=22, username=target_info_ac, password=target_info_pwd)
         sikuli_runcase = "C:\\sikuli\\runsikulix -r " + current_path + "\\wakeup_UI.sikuli -d -f " + logfile + "wakeup_UI.txt --args " \
                          + target_info_name + " " + target_info_lanip + " " + target_info_ac + " " + \
-                         target_info_pwd
+                         target_info_pwd + " " + target_info_qid
         subprocess.run(sikuli_runcase, shell=True)
         with open("result.txt", "r") as fp:
             flag = fp.read()
@@ -291,7 +295,7 @@ class QfinderTest(unittest.TestCase):
         fun_name = sys._getframe().f_code.co_name
         sikuli_runcase = "C:\\sikuli\\runsikulix -r " + current_path + "\\reboot.sikuli -d -f " + logfile\
                          + fun_name + ".txt --args " + target_info_name + " " + target_info_lanip + " " + target_info_ac + " " + \
-                         target_info_pwd
+                         target_info_pwd + " " + target_info_qid
         subprocess.run(sikuli_runcase, shell=True)
         with open("result.txt", "r") as fp:
             flag = fp.read()
@@ -304,7 +308,8 @@ class QfinderTest(unittest.TestCase):
     def test015_config(self):
         fun_name = sys._getframe().f_code.co_name
         sikuli_runcase = "C:\\sikuli\\runsikulix -r " + current_path + "\\config.sikuli -f " + logfile\
-                         + fun_name + ".txt --args " + target_info_name + " " + target_info_lanip + " " + target_info_ac + " " + target_info_pwd
+                         + fun_name + ".txt --args " + target_info_name + " " + target_info_lanip + " " + target_info_ac\
+                         + " " + target_info_pwd + " " + target_info_qid
         subprocess.run(sikuli_runcase, shell=True)
         with open("result.txt", "r") as fp:
             flag = fp.read()
