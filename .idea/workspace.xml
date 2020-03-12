@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f5fcc245-b6af-4e11-a119-3275ee87f343" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/main_login.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_login.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/detail_check.sikuli/1557400195347.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/detail_check.sikuli/1557482984281.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/detail_check.sikuli/detail_check.html" beforeDir="false" afterPath="$PROJECT_DIR$/detail_check.sikuli/detail_check.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/detail_check.sikuli/detail_check.py" beforeDir="false" afterPath="$PROJECT_DIR$/detail_check.sikuli/detail_check.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,8 +18,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main_login.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="311" column="72" selection-start-line="311" selection-start-column="72" selection-end-line="311" selection-end-column="72" />
+            <state relative-caret-position="192">
+              <caret line="188" column="23" lean-forward="true" selection-start-line="188" selection-start-column="23" selection-end-line="188" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -121,7 +124,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
@@ -152,8 +155,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/main_login.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="311" column="72" selection-start-line="311" selection-start-column="72" selection-end-line="311" selection-end-column="72" />
+        <state relative-caret-position="192">
+          <caret line="188" column="23" lean-forward="true" selection-start-line="188" selection-start-column="23" selection-end-line="188" selection-end-column="23" />
         </state>
       </provider>
     </entry>
