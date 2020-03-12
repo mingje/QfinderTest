@@ -15,6 +15,7 @@ nas_name = "Jack-TS932X"
 nas_lanip1 = "10.20.240.109"
 nas_ac = "admin"
 nas_pwd = "jack2030"
+nas_qid = "jj932.myqnapcloud.com"
 """
 target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas_pwd, qid = nas_qid)
 print("Target is: " + target["name"])
@@ -43,42 +44,19 @@ def qfinder_detail_check():
         try:
             waitVanish("1557302307072.png",10)
             if find("1557474742418.png"):
+                print("open device detail page")
                 flag = 1
                 break
             elif find("1557477457185.png"):
                 flag = 0
                 break
             else:
-                pass
+                print("Unknown status")
+                flag = 0
         except:
             flag = 0
     assert flag == 1, "Open detail FAIL"
-    
-    detail_window = Region(Region(403,163,471,347))
-    for i in range(3):
-        detail_window.click("1557400195347.png")
-    check_result = []
-    for i in target["detail_check"]:
-        if detail_window.exists(Pattern(i).similar(0.90)):
-            print("detail check PASS")
-            check_result.append("P")
-        else:
-            print("detail check FAIL")
-            check_result.append("F")
-        if detail_window.exists(Pattern("1557482984281.png").similar(0.90)):
-            print("Find end")
-            break
-        else:
-            for j in range(11):
-                detail_window.click("1557400195347.png")
-            wait(1)
-    print(check_result)
-    if "F" in check_result:
-        print("detail FAIL")
-        flag = "False"       
-    else:
-        flag = "True"
-        print("detail PASS")
+
     with open("result.txt", "w") as fp:
        fp.write(flag) 
     print("--- End " + fun_name + " ---")
