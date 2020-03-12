@@ -21,6 +21,7 @@ def nas_detail(**kwargs):
     nas["lanip2"] = kwargs.get("lanip2")
     nas["ac"] = kwargs.get("ac")
     nas["pwd"] = kwargs.get("pwd")
+    nas["qid"] = kwargs.get("qid")
     check_page = path + kwargs.get("name") + "\\detail_check\\"
     detail_list = os.listdir(check_page)
     check_list = []

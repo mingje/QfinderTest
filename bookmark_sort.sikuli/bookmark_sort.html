@@ -142,7 +142,7 @@ target_list = [target1,target2]
     move_to(<span class="skw">type</span> = <span class="str">"top"</span>)
     <span class="skw">wait</span>(<span class="dig">1</span>)
     <span class="kw">for</span> target <span class="kw">in</span> target_list:
-        <span class="kw">print</span>(target[<span class="str">'name'</span>] + target[<span class="str">'lanip1'</span>])
+        <span class="kw">print</span>(target[<span class="str">'name'</span>] + <span class="str">" "</span> + target[<span class="str">'lanip1'</span>])
         <span class="skw">click</span>(Location(<span class="dig">1200</span>, <span class="dig">500</span>))
         <span class="skw">wait</span>(<span class="dig">1</span>)
         bookmark(target=target)

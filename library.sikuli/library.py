@@ -88,7 +88,7 @@ def confirm_target(ta_list):
 
 
 
-def confirm_target3(nas_picture, lanip1):
+def confirm_target3(nas_picture, lanip1, qid):
     fun_name = sys._getframe().f_code.co_name
     print("*** Start to " + fun_name + " ***")
     click(nas_picture)
@@ -111,7 +111,7 @@ def confirm_target3(nas_picture, lanip1):
     qq = ss.split(":")
     print(qq)
     ff = qq[0]
-    if ff == lanip1:
+    if ff == lanip1 or ff == qid:
         print("ip match, get target")
         flag = 1
     else:
@@ -126,7 +126,7 @@ def confirm_target3(nas_picture, lanip1):
     return flag
 
 
-def check_target(screenpath, lanip1):
+def check_target(screenpath, lanip1, qid):
     fun_name = sys._getframe().f_code.co_name
     print("*** Start to " + fun_name + " ***")
     w_list = search_target(screenpath)
@@ -134,7 +134,7 @@ def check_target(screenpath, lanip1):
     flag = 0
     if len(w_list) != 0:
         for i in w_list:    
-            if confirm_target3(i,lanip1) == 1:
+            if confirm_target3(i,lanip1,qid) == 1:
                 flag = 1
                 print("find target icon")
                 break
@@ -153,19 +153,19 @@ def find_target_nas(**kwargs):
     print(target)
     move_to(type='top')
     for i in range(200):
-        if check_target(target['icon'],target["lanip1"]) == 1:
+        if check_target(target['icon'],target['lanip1'],target['qid']) == 1:
             flag = 1
             break
-        elif check_target(target['icon_1'],target["lanip1"]) == 1:
+        elif check_target(target['icon_1'],target['lanip1'],target['qid']) == 1:
             flag = 1
             break
-        elif check_target(target['icon_g'],target["lanip1"]) == 1:
+        elif check_target(target['icon_g'],target['lanip1'],target['qid']) == 1:
             flag = 1
             break
-        elif check_target(target['icon_highlight'],target["lanip1"]) == 1:
+        elif check_target(target['icon_highlight'],target['lanip1'],target['qid']) == 1:
             flag = 1
             break
-        elif check_target(target['icon_gh'],target["lanip1"]) == 1:
+        elif check_target(target['icon_gh'],target['lanip1'],target['qid']) == 1:
             flag = 1
             break
         else:

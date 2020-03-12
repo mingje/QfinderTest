@@ -70,7 +70,7 @@ def qfinder_bookmark_sort():
     move_to(type = "top")
     wait(1)
     for target in target_list:
-        print(target['name'] + target['lanip1'])
+        print(target['name'] + " " + target['lanip1'])
         click(Location(1200, 500))
         wait(1)
         bookmark(target=target)

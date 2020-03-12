@@ -9,13 +9,14 @@ nas_name = sys.argv[1]
 nas_lanip1 = sys.argv[2]
 nas_ac = sys.argv[3]
 nas_pwd = sys.argv[4]
+nas_qid = sys.argv[5]
 """
 nas_name = "AT-TS231P2"
 nas_lanip1 = "10.20.241.192"
 nas_ac = "admin"
 nas_pwd = "dqvts231p2"
 """
-target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas_pwd)
+target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas_pwd, qid = nas_qid)
 print("Target is: " + target["name"])
 
 def qfinder_network_driver():

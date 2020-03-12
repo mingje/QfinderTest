@@ -160,7 +160,7 @@ Settings.OcrTextRead = True
 
 
 
-<span class="kw">def</span> confirm_target3(nas_picture, lanip1):
+<span class="kw">def</span> confirm_target3(nas_picture, lanip1, qid):
     fun_name = sys._getframe().f_code.co_name
     <span class="kw">print</span>(<span class="str">"*** Start to "</span> + fun_name + <span class="str">" ***"</span>)
     <span class="skw">click</span>(nas_picture)
@@ -183,7 +183,7 @@ Settings.OcrTextRead = True
     qq = ss.split(<span class="str">":"</span>)
     <span class="kw">print</span>(qq)
     ff = qq[<span class="dig">0</span>]
-    <span class="kw">if</span> ff == lanip1:
+    <span class="kw">if</span> ff == lanip1 <span class="kw">or</span> ff == qid:
         <span class="kw">print</span>(<span class="str">"ip match, get target"</span>)
         flag = <span class="dig">1</span>
     <span class="kw">else</span>:
@@ -198,7 +198,7 @@ Settings.OcrTextRead = True
     <span class="kw">return</span> flag
 
 
-<span class="kw">def</span> check_target(screenpath, lanip1):
+<span class="kw">def</span> check_target(screenpath, lanip1, qid):
     fun_name = sys._getframe().f_code.co_name
     <span class="kw">print</span>(<span class="str">"*** Start to "</span> + fun_name + <span class="str">" ***"</span>)
     w_list = search_target(screenpath)
@@ -206,7 +206,7 @@ Settings.OcrTextRead = True
     flag = <span class="dig">0</span>
     <span class="kw">if</span> len(w_list) != <span class="dig">0</span>:
         <span class="kw">for</span> i <span class="kw">in</span> w_list:
-            <span class="kw">if</span> confirm_target3(i,lanip1) == <span class="dig">1</span>:
+            <span class="kw">if</span> confirm_target3(i,lanip1,qid) == <span class="dig">1</span>:
                 flag = <span class="dig">1</span>
                 <span class="kw">print</span>(<span class="str">"find target icon"</span>)
                 <span class="kw">break</span>
@@ -225,19 +225,19 @@ Settings.OcrTextRead = True
     <span class="kw">print</span>(target)
     move_to(<span class="skw">type</span>=<span class="str">'top'</span>)
     <span class="kw">for</span> i <span class="kw">in</span> range(<span class="dig">200</span>):
-        <span class="kw">if</span> check_target(target[<span class="str">'icon'</span>],target[<span class="str">"lanip1"</span>]) == <span class="dig">1</span>:
+        <span class="kw">if</span> check_target(target[<span class="str">'icon'</span>],target[<span class="str">'lanip1'</span>],target[<span class="str">'qid'</span>]) == <span class="dig">1</span>:
             flag = <span class="dig">1</span>
             <span class="kw">break</span>
-        <span class="kw">elif</span> check_target(target[<span class="str">'icon_1'</span>],target[<span class="str">"lanip1"</span>]) == <span class="dig">1</span>:
+        <span class="kw">elif</span> check_target(target[<span class="str">'icon_1'</span>],target[<span class="str">'lanip1'</span>],target[<span class="str">'qid'</span>]) == <span class="dig">1</span>:
             flag = <span class="dig">1</span>
             <span class="kw">break</span>
-        <span class="kw">elif</span> check_target(target[<span class="str">'icon_g'</span>],target[<span class="str">"lanip1"</span>]) == <span class="dig">1</span>:
+        <span class="kw">elif</span> check_target(target[<span class="str">'icon_g'</span>],target[<span class="str">'lanip1'</span>],target[<span class="str">'qid'</span>]) == <span class="dig">1</span>:
             flag = <span class="dig">1</span>
             <span class="kw">break</span>
-        <span class="kw">elif</span> check_target(target[<span class="str">'icon_highlight'</span>],target[<span class="str">"lanip1"</span>]) == <span class="dig">1</span>:
+        <span class="kw">elif</span> check_target(target[<span class="str">'icon_highlight'</span>],target[<span class="str">'lanip1'</span>],target[<span class="str">'qid'</span>]) == <span class="dig">1</span>:
             flag = <span class="dig">1</span>
             <span class="kw">break</span>
-        <span class="kw">elif</span> check_target(target[<span class="str">'icon_gh'</span>],target[<span class="str">"lanip1"</span>]) == <span class="dig">1</span>:
+        <span class="kw">elif</span> check_target(target[<span class="str">'icon_gh'</span>],target[<span class="str">'lanip1'</span>],target[<span class="str">'qid'</span>]) == <span class="dig">1</span>:
             flag = <span class="dig">1</span>
             <span class="kw">break</span>
         <span class="kw">else</span>:
