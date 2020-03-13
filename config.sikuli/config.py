@@ -107,7 +107,7 @@ def qfinder_config():
     click("1557376974013.png")
     
     #  find target NAS
-    find_target_nas(name = "ATtest")
+    find_target_nas(name = "ATtest", lanip1 = target["lanip1"], qid = target["qid"])
     # enter config page
     enter_config(ac = target["ac"], pwd = "ATtest")
     
