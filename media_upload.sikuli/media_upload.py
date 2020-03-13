@@ -18,7 +18,7 @@ nas_lanip1 = "10.20.241.197"
 nas_ac = "admin"
 nas_pwd = "dqvtvs473"
 """
-target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas_pwd, , qid = nas_qid)
+target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas_pwd , qid = nas_qid)
 print("Target is: " + target["name"])
 
 def qfinder_media_upload():
@@ -28,7 +28,7 @@ def qfinder_media_upload():
     open_qfinder()
     
     #  find target NAS
-    find_target_nas(name = target["name"], lanip1 = target["lanip1"])
+    find_target_nas(name = target["name"], lanip1 = target["lanip1"], qid = target['qid'])
     
     click("1560414427699.png")
     print("click media upload button in main")

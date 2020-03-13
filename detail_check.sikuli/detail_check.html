@@ -98,7 +98,7 @@ target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas
     <span class="cmt"># open qfinder</span>
     open_qfinder()
     <span class="cmt">#  find target NAS</span>
-    find_target_nas(name = target[<span class="str">"name"</span>], lanip1 = target[<span class="str">"lanip1"</span>])
+    find_target_nas(name = target[<span class="str">"name"</span>], lanip1 = target[<span class="str">"lanip1"</span>], qid = target[<span class="str">"qid"</span>])
     <span class="skw">wait</span>(<span class="dig">1</span>)
     <span class="kw">if</span> exists(Pattern(<img src="1581472730212.png" />).similar(<span class="dig">0.80</span>)):
         <span class="skw">click</span>(Pattern(<img src="1581472730212.png" />).similar(<span class="dig">0.80</span>))
@@ -117,17 +117,17 @@ target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas
             waitVanish(<img src="1557302307072.png" />,<span class="dig">10</span>)
             <span class="kw">if</span> <span class="skw">find</span>(<img src="1557474742418.png" />):
                 <span class="kw">print</span>(<span class="str">"open device detail page"</span>)
-                flag = <span class="dig">1</span>
+                flag = <span class="str">"True"</span>
                 <span class="kw">break</span>
             <span class="kw">elif</span> <span class="skw">find</span>(<img src="1557477457185.png" />):
-                flag = <span class="dig">0</span>
+                flag = <span class="str">"False"</span>
                 <span class="kw">break</span>
             <span class="kw">else</span>:
                 <span class="kw">print</span>(<span class="str">"Unknown status"</span>)
-                flag = <span class="dig">0</span>
+                flag = <span class="str">"False"</span>
         <span class="kw">except</span>:
-            flag = <span class="dig">0</span>
-    <span class="kw">assert</span> flag == <span class="dig">1</span>, <span class="str">"Open detail FAIL"</span>
+            flag = <span class="str">"False"</span>
+    <span class="kw">assert</span> flag == <span class="str">"True"</span>, <span class="str">"Open detail FAIL"</span>
 
     <span class="kw">with</span> open(<span class="str">"result.txt"</span>, <span class="str">"w"</span>) <span class="kw">as</span> fp:
        fp.write(flag)

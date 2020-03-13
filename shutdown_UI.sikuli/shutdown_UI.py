@@ -18,7 +18,7 @@ def qfinder_shutdown_UI():
         click("1557799685522.png")
         wait_please(loop=10, time=10)
     #  find target NAS
-    find_target_nas(name = target["name"], lanip1 = target["lanip1"])
+    find_target_nas(name = target["name"], lanip1 = target["lanip1"], qid = target["qid"])
     wait(1)
     click("1557737668421.png")
     wait(10)

@@ -82,7 +82,7 @@ nas_lanip1 = sys.argv[<span class="dig">2</span>]
 nas_ac = sys.argv[<span class="dig">3</span>]
 nas_pwd = sys.argv[<span class="dig">4</span>]
 nas_qid = sys.argv[<span class="dig">5</span>]
-target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas_pwdqid = nas_qid)
+target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas_pwd, qid = nas_qid)
 <span class="kw">print</span>(<span class="str">"Target is: "</span> + target[<span class="str">"name"</span>])
 
 <span class="kw">def</span> qfinder_reboot():
@@ -91,7 +91,7 @@ target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas
     <span class="cmt"># open qfinder</span>
     open_qfinder()
     <span class="cmt"># find target NAS</span>
-    find_target_nas(name = target[<span class="str">"name"</span>], lanip1 = target[<span class="str">"lanip1"</span>])
+    find_target_nas(name = target[<span class="str">"name"</span>], lanip1 = target[<span class="str">"lanip1"</span>], qid = target[<span class="str">"qid"</span>])
     <span class="skw">wait</span>(<span class="dig">1</span>)
     <span class="skw">click</span>(<img src="1562724193568.png" />)
     <span class="kw">print</span>(<span class="str">"click tools"</span>)

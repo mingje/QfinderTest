@@ -26,7 +26,7 @@ def qfinder_detail_check():
     # open qfinder
     open_qfinder()
     #  find target NAS
-    find_target_nas(name = target["name"], lanip1 = target["lanip1"])
+    find_target_nas(name = target["name"], lanip1 = target["lanip1"], qid = target["qid"])
     wait(1)
     if exists(Pattern("1581472730212.png").similar(0.80)):
         click(Pattern("1581472730212.png").similar(0.80))
@@ -45,17 +45,17 @@ def qfinder_detail_check():
             waitVanish("1557302307072.png",10)
             if find("1557474742418.png"):
                 print("open device detail page")
-                flag = 1
+                flag = "True"
                 break
             elif find("1557477457185.png"):
-                flag = 0
+                flag = "False"
                 break
             else:
                 print("Unknown status")
-                flag = 0
+                flag = "False"
         except:
-            flag = 0
-    assert flag == 1, "Open detail FAIL"
+            flag = "False"
+    assert flag == "True", "Open detail FAIL"
 
     with open("result.txt", "w") as fp:
        fp.write(flag) 

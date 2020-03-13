@@ -19,7 +19,7 @@ def qfinder_wakeup():
     # open qfinder
     open_qfinder()
     #  find target NAS
-    find_target_nas(name = target["name"], lanip1 = target["lanip1"])
+    find_target_nas(name = target["name"], lanip1 = target["lanip1"], qid = target["qid"])
     wait(1)
     click("1557738314329.png")
     print("Click wake up button in main")

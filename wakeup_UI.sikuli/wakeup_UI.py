@@ -21,7 +21,7 @@ def qfinder_wakeup_UI():
         print("click refresh button")
         wait_please(loop=10, time=10)
     #  find target NAS
-    find_target_nas(name = target["name"], lanip1 = target["lanip1"])
+    find_target_nas(name = target["name"], lanip1 = target["lanip1"], qid = target["qid"])
     # login to open web page
     if login_open_web() == "True":
         print("wake up PASS")

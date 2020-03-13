@@ -103,7 +103,7 @@ target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas
         <span class="skw">click</span>(<img src="1557739083182.png" />)
         wait_please(loop=<span class="dig">10</span>, time=<span class="dig">10</span>)
     <span class="cmt">#  find target NAS</span>
-    find_target_nas(name = target[<span class="str">"name"</span>], lanip1 = target[<span class="str">"lanip1"</span>])
+    find_target_nas(name = target[<span class="str">"name"</span>], lanip1 = target[<span class="str">"lanip1"</span>], qid = target[<span class="str">"qid"</span>])
 
     <span class="cmt"># enter config page</span>
     enter_config(ac = target[<span class="str">"ac"</span>], pwd = target[<span class="str">"pwd"</span>])

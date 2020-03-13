@@ -28,7 +28,7 @@ def qfinder_network_driver():
     print("click refresh button")
     wait_please(loop=10, time=10)
     #  find target NAS
-    find_target_nas(name = target["name"], lanip1 = target["lanip1"])
+    find_target_nas(name = target["name"], lanip1 = target["lanip1"], qid = target["qid"])
     wait(1)
 
     click("1557391119673.png")
