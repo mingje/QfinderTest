@@ -102,7 +102,14 @@ target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas
     <span class="cmt">#  find target NAS</span>
     find_target_nas(name = target[<span class="str">"name"</span>], lanip1 = target[<span class="str">"lanip1"</span>], qid = target[<span class="str">"qid"</span>])
     <span class="skw">wait</span>(<span class="dig">1</span>)
-
+    <span class="kw">if</span> exists(Pattern(<img src="1581472730212.png" />).similar(<span class="dig">0.80</span>)):
+        <span class="skw">click</span>(Pattern(<img src="1581472730212.png" />).similar(<span class="dig">0.80</span>))
+        <span class="kw">print</span>(<span class="str">"click bookmark button in main"</span>)
+    <span class="kw">elif</span> exists(Pattern(<img src="1581472808743.png" />).similar(<span class="dig">0.80</span>)):
+        <span class="kw">print</span>(<span class="str">"Already bookmark"</span>)
+    <span class="kw">else</span>:
+        <span class="kw">pass</span>
+    <span class="skw">wait</span>(<span class="dig">2</span>)
     <span class="skw">click</span>(<img src="1557391119673.png" />)
     <span class="kw">print</span>(<span class="str">"click network drivers button"</span>)
     <span class="skw">wait</span>(<span class="dig">10</span>)

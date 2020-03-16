@@ -29,7 +29,15 @@ def qfinder_media_upload():
     
     #  find target NAS
     find_target_nas(name = target["name"], lanip1 = target["lanip1"], qid = target['qid'])
-    
+    wait(1)
+    if exists(Pattern("1581472730212.png").similar(0.80)):
+        click(Pattern("1581472730212.png").similar(0.80))
+        print("click bookmark button in main")
+    elif exists(Pattern("1581472808743.png").similar(0.80)):
+        print("Already bookmark")
+    else:
+        pass
+    wait(2)
     click("1560414427699.png")
     print("click media upload button in main")
     for i in range(3):
