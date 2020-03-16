@@ -153,10 +153,10 @@ target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas
     iplist2 = map(inet_ntoa, lot1)
     <span class="kw">print</span>(<span class="str">"Sorted list: "</span> + str(iplist1))
     <span class="kw">print</span>(<span class="str">"Sorted list: "</span> + str(iplist2))
-    <span class="kw">if</span> iplist == []:
+    <span class="kw">if</span> iplist_d == []:
         <span class="kw">print</span>(<span class="str">"list fail"</span>)
         flag = <span class="str">"False"</span>
-    <span class="kw">elif</span> iplist == iplist1 <span class="kw">or</span> iplist == iplist2:
+    <span class="kw">elif</span> iplist_d == iplist1 <span class="kw">or</span> iplist == iplist2:
         <span class="kw">print</span>(<span class="str">"pass"</span>)
         flag = <span class="str">"True"</span>
     <span class="kw">else</span>:

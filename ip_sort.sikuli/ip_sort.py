@@ -81,10 +81,10 @@ def qfinder_ip_sort():
     iplist2 = map(inet_ntoa, lot1)
     print("Sorted list: " + str(iplist1))
     print("Sorted list: " + str(iplist2))
-    if iplist == []:
+    if iplist_d == []:
         print("list fail")
         flag = "False"
-    elif iplist == iplist1 or iplist == iplist2:
+    elif iplist_d == iplist1 or iplist == iplist2:
         print("pass")
         flag = "True"
     else:
