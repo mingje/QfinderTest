@@ -32,7 +32,7 @@ def qfinder_ip_sort():
     ip_list = ip_str.splitlines()
     print("Initial list: " + str(ip_list))
     # rm space
-    iplist = []
+    iplist_a = []
     for i in ip_list:
         i = i.split("(")
         i = i[0]
@@ -40,8 +40,36 @@ def qfinder_ip_sort():
         q = q.replace('l','1')
         q = q.replace('S','5')
         q = q.replace('2045','204.5')
-        iplist.append(q)
-    print("Switch list: " + str(iplist))
+        iplist_a.append(q)
+    iplist_b = []
+    for i in iplist_a:
+        if i.count('.') == 3:
+            iplist_b.append(i)
+    iplist_c = []
+    for j in iplist_b:
+        k = list(j)
+        flag = 0
+        for f in k:
+            if f.isalpha() == True:
+                flag = 1
+                break
+            else:
+                flag = 0
+        if flag == 0:
+            iplist_c.append(j)
+
+    iplist_d = []
+    for u in iplist_c:
+        d = u.split(".")
+        for r in d:
+            if r.isdigit() == False or len(r) > 3:
+                flag = 1
+                break
+            else:
+                flag = 0
+        if flag == 0:
+            iplist_d.append(u)
+    print("Switch list: " + str(iplist_d))
     print("Sorting...")
     lot = map(inet_aton, iplist)
     print("Sort lot")

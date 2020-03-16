@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f5fcc245-b6af-4e11-a119-3275ee87f343" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/detail_check.sikuli/detail_check.html" beforeDir="false" afterPath="$PROJECT_DIR$/detail_check.sikuli/detail_check.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/detail_check.sikuli/detail_check.py" beforeDir="false" afterPath="$PROJECT_DIR$/detail_check.sikuli/detail_check.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media_upload.sikuli/media_upload.html" beforeDir="false" afterPath="$PROJECT_DIR$/media_upload.sikuli/media_upload.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media_upload.sikuli/media_upload.py" beforeDir="false" afterPath="$PROJECT_DIR$/media_upload.sikuli/media_upload.py" afterDir="false" />
-    </list>
+    <list default="true" id="f5fcc245-b6af-4e11-a119-3275ee87f343" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +13,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main_login.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-96">
-              <caret line="74" selection-start-line="74" selection-end-line="74" selection-end-column="29" />
+            <state relative-caret-position="349">
+              <caret line="427" column="73" lean-forward="true" selection-start-line="427" selection-start-column="73" selection-end-line="427" selection-end-column="82" />
             </state>
           </provider>
         </entry>
@@ -44,7 +38,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="145" />
     <option name="y" value="42" />
     <option name="width" value="660" />
@@ -156,8 +150,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/main_login.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-96">
-          <caret line="74" selection-start-line="74" selection-end-line="74" selection-end-column="29" />
+        <state relative-caret-position="349">
+          <caret line="427" column="73" lean-forward="true" selection-start-line="427" selection-start-column="73" selection-end-line="427" selection-end-column="82" />
         </state>
       </provider>
     </entry>

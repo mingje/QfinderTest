@@ -104,7 +104,7 @@ target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas
     ip_list = ip_str.splitlines()
     <span class="kw">print</span>(<span class="str">"Initial list: "</span> + str(ip_list))
     <span class="cmt"># rm space</span>
-    iplist = []
+    iplist_a = []
     <span class="kw">for</span> i <span class="kw">in</span> ip_list:
         i = i.split(<span class="str">"("</span>)
         i = i[<span class="dig">0</span>]
@@ -112,8 +112,36 @@ target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas
         q = q.replace(<span class="str">'l'</span>,<span class="str">'1'</span>)
         q = q.replace(<span class="str">'S'</span>,<span class="str">'5'</span>)
         q = q.replace(<span class="str">'2045'</span>,<span class="str">'204.5'</span>)
-        iplist.append(q)
-    <span class="kw">print</span>(<span class="str">"Switch list: "</span> + str(iplist))
+        iplist_a.append(q)
+    iplist_b = []
+    <span class="kw">for</span> i <span class="kw">in</span> iplist_a:
+        <span class="kw">if</span> i.count(<span class="str">'.'</span>) == <span class="dig">3</span>:
+            iplist_b.append(i)
+    iplist_c = []
+    <span class="kw">for</span> j <span class="kw">in</span> iplist_b:
+        k = list(j)
+        flag = <span class="dig">0</span>
+        <span class="kw">for</span> f <span class="kw">in</span> k:
+            <span class="kw">if</span> f.isalpha() == True:
+                flag = <span class="dig">1</span>
+                <span class="kw">break</span>
+            <span class="kw">else</span>:
+                flag = <span class="dig">0</span>
+        <span class="kw">if</span> flag == <span class="dig">0</span>:
+            iplist_c.append(j)
+
+    iplist_d = []
+    <span class="kw">for</span> u <span class="kw">in</span> iplist_c:
+        d = u.split(<span class="str">"."</span>)
+        <span class="kw">for</span> r <span class="kw">in</span> d:
+            <span class="kw">if</span> r.isdigit() == False <span class="kw">or</span> len(r) &gt; <span class="dig">3</span>:
+                flag = <span class="dig">1</span>
+                <span class="kw">break</span>
+            <span class="kw">else</span>:
+                flag = <span class="dig">0</span>
+        <span class="kw">if</span> flag == <span class="dig">0</span>:
+            iplist_d.append(u)
+    <span class="kw">print</span>(<span class="str">"Switch list: "</span> + str(iplist_d))
     <span class="kw">print</span>(<span class="str">"Sorting..."</span>)
     lot = map(inet_aton, iplist)
     <span class="kw">print</span>(<span class="str">"Sort lot"</span>)
