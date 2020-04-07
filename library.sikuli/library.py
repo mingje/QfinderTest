@@ -49,7 +49,7 @@ def search_target(screens):
     print("*** Start to " + fun_name + " ***")
     b_list = []
     try:
-        all_list = findAll(Pattern(screens).similar(0.80))
+        all_list = findAll(Pattern(screens).similar(0.70))
         for i in all_list:
             hover(i)
             b_list.append(i)
