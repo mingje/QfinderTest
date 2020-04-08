@@ -121,7 +121,7 @@ Settings.OcrTextRead = True
     <span class="kw">print</span>(<span class="str">"*** Start to "</span> + fun_name + <span class="str">" ***"</span>)
     b_list = []
     <span class="kw">try</span>:
-        all_list = findAll(Pattern(screens).similar(<span class="dig">0.70</span>))
+        all_list = findAll(Pattern(screens).similar(<span class="dig">0.80</span>))
         <span class="kw">for</span> i <span class="kw">in</span> all_list:
             hover(i)
             b_list.append(i)
