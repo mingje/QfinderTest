@@ -36,7 +36,8 @@ def qfinder_device_sort():
     devicelist = []
     for i in device_list:
         q = replace_str(i,'l','1','SS1','551','4S3','453','T5','TS','TV5',
-                'TVS','IVS','TVS','"','',' ','','Pro',' Pro','~','-')
+                'TVS','IVS','TVS','"','',' ','','Pro',' Pro','~','-',
+                'QuCPE-3010\xe2\x80\x94IPT','QUCPE-3010-IPT')
         g = q.split("-")
         g = g[0]
         if g in check_list:

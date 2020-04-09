@@ -108,7 +108,8 @@ target = nas_detail(name = nas_name, lanip1 = nas_lanip1, ac = nas_ac, pwd = nas
     devicelist = []
     <span class="kw">for</span> i <span class="kw">in</span> device_list:
         q = replace_str(i,<span class="str">'l'</span>,<span class="str">'1'</span>,<span class="str">'SS1'</span>,<span class="str">'551'</span>,<span class="str">'4S3'</span>,<span class="str">'453'</span>,<span class="str">'T5'</span>,<span class="str">'TS'</span>,<span class="str">'TV5'</span>,
-                <span class="str">'TVS'</span>,<span class="str">'IVS'</span>,<span class="str">'TVS'</span>,<span class="str">'"'</span>,<span class="str">''</span>,<span class="str">' '</span>,<span class="str">''</span>,<span class="str">'Pro'</span>,<span class="str">' Pro'</span>,<span class="str">'~'</span>,<span class="str">'-'</span>)
+                <span class="str">'TVS'</span>,<span class="str">'IVS'</span>,<span class="str">'TVS'</span>,<span class="str">'"'</span>,<span class="str">''</span>,<span class="str">' '</span>,<span class="str">''</span>,<span class="str">'Pro'</span>,<span class="str">' Pro'</span>,<span class="str">'~'</span>,<span class="str">'-'</span>,
+                <span class="str">'QuCPE-3010\xe2\x80\x94IPT'</span>,<span class="str">'QUCPE-3010-IPT'</span>)
         g = q.split(<span class="str">"-"</span>)
         g = g[<span class="dig">0</span>]
         <span class="kw">if</span> g <span class="kw">in</span> check_list:
